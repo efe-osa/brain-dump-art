@@ -1,7 +1,10 @@
 const skills = [
-  "React", "TypeScript", "Node.js", "Python",
-  "PostgreSQL", "AWS", "Docker", "GraphQL",
-  "Next.js", "Tailwind CSS", "Git", "REST APIs",
+  "JavaScript (ES6+)", "TypeScript", "React", "Next.js",
+  "C#", ".NET / Blazor", "Node.js", "GraphQL",
+  "PostgreSQL", "SQL", "Python", "Redux / Fluxor",
+  "Web Components", "Tailwind CSS", "Docker", "AWS / Azure",
+  "Git / GitHub Actions", "Cypress", "Jest", "Storybook",
+  "Sentry / Grafana", "WCAG Accessibility",
 ];
 
 const About = () => {
@@ -12,18 +15,18 @@ const About = () => {
           <div>
             <p className="text-sm font-medium text-primary mb-2 tracking-widest uppercase">About</p>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 tracking-tight">
-              A developer who cares about craft
+              Product-minded engineer who ships with purpose
             </h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                With 5+ years of experience building web applications, I specialize in creating 
-                performant, accessible, and well-architected solutions. I'm passionate about 
-                clean code, developer experience, and shipping products that users love.
+                With nearly a decade of experience owning features from architecture through to delivery 
+                across health, agriculture, gaming, and consulting sectors, I specialise in React, TypeScript, 
+                and full-stack JavaScript/C# with a strong emphasis on frontend engineering.
               </p>
               <p>
-                I've worked across early-stage startups and established teams, 
-                wearing many hats from frontend architecture to DevOps. I thrive in 
-                collaborative environments where I can both learn and mentor.
+                I'm passionate about high-quality user experiences, performance optimisation, web security, 
+                and WCAG accessibility. I actively adopt agile methodologies and thrive in collaborative 
+                environments, driving projects that significantly enhance performance metrics and user engagement.
               </p>
             </div>
           </div>
