@@ -1,60 +1,62 @@
-import heroBg from "@/assets/hero-bg.jpg";
-import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section 
-      id="hero"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
-      style={{
-        background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${heroBg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
+    <section id="hero" className="min-h-screen flex items-center relative overflow-hidden">
+      {/* Subtle decorative elements */}
+      <div className="absolute top-20 right-10 w-72 h-72 rounded-full bg-primary/10 blur-3xl" />
+      <div className="absolute bottom-20 left-10 w-96 h-96 rounded-full bg-secondary/40 blur-3xl" />
+
       <div className="container mx-auto px-6 py-32 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="animate-fade-in">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
-              Hi, I'm <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Your Name</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-200 mb-8 animate-fade-in-up" style={{ animationDelay: "0.2s", animationFillMode: "both" }}>
-              Full Stack Developer & Creative Problem Solver
-            </p>
-            <p className="text-lg text-gray-300 mb-12 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: "0.4s", animationFillMode: "both" }}>
-              I build exceptional digital experiences that combine beautiful design with robust functionality.
-              Passionate about creating solutions that make a difference.
-            </p>
-          </div>
-          
-          <div className="flex flex-wrap items-center justify-center gap-4 mb-12 animate-fade-in-up" style={{ animationDelay: "0.6s", animationFillMode: "both" }}>
-            <button 
-              onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
-              className="px-8 py-3 rounded-lg bg-gradient-to-r from-primary to-accent text-white font-semibold hover:opacity-90 transition-all hover:scale-105 flex items-center gap-2"
-            >
-              View My Work <ArrowRight className="h-5 w-5" />
-            </button>
-            <button 
+        <div className="max-w-3xl">
+          <p className="text-sm font-medium text-primary mb-4 tracking-widest uppercase">
+            Full Stack Developer
+          </p>
+          <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 leading-[1.1] tracking-tight">
+            Hi, I'm{" "}
+            <span className="text-primary">Your Name</span>
+          </h1>
+          <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl leading-relaxed">
+            I design and build performant web applications with clean architecture. 
+            Currently open to new opportunities.
+          </p>
+
+          <div className="flex flex-wrap items-center gap-4 mb-12">
+            <button
               onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-              className="px-8 py-3 rounded-lg bg-white/10 backdrop-blur-sm text-white font-semibold hover:bg-white/20 transition-all"
+              className="px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity"
             >
-              Get In Touch
+              Get in Touch
+            </button>
+            <button
+              onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+              className="px-6 py-3 rounded-full border border-border text-foreground font-medium hover:bg-muted transition-colors"
+            >
+              View Projects
             </button>
           </div>
 
-          <div className="flex items-center justify-center gap-6 animate-fade-in-up" style={{ animationDelay: "0.8s", animationFillMode: "both" }}>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-primary transition-colors">
-              <Github className="h-6 w-6" />
+          <div className="flex items-center gap-5">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="GitHub">
+              <Github className="h-5 w-5" />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-primary transition-colors">
-              <Linkedin className="h-6 w-6" />
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="LinkedIn">
+              <Linkedin className="h-5 w-5" />
             </a>
-            <a href="mailto:contact@example.com" className="text-white hover:text-primary transition-colors">
-              <Mail className="h-6 w-6" />
+            <a href="mailto:contact@example.com" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Email">
+              <Mail className="h-5 w-5" />
             </a>
           </div>
         </div>
       </div>
+
+      <button
+        onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground hover:text-primary transition-colors animate-bounce"
+        aria-label="Scroll down"
+      >
+        <ArrowDown className="h-5 w-5" />
+      </button>
     </section>
   );
 };
