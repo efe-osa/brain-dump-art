@@ -2,55 +2,36 @@ import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-24 bg-background">
+    <section id="contact" className="py-24">
       <div className="container mx-auto px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Let's Work Together
+        <div className="max-w-2xl mx-auto text-center">
+          <p className="text-sm font-medium text-primary mb-2 tracking-widest uppercase">Contact</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 tracking-tight">
+            Let's connect
           </h2>
-          <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
-            I'm always interested in hearing about new projects and opportunities. 
-            Whether you have a question or just want to say hi, feel free to reach out!
+          <p className="text-muted-foreground mb-8 leading-relaxed">
+            I'm currently open to new opportunities. Whether you have a role in mind or just want to chat, 
+            I'd love to hear from you.
           </p>
-          
-          <div className="flex flex-wrap items-center justify-center gap-6 mb-12">
-            <a 
-              href="mailto:contact@example.com"
-              className="flex items-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-primary to-accent text-white font-semibold hover:opacity-90 transition-all hover:scale-105 shadow-[var(--shadow-card)]"
-            >
-              <Mail className="h-5 w-5" />
-              Send me an email
-            </a>
-          </div>
 
-          <div className="flex items-center justify-center gap-8">
-            <a 
-              href="https://github.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="p-4 rounded-full bg-secondary hover:bg-secondary/80 transition-all hover:scale-110"
-              aria-label="GitHub"
-            >
-              <Github className="h-6 w-6 text-foreground" />
-            </a>
-            <a 
-              href="https://linkedin.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="p-4 rounded-full bg-secondary hover:bg-secondary/80 transition-all hover:scale-110"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="h-6 w-6 text-foreground" />
-            </a>
-            <a 
-              href="https://twitter.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="p-4 rounded-full bg-secondary hover:bg-secondary/80 transition-all hover:scale-110"
-              aria-label="Twitter"
-            >
-              <Twitter className="h-6 w-6 text-foreground" />
-            </a>
+          <a
+            href="mailto:contact@example.com"
+            className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity mb-10"
+          >
+            <Mail className="h-4 w-4" />
+            Say Hello
+          </a>
+
+          <div className="flex items-center justify-center gap-6">
+            {[
+              { icon: Github, href: "https://github.com", label: "GitHub" },
+              { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+              { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+            ].map(({ icon: Icon, href, label }) => (
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label={label}>
+                <Icon className="h-5 w-5" />
+              </a>
+            ))}
           </div>
         </div>
       </div>

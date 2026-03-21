@@ -1,45 +1,57 @@
-import { Code2 } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
 
 const Navbar = () => {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: "smooth" });
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    setMobileOpen(false);
   };
 
+  const links = [
+    { label: "About", id: "about" },
+    { label: "Experience", id: "experience" },
+    { label: "Projects", id: "projects" },
+    { label: "Blog", id: "blog" },
+    { label: "Contact", id: "contact" },
+  ];
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          <button 
-            onClick={() => scrollToSection("hero")}
-            className="flex items-center gap-2 text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent hover:opacity-80 transition-opacity"
-          >
-            <Code2 className="text-primary" />
-            Portfolio
-          </button>
-          
-          <div className="flex items-center gap-8">
-            <button
-              onClick={() => scrollToSection("projects")}
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Projects
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
+      <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+        <button onClick={() => scrollTo("hero")} className="text-xl font-bold text-foreground tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+          YN<span className="text-primary">.</span>
+        </button>
+
+        {/* Desktop */}
+        <div className="hidden md:flex items-center gap-8">
+          {links.map((l) => (
+            <button key={l.id} onClick={() => scrollTo(l.id)} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              {l.label}
             </button>
-            <button
-              onClick={() => scrollToSection("blog")}
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Blog
-            </button>
-            <button
-              onClick={() => scrollToSection("contact")}
-              className="px-4 py-2 rounded-lg bg-gradient-to-r from-primary to-accent text-primary-foreground hover:opacity-90 transition-opacity"
-            >
-              Contact
-            </button>
-          </div>
+          ))}
+          <a href="/resume.pdf" className="text-sm px-5 py-2 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity">
+            Resume ↗
+          </a>
         </div>
+
+        {/* Mobile toggle */}
+        <button className="md:hidden text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
+          {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+        </button>
       </div>
+
+      {/* Mobile menu */}
+      {mobileOpen && (
+        <div className="md:hidden border-t border-border bg-background px-6 py-4 flex flex-col gap-3">
+          {links.map((l) => (
+            <button key={l.id} onClick={() => scrollTo(l.id)} className="text-sm text-muted-foreground hover:text-foreground transition-colors text-left py-2">
+              {l.label}
+            </button>
+          ))}
+        </div>
+      )}
     </nav>
   );
 };

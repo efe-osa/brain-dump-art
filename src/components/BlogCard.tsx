@@ -1,4 +1,4 @@
-import { Calendar, Clock } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 interface BlogCardProps {
   title: string;
@@ -10,31 +10,21 @@ interface BlogCardProps {
 
 const BlogCard = ({ title, excerpt, date, readTime, category }: BlogCardProps) => {
   return (
-    <article className="group bg-card rounded-xl p-6 transition-all duration-300 hover:shadow-[var(--shadow-card-hover)] shadow-[var(--shadow-card)] cursor-pointer animate-fade-in-up">
-      <div className="mb-4">
-        <span className="px-3 py-1 text-sm rounded-full bg-gradient-to-r from-primary to-accent text-white">
-          {category}
-        </span>
-      </div>
-      
-      <h3 className="text-2xl font-bold mb-3 text-card-foreground group-hover:text-primary transition-colors">
+    <article className="group p-6 rounded-xl bg-card shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)] transition-all duration-300 cursor-pointer">
+      <span className="inline-block px-3 py-1 text-xs rounded-full bg-secondary text-secondary-foreground font-medium mb-4">
+        {category}
+      </span>
+
+      <h3 className="text-lg font-semibold text-card-foreground mb-2 group-hover:text-primary transition-colors flex items-start gap-1">
         {title}
+        <ArrowUpRight className="h-4 w-4 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity mt-0.5" />
       </h3>
-      
-      <p className="text-muted-foreground mb-4 line-clamp-3">
-        {excerpt}
+
+      <p className="text-sm text-muted-foreground mb-4 leading-relaxed line-clamp-2">{excerpt}</p>
+
+      <p className="text-xs text-muted-foreground">
+        {date} · {readTime}
       </p>
-      
-      <div className="flex items-center gap-4 text-sm text-muted-foreground">
-        <div className="flex items-center gap-1">
-          <Calendar className="h-4 w-4" />
-          <span>{date}</span>
-        </div>
-        <div className="flex items-center gap-1">
-          <Clock className="h-4 w-4" />
-          <span>{readTime}</span>
-        </div>
-      </div>
     </article>
   );
 };
