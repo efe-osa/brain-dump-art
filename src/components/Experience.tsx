@@ -1,36 +1,70 @@
 const experiences = [
   {
-    role: "Senior Frontend Engineer",
-    company: "TechCorp",
-    period: "2023 – Present",
+    role: "Senior JavaScript Engineer",
+    company: "LeoVegas Group | MGM",
+    period: "Nov 2025 – Feb 2026",
     bullets: [
-      "Led migration of legacy jQuery app to React, improving load times by 40%",
-      "Built design system used across 3 product teams (12 engineers)",
-      "Implemented CI/CD pipeline reducing deploy time from 45min to 8min",
+      "Aided the Data Analytics team with monitoring customer behaviour around geolocation permissions, integrating external APIs and third-party services",
+      "Optimised and tested the service with 80% coverage for retrieving and verifying customers' location and permission activities",
+    ],
+  },
+  {
+    role: "Software Engineer (Lemur)",
+    company: "Ringtail Interactive (Now Brink Labs), Stockholm",
+    period: "Jan 2023 – Jan 2025",
+    bullets: [
+      "Developed a proprietary responsive Razor Component Library (Blazor + Bootstrap), used for 90% of Cloud SaaS Portal UIs, improving consistency and WCAG accessibility",
+      "Implemented Flux architecture with Fluxor; integrated Azure Key Vault, Storage, and B2C for secure identity and CI/CD via Azure DevOps",
+      "Spearheaded an agile epic for Salesforce integration, reducing bottlenecks and improving cross-functional communication",
+      "Created containerised executable versions of Lemur services and converted them to cloud services",
+    ],
+  },
+  {
+    role: "JavaScript Engineer Consultant",
+    company: "Tretton 37 AB",
+    period: "Aug 2022 – Nov 2022",
+    bullets: [
+      "Served as a JavaScript Engineer consultant, engaging in continuous learning and professional development in JavaScript/TypeScript technologies",
+    ],
+  },
+  {
+    role: "Senior Front-End Engineer",
+    company: "Reliance HMO, Abuja",
+    period: "Oct 2021 – Jun 2022",
+    bullets: [
+      "Led frontend engineering efforts in the health sector, building high-quality user experiences with React and TypeScript",
     ],
   },
   {
     role: "Full Stack Developer",
-    company: "StartupXYZ",
-    period: "2021 – 2023",
+    company: "Studio 14, Birmingham",
+    period: "Dec 2019 – Aug 2022",
     bullets: [
-      "Shipped core product features serving 50K+ monthly active users",
-      "Designed and built RESTful API layer with Node.js and PostgreSQL",
-      "Reduced API response times by 60% through query optimization",
+      "Mentored developers in web components on mobile-first websites with WordPress CMS integration",
+      "Introduced W3C accessibility standards and performance optimisations, improving one project's Lighthouse score from 52% to 98%",
+      "Built a scalable e-commerce PWA with offline functionalities and an IT admin dashboard managing 100+ businesses",
+      "Partnered with product owner and PM to define ticket scopes, facilitating prompt delivery improvement by 28%",
     ],
   },
   {
-    role: "Junior Developer",
-    company: "AgencyOne",
-    period: "2019 – 2021",
+    role: "Front-End Engineer",
+    company: "EveryFarmer, Abuja",
+    period: "Mar 2019 – Jul 2020",
     bullets: [
-      "Developed responsive web applications for 15+ client projects",
-      "Introduced automated testing, achieving 80% code coverage",
-      "Mentored 2 interns through onboarding and pair programming",
+      "Migrated legacy code serving 250,000+ users to a component-based architecture, achieving 25% improvement in data accuracy",
+      "Debugged and resolved erroneous progression in the acquisition tracker, unblocking affected users",
+      "Bridged the gap between technical and non-technical stakeholders by communicating complex solutions clearly",
+    ],
+  },
+  {
+    role: "JavaScript Intern",
+    company: "Hotels.ng (HNG Internship)",
+    period: "Mar 2018 – Jun 2018",
+    bullets: [
+      "Created a chatbot service built on PHP with an HTML/CSS/JavaScript interface for conversational interactions",
     ],
   },
 ];
-
 const Experience = () => {
   return (
     <section id="experience" className="py-24 bg-muted/30">
