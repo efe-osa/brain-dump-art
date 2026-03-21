@@ -10,15 +10,15 @@ const Hero = () => {
       <div className="container mx-auto px-6 py-32 relative z-10">
         <div className="max-w-3xl">
           <p className="text-sm font-medium text-primary mb-4 tracking-widest uppercase">
-            Full Stack Developer
+            Product (Full-Stack) Engineer
           </p>
           <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 leading-[1.1] tracking-tight">
             Hi, I'm{" "}
-            <span className="text-primary">Your Name</span>
+            <span className="text-primary">Efe-osa Oyelade</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl leading-relaxed">
-            I design and build performant web applications with clean architecture. 
-            Currently open to new opportunities.
+            Product-minded full-stack engineer with nearly a decade of experience, 
+            specialising in React, TypeScript, and high-quality user experiences.
           </p>
 
           <div className="flex flex-wrap items-center gap-4 mb-12">
@@ -37,13 +37,13 @@ const Hero = () => {
           </div>
 
           <div className="flex items-center gap-5">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="GitHub">
+            <a href="https://github.com/efe-osa" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="GitHub">
               <Github className="h-5 w-5" />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="LinkedIn">
+            <a href="https://linkedin.com/in/efe-osa-osawaru-oyelade" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="LinkedIn">
               <Linkedin className="h-5 w-5" />
             </a>
-            <a href="mailto:contact@example.com" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Email">
+            <a href="mailto:eosawaruoyelade@gmail.com" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Email">
               <Mail className="h-5 w-5" />
             </a>
           </div>

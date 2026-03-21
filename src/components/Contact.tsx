@@ -15,7 +15,7 @@ const Contact = () => {
           </p>
 
           <a
-            href="mailto:contact@example.com"
+            href="mailto:eosawaruoyelade@gmail.com"
             className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity mb-10"
           >
             <Mail className="h-4 w-4" />
@@ -24,9 +24,8 @@ const Contact = () => {
 
           <div className="flex items-center justify-center gap-6">
             {[
-              { icon: Github, href: "https://github.com", label: "GitHub" },
-              { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-              { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+              { icon: Github, href: "https://github.com/efe-osa", label: "GitHub" },
+              { icon: Linkedin, href: "https://linkedin.com/in/efe-osa-osawaru-oyelade", label: "LinkedIn" },
             ].map(({ icon: Icon, href, label }) => (
               <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label={label}>
                 <Icon className="h-5 w-5" />
