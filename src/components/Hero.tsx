@@ -1,9 +1,26 @@
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const Hero = () => {
+  const fullName = "Efe-osa Oyelade";
+  const [displayed, setDisplayed] = useState("");
+  const [done, setDone] = useState(false);
+
+  useEffect(() => {
+    let i = 0;
+    const interval = setInterval(() => {
+      i++;
+      setDisplayed(fullName.slice(0, i));
+      if (i >= fullName.length) {
+        clearInterval(interval);
+        setDone(true);
+      }
+    }, 80);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section id="hero" className="min-h-screen flex items-center relative overflow-hidden">
-      {/* Subtle decorative elements */}
       <div className="absolute top-20 right-10 w-72 h-72 rounded-full bg-primary/10 blur-3xl" />
       <div className="absolute bottom-20 left-10 w-96 h-96 rounded-full bg-secondary/40 blur-3xl" />
 
@@ -14,7 +31,10 @@ const Hero = () => {
           </p>
           <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 leading-[1.1] tracking-tight">
             Hi, I'm{" "}
-            <span className="text-primary">Efe-osa Oyelade</span>
+            <span className="text-primary">
+              {displayed}
+              <span className={`inline-block w-[3px] h-[0.85em] bg-primary ml-1 align-middle ${done ? "animate-pulse" : ""}`} />
+            </span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl leading-relaxed">
             Product-minded full-stack engineer with nearly a decade of experience, 
