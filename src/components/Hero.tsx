@@ -36,10 +36,17 @@ const Hero = () => {
               <span className={`inline-block w-[3px] h-[0.85em] bg-primary ml-1 align-middle ${done ? "animate-pulse" : ""}`} />
             </span>
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl leading-relaxed">
-            Product-minded full-stack engineer with nearly a decade of experience, 
-            specialising in React, TypeScript, and high-quality user experiences.
-          </p>
+          <div className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl leading-relaxed space-y-4">
+            <p>
+              I'm a full-stack engineer who thinks like a product person. Over nearly a decade across healthcare, agriculture, gaming, and consulting — in Nigeria, the UK, and Sweden — I've owned features from the first whiteboard sketch through to production, always with an eye on the user at the other end.
+            </p>
+            <p>
+              My work tends to live where complexity meets interface: designing component libraries that development teams actually want to use, building location-aware systems that handle real regulatory stakes, and migrating legacy codebases so that 250,000 users never feel the disruption. I care about performance, security, and accessibility not as checklist items but as measures of respect for the people using what I build.
+            </p>
+            <p>
+              I thrive in collaborative, cross-functional environments — equally comfortable translating requirements with a CTO or pairing with a data analyst to get consent monitoring right. I bring both the technical depth to architect systems and the communication instinct to make complex decisions legible to everyone in the room.
+            </p>
+          </div>
 
           <div className="flex flex-wrap items-center gap-4 mb-12">
             <button
