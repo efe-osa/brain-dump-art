@@ -1,10 +1,30 @@
-const skills = [
-  "JavaScript (ES6+)", "TypeScript", "React", "Next.js",
-  "C#", ".NET / Blazor", "Node.js", "GraphQL",
-  "PostgreSQL", "SQL", "Python", "Redux / Fluxor",
-  "Web Components", "Tailwind CSS", "Docker", "AWS / Azure",
-  "Git / GitHub Actions", "Cypress", "Jest", "Storybook",
-  "Sentry / Grafana", "WCAG Accessibility",
+const skillGroups = [
+  {
+    label: "Programming Languages",
+    items: ["JavaScript", "TypeScript", "C#", "SQL", "Python", "Semantic HTML5/CSS3"],
+  },
+  {
+    label: "Web Technologies",
+    items: ["React", "Next.js", "Redux", "React Query", "Web Components", "Blazor"],
+  },
+  {
+    label: "Tools & Platforms",
+    items: [
+      "Node.js", "GraphQL", ".NET", "PostgreSQL", "Jest", "xUnit",
+      "Git", "GitHub Actions", "GitHub Copilot", "Cypress", "Turbo",
+      "AWS", "Azure", "Docker", "Sentry", "Grafana", "Fluxor",
+    ],
+  },
+  {
+    label: "Core Competencies",
+    items: [
+      "Technical Ownership & Communication",
+      "Agile Development",
+      "Accessibility & Performance Optimisation",
+      "Internationalisation",
+      "DevOps & Testing",
+    ],
+  },
 ];
 
 const About = () => {
@@ -19,30 +39,42 @@ const About = () => {
             </h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                With nearly a decade of experience owning features from architecture through to delivery 
-                across health, agriculture, gaming, and consulting sectors, I specialise in React, TypeScript, 
-                and full-stack JavaScript/C# with a strong emphasis on frontend engineering.
+                Software Engineer with 7+ years of front-end and full-stack experience across gaming,
+                healthcare and agriculture — designing and delivering secure web applications,
+                cloud-hosted services, and modernising legacy platforms serving 250,000+ users.
               </p>
               <p>
-                I'm passionate about high-quality user experiences, performance optimisation, web security, 
-                and WCAG accessibility. I actively adopt agile methodologies and thrive in collaborative 
-                environments, driving projects that significantly enhance performance metrics and user engagement.
+                I bring deep expertise in JavaScript, TypeScript, React, Next.js, Node.js, and .NET
+                to building responsive, reusable, and WCAG-compliant component systems, optimising web
+                performance across multi-platform environments, and improving developer experience.
+              </p>
+              <p>
+                An agile collaborator skilled at translating complex requirements into reliable,
+                performant, user-focused solutions that balance technical quality, accessibility,
+                and real business impact.
               </p>
             </div>
           </div>
 
-          <div>
-            <p className="text-sm font-medium text-primary mb-4 tracking-widest uppercase">Tech Stack</p>
-            <div className="flex flex-wrap gap-2">
-              {skills.map((skill) => (
-                <span
-                  key={skill}
-                  className="px-4 py-2 text-sm rounded-full bg-secondary text-secondary-foreground font-medium"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
+          <div className="space-y-6">
+            <p className="text-sm font-medium text-primary tracking-widest uppercase">Tech Stack</p>
+            {skillGroups.map((group) => (
+              <div key={group.label}>
+                <p className="text-xs font-semibold text-foreground/80 mb-2 uppercase tracking-wider">
+                  {group.label}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {group.items.map((skill) => (
+                    <span
+                      key={skill}
+                      className="px-3 py-1.5 text-xs rounded-full bg-secondary text-secondary-foreground font-medium"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
