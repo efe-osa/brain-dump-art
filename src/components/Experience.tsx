@@ -42,7 +42,7 @@ const experiences = [
     bullets: [
       "Drove web performance scores from 52% to 98% and supervised W3C accessibility compliance using Axe DevTools while hardening security (XSS/CSRF prevention)",
       "Led adoption of the Web Components API for a community forum with WordPress CMS integration, reducing development time by 25% and enabling UI reusability",
-      "Partnered with product owners and PMs to scope tickets and optimise Kanban workflows, accelerating delivery timelines by 28%",
+      "Partnered with product owner and PM to scope tickets and optimise Kanban boards, accelerating delivery timelines by 28%",
       "Developed a scalable e-commerce PWA and an admin dashboard for managing engagement and commercial activities across 100+ businesses",
     ],
     tools: ["JavaScript", "TypeScript", "React", "Redux", "Next.js", "Web Components", "GraphQL", "Tailwind CSS", "Storybook", "WordPress", "RTL", "AWS", "Docker"],
