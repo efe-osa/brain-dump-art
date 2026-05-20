@@ -12,7 +12,6 @@ const Navbar = () => {
   const links = [
     { label: "About", id: "about" },
     { label: "Experience", id: "experience" },
-    { label: "Projects", id: "projects" },
     { label: "Blog", id: "blog" },
     { label: "Contact", id: "contact" },
   ];
@@ -31,9 +30,9 @@ const Navbar = () => {
               {l.label}
             </button>
           ))}
-          <a href="/resume.pdf" className="text-sm px-5 py-2 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity">
-            Resume ↗
-          </a>
+          <button onClick={() => scrollTo("contact")} className="text-sm px-5 py-2 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity">
+            Get in touch
+          </button>
         </div>
 
         {/* Mobile toggle */}
