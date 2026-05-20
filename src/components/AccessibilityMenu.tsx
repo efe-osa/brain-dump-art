@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Accessibility, Minus, Plus, Contrast, RotateCcw } from "lucide-react";
+import { Accessibility, Minus, Plus, Contrast, RotateCcw, Moon, Sun } from "lucide-react";
 
 type Size = "sm" | "base" | "lg" | "xl";
 const SIZES: Size[] = ["sm", "base", "lg", "xl"];
