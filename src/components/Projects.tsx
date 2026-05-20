@@ -1,5 +1,6 @@
 import { ArrowUpRight, Globe } from "lucide-react";
 import { LaptopMockup } from "./LaptopMockup";
+import { PhoneMockup } from "./PhoneMockup";
 import lemurScreenshot from "@/assets/lemur-portal-screenshot.png";
 import everyFarmerScreenshot from "@/assets/everyfarmer-screenshot.png";
 import equalMeasuresScreenshot from "@/assets/equal-measures-screenshot.png";
@@ -12,6 +13,11 @@ interface Project {
   tags: string[];
   image: string;
   imageAlt: string;
+  /** If true, render the image plainly (no laptop frame). */
+  rawImage?: boolean;
+  /** Optional mobile-app screenshot rendered inside a phone mockup. */
+  mobileImage?: string;
+  mobileImageAlt?: string;
 }
 
 const projects: Project[] = [
@@ -43,6 +49,7 @@ const projects: Project[] = [
     ],
     image: everyFarmerScreenshot,
     imageAlt: "EveryFarmer Service Provider Platform screenshot",
+    rawImage: true,
   },
   {
     title: "Equal Measures 2030",
@@ -56,6 +63,34 @@ const projects: Project[] = [
   },
 ];
 
+const ProjectVisual = ({ project }: { project: Project }) => {
+  if (project.rawImage) {
+    return (
+      <img
+        src={project.image}
+        alt={project.imageAlt}
+        className="w-full h-auto rounded-lg shadow-md"
+        loading="lazy"
+      />
+    );
+  }
+  return (
+    <div className="flex items-end justify-center gap-4 w-full">
+      <div className="flex-1">
+        <LaptopMockup imageSrc={project.image} alt={project.imageAlt} />
+      </div>
+      {project.mobileImage && (
+        <div className="hidden sm:block -ml-8 -mb-2">
+          <PhoneMockup
+            imageSrc={project.mobileImage}
+            alt={project.mobileImageAlt ?? project.imageAlt}
+          />
+        </div>
+      )}
+    </div>
+  );
+};
+
 const FeaturedProjectCard = ({ project, reverse }: { project: Project; reverse: boolean }) => {
   return (
     <a
@@ -65,13 +100,13 @@ const FeaturedProjectCard = ({ project, reverse }: { project: Project; reverse: 
       className="group block rounded-xl bg-card shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)] transition-all duration-300 cursor-pointer overflow-hidden"
     >
       <div className="grid grid-cols-1 lg:grid-cols-2">
-        {/* Laptop Mockup Side */}
+        {/* Visual Side */}
         <div
           className={`p-8 bg-gradient-to-br from-[#1a1a2e]/5 to-[#16213e]/5 flex items-center justify-center ${
             reverse ? "lg:order-2" : ""
           }`}
         >
-          <LaptopMockup imageSrc={project.image} alt={project.imageAlt} />
+          <ProjectVisual project={project} />
         </div>
 
         {/* Content Side */}
