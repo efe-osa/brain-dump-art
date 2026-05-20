@@ -21,7 +21,7 @@ const projects: Project[] = [
     title: "EveryFarmer — Service Provider Platform",
     role: "Front-End Engineer — Service Provider Module",
     description:
-      "Led front-end work on the Service Provider module — the agribusiness side of EveryFarmer's value chain — enabling providers to manage products and services (inputs, implements, extension, storage, transport, logistics, and processing) offered to farmers. Built an interactive geospatial mapping tool with Google Maps that automated farm mapping assessment conducted by agents across 100,000+ service providers.",
+      "Led front-end work of the agribusiness side of EveryFarmer's value chain enabling providers to manage products and services (inputs, implements, extension, storage, transport, logistics, and processing) offered to farmers. Built an interactive geospatial mapping tool with Google Maps that automated farm mapping assessment conducted by agents across 100,000+ service providers.",
     url: "https://everyfarmer.farm/",
     tags: [
       "Service Provider Module",
