@@ -12,7 +12,7 @@ const skillGroups = [
     items: [
       "Node.js", "GraphQL", ".NET", "PostgreSQL", "Jest", "React Testing Library (RTL)", "xUnit",
       "Git", "GitHub Actions", "GitHub Copilot", "Cypress", "Turbo",
-      "AWS", "Azure", "Docker", "Sentry", "Grafana", "Fluxor",
+      "AWS", "Azure", "Docker", "Sentry", "Grafana", "Fluxor", "Unity",
     ],
   },
   {
