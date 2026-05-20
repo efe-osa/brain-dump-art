@@ -13,7 +13,7 @@ const projects: Project[] = [
     title: "Lemur Cloud Portal",
     role: "Software Engineer — Ringtail Interactive / Brink",
     description:
-      "A scalable cloud-hosted SaaS portal built with .NET and Blazor, providing provisioning, customer journey workflows, and secure secrets management via Azure Key Vault. Includes a Deployment module that lets games developers connect their codebases for automated build, deploy, and redeploy across relay and automatic environments, with promotion to manual environments unlocking wider configuration scope.",
+      "A scalable cloud-hosted SaaS portal built with .NET and Blazor, providing provisioning, customer journey workflows, and secure secrets management. /n Includes a Deployment module that lets games developers connect their codebases for automated build, deploy, and redeploy across relay and automatic environments, with promotion to manual environments unlocking wider configuration scope.",
     url: "https://www.br.ink/lemur",
     tags: ["C#", ".NET", "Blazor", "Fluxor", "Azure", "Salesforce API", "Deployment", "CI/CD"],
   },
@@ -31,7 +31,16 @@ const projects: Project[] = [
     description:
       "Led front-end work on the Service Provider module — the agribusiness side of EveryFarmer's value chain — enabling providers to manage products and services (inputs, implements, extension, storage, transport, logistics, and processing) offered to farmers. Built an interactive geospatial mapping tool with Google Maps that automated farm mapping assessment conducted by agents across 100,000+ service providers.",
     url: "https://everyfarmer.farm/",
-    tags: ["Service Provider Module", "Geospatial Mapping", "Product & Service Management", "JavaScript", "React", "Redux", "Google Maps API", "CI/CD"],
+    tags: [
+      "Service Provider Module",
+      "Geospatial Mapping",
+      "Product & Service Management",
+      "JavaScript",
+      "React",
+      "Redux",
+      "Google Maps API",
+      "CI/CD",
+    ],
   },
 ];
 
@@ -57,16 +66,11 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
       <p className="text-xs text-primary font-medium mb-3">{project.role}</p>
 
-      <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-        {project.description}
-      </p>
+      <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
 
       <div className="flex flex-wrap gap-1.5 pt-4 border-t border-border">
         {project.tags.map((tag) => (
-          <span
-            key={tag}
-            className="text-xs px-2 py-0.5 rounded bg-secondary/60 text-secondary-foreground"
-          >
+          <span key={tag} className="text-xs px-2 py-0.5 rounded bg-secondary/60 text-secondary-foreground">
             {tag}
           </span>
         ))}
@@ -79,12 +83,8 @@ const Projects = () => {
   return (
     <section id="projects" className="py-24">
       <div className="container mx-auto px-6">
-        <p className="text-sm font-medium text-primary mb-2 tracking-widest uppercase">
-          Projects
-        </p>
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 tracking-tight">
-          Selected work
-        </h2>
+        <p className="text-sm font-medium text-primary mb-2 tracking-widest uppercase">Projects</p>
+        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 tracking-tight">Selected work</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {projects.map((project, index) => (
