@@ -10,7 +10,7 @@ const skillGroups = [
   {
     label: "Tools & Platforms",
     items: [
-      "Node.js", "GraphQL", ".NET", "PostgreSQL", "Jest", "xUnit",
+      "Node.js", "GraphQL", ".NET", "PostgreSQL", "Jest", "React Testing Library (RTL)", "xUnit",
       "Git", "GitHub Actions", "GitHub Copilot", "Cypress", "Turbo",
       "AWS", "Azure", "Docker", "Sentry", "Grafana", "Fluxor",
     ],
