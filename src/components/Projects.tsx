@@ -15,7 +15,7 @@ const projects: Project[] = [
     description:
       "A data-driven advocacy platform visualising gender equality metrics across the Sustainable Development Goals for global policymakers and campaigners.",
     url: "https://equalmeasures2030.org/",
-    tags: ["JavaScript", "React", "D3.js", "WordPress", "Accessibility"],
+    tags: ["JavaScript", "Web Components", "WordPress", "Accessibility"],
   },
   {
     title: "Lemur Cloud Portal",
