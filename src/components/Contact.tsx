@@ -30,9 +30,13 @@ const Contact = () => {
     }
     setErrors({});
     const { email, subject, message } = result.data;
-    window.location.href = `mailto:eosawaruoyelade@gmail.com?subject=${encodeURIComponent(
+    const mailto = `mailto:eosawaruoyelade@gmail.com?subject=${encodeURIComponent(
       subject
     )}&body=${encodeURIComponent(`${message}\n\nFrom: ${email}`)}`;
+    const opened = window.open(mailto, "_blank");
+    if (!opened) {
+      window.top ? (window.top.location.href = mailto) : (window.location.href = mailto);
+    }
     toast({ title: "Opening your email client", description: "Thanks for reaching out!" });
     setForm({ email: "", subject: "", message: "" });
   };
