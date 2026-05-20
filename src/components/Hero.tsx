@@ -65,6 +65,12 @@ const Hero = () => {
             >
               Get in Touch
             </button>
+            <button
+              onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
+              className="px-6 py-3 rounded-full border border-border text-foreground font-medium hover:bg-secondary transition-colors"
+            >
+              Learn More
+            </button>
           </div>
 
           <div className="flex items-center gap-5">
