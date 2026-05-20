@@ -30,9 +30,9 @@ const Navbar = () => {
               {l.label}
             </button>
           ))}
-          <button onClick={() => scrollTo("contact")} className="text-sm px-5 py-2 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity">
-            Get in touch
-          </button>
+          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="text-sm px-5 py-2 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity">
+            Resume ↗
+          </a>
         </div>
 
         {/* Mobile toggle */}
