@@ -47,11 +47,12 @@ const experiences = [
     tools: ["JavaScript", "TypeScript", "React", "Redux", "Next.js", "Web Components", "GraphQL", "Tailwind CSS", "Storybook", "WordPress", "RTL", "AWS", "Docker"],
   },
   {
-    role: "Front-End Engineer",
+    role: "Front-End Engineer (Service Provider Module)",
     company: "EveryFarmer, Abuja",
     period: "Mar 2019 – Jul 2020",
     bullets: [
-      "Built an interactive geospatial farm mapping tool with Google Maps API, automating land assessment across 100,000+ service providers and reducing operating expenses by $10,000",
+      "Owned front-end delivery on the Service Provider module, powering agribusinesses that supply inputs, implements, extension, storage, transport, logistics, and produce processing across the EveryFarmer value chain",
+      "Built product and service management flows plus an interactive geospatial farm mapping tool (Google Maps API) that automated farm mapping assessment for 100,000+ service providers, reducing operating expenses by $10,000",
       "Introduced static analysis testing and CI/CD pipelines with GitHub Actions, accelerating development pace by 50%",
       "Improved reliability and maintainability by introducing Redux Saga for state management and authoring comprehensive unit and integration tests (Jest, RTL) for 80% coverage",
     ],
