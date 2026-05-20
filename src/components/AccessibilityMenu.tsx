@@ -93,6 +93,26 @@ const AccessibilityMenu = () => {
 
           <div className="mb-4">
             <button
+              onClick={() => setDark((v) => !v)}
+              aria-pressed={dark}
+              className="w-full inline-flex items-center justify-between min-h-11 px-3 rounded-lg border border-border hover:bg-muted transition-colors"
+            >
+              <span className="inline-flex items-center gap-2 text-sm text-foreground">
+                {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+                Dark mode
+              </span>
+              <span
+                className={`text-xs font-medium px-2 py-0.5 rounded-full ${
+                  dark ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
+                }`}
+              >
+                {dark ? "On" : "Off"}
+              </span>
+            </button>
+          </div>
+
+          <div className="mb-4">
+            <button
               onClick={() => setHighContrast((v) => !v)}
               aria-pressed={highContrast}
               className="w-full inline-flex items-center justify-between min-h-11 px-3 rounded-lg border border-border hover:bg-muted transition-colors"
