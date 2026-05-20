@@ -1,17 +1,24 @@
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
   const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    if (isHome) {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate(`/#${id}`);
+    }
     setMobileOpen(false);
   };
 
   const links = [
     { label: "About", id: "about" },
-    { label: "Experience", id: "experience" },
     { label: "Blog", id: "blog" },
     { label: "Contact", id: "contact" },
   ];
@@ -20,7 +27,10 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         <button
-          onClick={() => scrollTo("hero")}
+          onClick={() => {
+            navigate("/");
+            setMobileOpen(false);
+          }}
           className="text-xl font-bold text-foreground tracking-tight"
           style={{ fontFamily: "'Space Grotesk', sans-serif" }}
         >
@@ -38,6 +48,15 @@ const Navbar = () => {
               {l.label}
             </button>
           ))}
+          <button
+            onClick={() => {
+              navigate("/experience");
+              setMobileOpen(false);
+            }}
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Experience
+          </button>
           <a
             href="/resume.pdf"
             target="_blank"
@@ -66,6 +85,15 @@ const Navbar = () => {
               {l.label}
             </button>
           ))}
+          <button
+            onClick={() => {
+              navigate("/experience");
+              setMobileOpen(false);
+            }}
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors text-left py-2"
+          >
+            Experience
+          </button>
         </div>
       )}
     </nav>
