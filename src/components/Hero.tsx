@@ -60,8 +60,14 @@ const Hero = () => {
 
           <div className="flex flex-wrap items-center gap-4 mb-12">
             <button
-              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
               className="px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity"
+            >
+              Learn More
+            </button>
+            <button
+              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+              className="px-6 py-3 rounded-full border border-primary text-primary font-medium hover:bg-primary hover:text-primary-foreground transition-colors"
             >
               Get in Touch
             </button>
