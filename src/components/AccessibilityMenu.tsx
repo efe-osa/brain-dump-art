@@ -14,13 +14,16 @@ const AccessibilityMenu = () => {
   const [open, setOpen] = useState(false);
   const [size, setSize] = useState<Size>("base");
   const [highContrast, setHighContrast] = useState(false);
+  const [dark, setDark] = useState(false);
 
   // Load persisted prefs
   useEffect(() => {
     const s = (localStorage.getItem("a11y-size") as Size) || "base";
     const hc = localStorage.getItem("a11y-contrast") === "true";
+    const dm = localStorage.getItem("a11y-dark") === "true";
     setSize(s);
     setHighContrast(hc);
+    setDark(dm);
   }, []);
 
   // Apply font size
@@ -35,6 +38,12 @@ const AccessibilityMenu = () => {
     localStorage.setItem("a11y-contrast", String(highContrast));
   }, [highContrast]);
 
+  // Apply dark mode
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", dark);
+    localStorage.setItem("a11y-dark", String(dark));
+  }, [dark]);
+
   const bump = (dir: 1 | -1) => {
     const i = SIZES.indexOf(size);
     const next = Math.min(SIZES.length - 1, Math.max(0, i + dir));
@@ -44,6 +53,7 @@ const AccessibilityMenu = () => {
   const reset = () => {
     setSize("base");
     setHighContrast(false);
+    setDark(false);
   };
 
   return (
