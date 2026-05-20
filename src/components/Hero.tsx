@@ -2,7 +2,7 @@ import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const Hero = () => {
-  const fullName = "Efe Jessye Osawaru Oyelade";
+  const fullName = "Efe-osa Jessye";
   const [displayed, setDisplayed] = useState("");
   const [done, setDone] = useState(false);
 
@@ -40,9 +40,9 @@ const Hero = () => {
           </h1>
           <div className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl leading-relaxed space-y-4">
             <p>
-              I'm a full-stack engineer who thinks like a product person. Over nearly a decade across healthcare,
-              agriculture, gaming, and consulting — in Nigeria, the UK, and Sweden — I've owned features from the first
-              whiteboard sketch through to production, always with an eye on the user at the other end.
+              I'm a business-fluent technologist with years of experience across healthcare, agriculture, gaming, and
+              consulting — in Nigeria, the UK, and Sweden — I've owned features from the first whiteboard sketch through
+              to production, always with the user in mind.
             </p>
             <p>
               My work tends to live where complexity meets interface: designing component libraries that development
