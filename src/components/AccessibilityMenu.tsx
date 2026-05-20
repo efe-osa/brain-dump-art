@@ -57,12 +57,12 @@ const AccessibilityMenu = () => {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <>
       {open && (
         <div
           role="dialog"
           aria-label="Accessibility settings"
-          className="mb-3 w-64 rounded-2xl border border-border bg-card p-4 shadow-lifted"
+          className="fixed bottom-[5.25rem] right-6 z-50 w-64 rounded-2xl border border-border bg-card p-4 shadow-lifted"
         >
           <h2 className="text-sm font-semibold text-foreground mb-3">Accessibility</h2>
 
@@ -145,11 +145,11 @@ const AccessibilityMenu = () => {
         onClick={() => setOpen((v) => !v)}
         aria-label="Accessibility settings"
         aria-expanded={open}
-        className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-primary text-primary-foreground shadow-lifted hover:opacity-90 transition-opacity"
+        className="fixed bottom-6 right-6 z-50 inline-flex items-center justify-center h-12 w-12 rounded-full bg-primary text-primary-foreground shadow-lifted hover:opacity-90 transition-opacity"
       >
         <Accessibility className="h-5 w-5" />
       </button>
-    </div>
+    </>
   );
 };
 
