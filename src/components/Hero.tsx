@@ -46,9 +46,15 @@ const Hero = () => {
             <p>
               My work tends to live where complexity meets interface: designing component libraries that development
               teams actually want to use, building location-aware systems that handle real regulatory stakes, and
-              migrating legacy codebases so that 250,000 users never feel the disruption. I care about developer
-              experience, performance, and accessibility, not as checklist items but as measures of respect for the
-              people using what I build.
+              migrating legacy codebases so that 250,000 users never feel the disruption. I care about performance,
+              security, and accessibility not as checklist items but as measures of respect for the people using what I
+              build.
+            </p>
+            <p>
+              I thrive in collaborative, cross-functional environments — equally comfortable translating requirements
+              with a CTO or pairing with a data analyst to get consent monitoring right. I bring both the technical
+              depth to architect systems and the communication instinct to make complex decisions legible to everyone in
+              the room.
             </p>
           </div>
 
@@ -58,6 +64,12 @@ const Hero = () => {
               className="px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity"
             >
               Get in Touch
+            </button>
+            <button
+              onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
+              className="px-6 py-3 rounded-full border border-border text-foreground font-medium hover:bg-secondary transition-colors"
+            >
+              Learn More
             </button>
           </div>
 
