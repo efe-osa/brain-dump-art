@@ -1,12 +1,12 @@
-# Plan: Reorder Selected Work — EveryFarmer First
+## Add Deployment Module to Lemur Cloud Portal
 
-## Goal
-Move the "EveryFarmer — Service Provider Platform" card to the first position in the Selected Work grid.
+### 1. `src/components/Projects.tsx` — Lemur Cloud Portal card
 
-## Change
-In `src/components/Projects.tsx`, reorder the `projects` array so the new order is:
-1. EveryFarmer — Service Provider Platform
-2. Lemur Cloud Portal
-3. Equal Measures 2030
+- **Description**: extend to mention the Deployment module — connects custom codebases for automated build, deploy, and redeploy across relay and automatic environments, with promotion to manual environments unlocking wider configuration scope.
+- **Tags**: add `Deployment` and `CI/CD`.
 
-No other files are affected.
+### 2. `src/components/Experience.tsx` — Ringtail Interactive (Lemur Team)
+
+- **New bullet**: "Shipped the Cloud Portal Deployment module connecting customer codebases to automated build, deploy, and redeploy flows across relay and automatic environments, with a promotion workflow for manual environments that unlocks wider runtime configuration."
+
+No layout, styling, or other section changes.

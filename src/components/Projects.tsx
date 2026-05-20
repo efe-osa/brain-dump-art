@@ -10,14 +10,6 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "EveryFarmer — Service Provider Platform",
-    role: "Front-End Engineer — Service Provider Module",
-    description:
-      "Led front-end work on the Service Provider module — the agribusiness side of EveryFarmer's value chain — enabling providers to manage products and services (inputs, implements, extension, storage, transport, logistics, and processing) offered to farmers. Built an interactive geospatial mapping tool with Google Maps that automated farm mapping assessment conducted by agents across 100,000+ service providers.",
-    url: "https://everyfarmer.farm/",
-    tags: ["Service Provider Module", "Geospatial Mapping", "Product & Service Management", "JavaScript", "React", "Redux", "Google Maps API", "CI/CD"],
-  },
-  {
     title: "Lemur Cloud Portal",
     role: "Software Engineer — Ringtail Interactive / Brink",
     description:
@@ -32,6 +24,14 @@ const projects: Project[] = [
       "A data-driven advocacy platform visualising gender equality metrics across the Sustainable Development Goals for global policymakers and campaigners.",
     url: "https://equalmeasures2030.org/",
     tags: ["JavaScript", "Web Components", "WordPress", "Accessibility"],
+  },
+  {
+    title: "EveryFarmer — Service Provider Platform",
+    role: "Front-End Engineer — Service Provider Module",
+    description:
+      "Led front-end work on the Service Provider module — the agribusiness side of EveryFarmer's value chain — enabling providers to manage products and services (inputs, implements, extension, storage, transport, logistics, and processing) offered to farmers. Built an interactive geospatial mapping tool with Google Maps that automated farm mapping assessment conducted by agents across 100,000+ service providers.",
+    url: "https://everyfarmer.farm/",
+    tags: ["Service Provider Module", "Geospatial Mapping", "Product & Service Management", "JavaScript", "React", "Redux", "Google Maps API", "CI/CD"],
   },
 ];
 
