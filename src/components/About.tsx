@@ -65,7 +65,7 @@ const About = () => {
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {group.items.map((skill, i) => {
-                    const isBubble = group.label !== "Core Competencies";
+                    const isBubble = group.label !== "Core Competencies" && group.label !== "Tools & Platforms";
                     return (
                       <span
                         key={skill}
