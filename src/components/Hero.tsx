@@ -2,7 +2,7 @@ import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const Hero = () => {
-  const fullName = "Efe-osa Oyelade";
+  const fullName = "Efe-osa Jessye Osawaru Oyelade";
   const [displayed, setDisplayed] = useState("");
   const [done, setDone] = useState(false);
 
@@ -33,18 +33,29 @@ const Hero = () => {
             Hi, I'm{" "}
             <span className="text-primary">
               {displayed}
-              <span className={`inline-block w-[3px] h-[0.85em] bg-primary ml-1 align-middle ${done ? "animate-pulse" : ""}`} />
+              <span
+                className={`inline-block w-[3px] h-[0.85em] bg-primary ml-1 align-middle ${done ? "animate-pulse" : ""}`}
+              />
             </span>
           </h1>
           <div className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl leading-relaxed space-y-4">
             <p>
-              I'm a full-stack engineer who thinks like a product person. Over nearly a decade across healthcare, agriculture, gaming, and consulting — in Nigeria, the UK, and Sweden — I've owned features from the first whiteboard sketch through to production, always with an eye on the user at the other end.
+              I'm a full-stack engineer who thinks like a product person. Over nearly a decade across healthcare,
+              agriculture, gaming, and consulting — in Nigeria, the UK, and Sweden — I've owned features from the first
+              whiteboard sketch through to production, always with an eye on the user at the other end.
             </p>
             <p>
-              My work tends to live where complexity meets interface: designing component libraries that development teams actually want to use, building location-aware systems that handle real regulatory stakes, and migrating legacy codebases so that 250,000 users never feel the disruption. I care about performance, security, and accessibility not as checklist items but as measures of respect for the people using what I build.
+              My work tends to live where complexity meets interface: designing component libraries that development
+              teams actually want to use, building location-aware systems that handle real regulatory stakes, and
+              migrating legacy codebases so that 250,000 users never feel the disruption. I care about performance,
+              security, and accessibility not as checklist items but as measures of respect for the people using what I
+              build.
             </p>
             <p>
-              I thrive in collaborative, cross-functional environments — equally comfortable translating requirements with a CTO or pairing with a data analyst to get consent monitoring right. I bring both the technical depth to architect systems and the communication instinct to make complex decisions legible to everyone in the room.
+              I thrive in collaborative, cross-functional environments — equally comfortable translating requirements
+              with a CTO or pairing with a data analyst to get consent monitoring right. I bring both the technical
+              depth to architect systems and the communication instinct to make complex decisions legible to everyone in
+              the room.
             </p>
           </div>
 
@@ -64,13 +75,29 @@ const Hero = () => {
           </div>
 
           <div className="flex items-center gap-5">
-            <a href="https://github.com/efe-osa" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="GitHub">
+            <a
+              href="https://github.com/efe-osa"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition-colors"
+              aria-label="GitHub"
+            >
               <Github className="h-5 w-5" />
             </a>
-            <a href="https://linkedin.com/in/efe-osa-osawaru-oyelade" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="LinkedIn">
+            <a
+              href="https://linkedin.com/in/efe-osa-osawaru-oyelade"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition-colors"
+              aria-label="LinkedIn"
+            >
               <Linkedin className="h-5 w-5" />
             </a>
-            <a href="mailto:eosawaruoyelade@gmail.com" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Email">
+            <a
+              href="mailto:eosawaruoyelade@gmail.com"
+              className="text-muted-foreground hover:text-primary transition-colors"
+              aria-label="Email"
+            >
               <Mail className="h-5 w-5" />
             </a>
           </div>
