@@ -18,14 +18,6 @@ const projects: Project[] = [
     tags: ["C#", ".NET", "Blazor", "Fluxor", "Azure", "Salesforce API", "Deployment", "CI/CD"],
   },
   {
-    title: "Equal Measures 2030",
-    role: "Full Stack Developer — Studio 14",
-    description:
-      "A data-driven advocacy platform visualising gender equality metrics across the Sustainable Development Goals for global policymakers and campaigners.",
-    url: "https://equalmeasures2030.org/",
-    tags: ["JavaScript", "Web Components", "WordPress", "Accessibility"],
-  },
-  {
     title: "EveryFarmer — Service Provider Platform",
     role: "Front-End Engineer — Service Provider Module",
     description:
@@ -41,6 +33,14 @@ const projects: Project[] = [
       "Google Maps API",
       "CI/CD",
     ],
+  },
+  {
+    title: "Equal Measures 2030",
+    role: "Full Stack Developer — Studio 14",
+    description:
+      "A data-driven advocacy platform visualising gender equality metrics across the Sustainable Development Goals for global policymakers and campaigners.",
+    url: "https://equalmeasures2030.org/",
+    tags: ["JavaScript", "Web Components", "WordPress", "Accessibility"],
   },
 ];
 
