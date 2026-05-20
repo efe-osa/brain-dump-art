@@ -58,36 +58,27 @@ const About = () => {
 
           <div className="space-y-6">
             <p className="text-sm font-medium text-primary tracking-widest uppercase">Tech Stack</p>
-            {skillGroups.map((group) => {
-              const isBubble = group.label === "Programming Languages";
-              return (
-                <div key={group.label}>
-                  <p className="text-xs font-semibold text-foreground/80 mb-2 uppercase tracking-wider">
-                    {group.label}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {group.items.map((skill, i) => (
-                      <span
-                        key={skill}
-                        className={`px-3 py-1.5 text-xs rounded-full bg-secondary text-secondary-foreground font-medium ${
-                          isBubble ? "animate-bubble shadow-[var(--shadow-soft)]" : ""
-                        }`}
-                        style={
-                          isBubble
-                            ? {
-                                animationDelay: `${i * 0.35}s`,
-                                animationDuration: `${3.5 + (i % 3) * 0.6}s`,
-                              }
-                            : undefined
-                        }
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
+            {skillGroups.map((group) => (
+              <div key={group.label}>
+                <p className="text-xs font-semibold text-foreground/80 mb-2 uppercase tracking-wider">
+                  {group.label}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {group.items.map((skill, i) => (
+                    <span
+                      key={skill}
+                      className="px-3 py-1.5 text-xs rounded-full bg-secondary text-secondary-foreground font-medium animate-bubble shadow-[var(--shadow-soft)]"
+                      style={{
+                        animationDelay: `${i * 0.35}s`,
+                        animationDuration: `${3.5 + (i % 3) * 0.6}s`,
+                      }}
+                    >
+                      {skill}
+                    </span>
+                  ))}
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
         </div>
       </div>
