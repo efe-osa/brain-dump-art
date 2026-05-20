@@ -62,7 +62,7 @@ const AccessibilityMenu = () => {
         <div
           role="dialog"
           aria-label="Accessibility settings"
-          className="fixed bottom-[5.25rem] right-6 z-50 w-64 rounded-2xl border border-border bg-card p-4 shadow-lifted"
+          className="fixed bottom-[7.25rem] right-6 z-50 w-64 rounded-2xl border border-border bg-card p-4 shadow-lifted"
         >
           <h2 className="text-sm font-semibold text-foreground mb-3">Accessibility</h2>
 
