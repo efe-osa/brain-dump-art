@@ -6,11 +6,18 @@ interface BlogCardProps {
   date: string;
   readTime: string;
   category: string;
+  url?: string;
 }
 
-const BlogCard = ({ title, excerpt, date, readTime, category }: BlogCardProps) => {
+const BlogCard = ({ title, excerpt, date, readTime, category, url }: BlogCardProps) => {
+  const Wrapper: any = url ? "a" : "article";
+  const wrapperProps = url ? { href: url, target: "_blank", rel: "noopener noreferrer" } : {};
+
   return (
-    <article className="group p-6 rounded-xl bg-card shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)] transition-all duration-300 cursor-pointer">
+    <Wrapper
+      {...wrapperProps}
+      className="group block p-6 rounded-xl bg-card shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)] transition-all duration-300 cursor-pointer"
+    >
       <span className="inline-block px-3 py-1 text-xs rounded-full bg-secondary text-secondary-foreground font-medium mb-4">
         {category}
       </span>
@@ -25,7 +32,7 @@ const BlogCard = ({ title, excerpt, date, readTime, category }: BlogCardProps) =
       <p className="text-xs text-muted-foreground">
         {date} · {readTime}
       </p>
-    </article>
+    </Wrapper>
   );
 };
 
