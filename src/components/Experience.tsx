@@ -19,7 +19,7 @@ const experiences = [
       "Led Salesforce API integration for customer journey workflows, establishing a data pipeline between engineering and business teams to improve manual handoffs",
       "Implemented Flux architecture to improve state predictability and reduce client-side logic complexity across the flagship cloud portal",
       "Executed a Playwright + xUnit proof-of-concept to assess integration ease, tooling, and test coverage requirements",
-      "Shipped the Cloud Portal Deployment module connecting customer codebases to automated build, deploy, and redeploy flows across relay and automatic environments, with a promotion workflow for manual environments that unlocks wider runtime configuration",
+      "Shipped the Cloud Portal Deployment module enabling games developers to connect their codebases to automated build, deploy, and redeploy flows across relay and automatic environments, with a promotion workflow for manual environments that unlocks wider runtime configuration",
     ],
     tools: ["C#", ".NET", "Blazor", "Fluxor", "Bootstrap", "SQL", "SCSS", "xUnit", "RTL", "Azure", "Docker"],
   },
