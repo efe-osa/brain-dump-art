@@ -19,7 +19,7 @@ const Navbar = () => {
 
   const links = [
     { label: "About", id: "about" },
-    { label: "Blog", id: "blog" },
+    { label: "My Scribbles", id: "blog" },
   ];
 
   return (
