@@ -47,14 +47,8 @@ const Hero = () => {
               My work tends to live where complexity meets interface: designing component libraries that development
               teams actually want to use, building location-aware systems that handle real regulatory stakes, and
               migrating legacy codebases so that 250,000 users never feel the disruption. I care about performance,
-              security, and accessibility not as checklist items but as measures of respect for the people using what I
-              build.
-            </p>
-            <p>
-              I thrive in collaborative, cross-functional environments — equally comfortable translating requirements
-              with a CTO or pairing with a data analyst to get consent monitoring right. I bring both the technical
-              depth to architect systems and the communication instinct to make complex decisions legible to everyone in
-              the room.
+              accessibility, and developer experience, not as checklist items but as measures of respect for the people
+              using what I build.
             </p>
           </div>
 
