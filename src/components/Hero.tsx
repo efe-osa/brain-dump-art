@@ -2,7 +2,7 @@ import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const Hero = () => {
-  const fullName = "Efe-osa Jessye Osawaru Oyelade";
+  const fullName = "Efe Jessye Osawaru Oyelade";
   const [displayed, setDisplayed] = useState("");
   const [done, setDone] = useState(false);
 
