@@ -160,6 +160,34 @@
     outline-width: 3px;
     outline-offset: 4px;
   }
+
+  /* High contrast hover: navbar links */
+  .high-contrast nav button:hover,
+  .high-contrast nav a:hover {
+    color: hsl(var(--foreground));
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+  }
+  .high-contrast nav a[href="/resume.pdf"]:hover {
+    background-color: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+    opacity: 1;
+    text-decoration: none;
+    outline: 2px solid hsl(var(--foreground));
+  }
+
+  /* High contrast hover: selected works / projects cards */
+  .high-contrast #work a.group:hover,
+  .high-contrast #projects a.group:hover {
+    background-color: hsl(var(--accent));
+    outline: 2px solid hsl(var(--foreground));
+    outline-offset: 2px;
+  }
+  .high-contrast #work a.group:hover *,
+  .high-contrast #projects a.group:hover * {
+    color: hsl(var(--accent-foreground)) !important;
+  }
 }
 
 @layer utilities {
