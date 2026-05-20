@@ -10,20 +10,20 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Equal Measures 2030",
-    role: "Full Stack Developer — Studio 14",
-    description:
-      "A data-driven advocacy platform visualising gender equality metrics across the Sustainable Development Goals for global policymakers and campaigners.",
-    url: "https://equalmeasures2030.org/",
-    tags: ["JavaScript", "Web Components", "WordPress", "Accessibility"],
-  },
-  {
     title: "Lemur Cloud Portal",
     role: "Software Engineer — Ringtail Interactive / Brink",
     description:
       "A scalable cloud-hosted SaaS portal built with .NET and Blazor, providing provisioning, customer journey workflows, and secure secrets management via Azure Key Vault. Includes a Deployment module that lets games developers connect their codebases for automated build, deploy, and redeploy across relay and automatic environments, with promotion to manual environments unlocking wider configuration scope.",
     url: "https://www.br.ink/lemur",
     tags: ["C#", ".NET", "Blazor", "Fluxor", "Azure", "Salesforce API", "Deployment", "CI/CD"],
+  },
+  {
+    title: "Equal Measures 2030",
+    role: "Full Stack Developer — Studio 14",
+    description:
+      "A data-driven advocacy platform visualising gender equality metrics across the Sustainable Development Goals for global policymakers and campaigners.",
+    url: "https://equalmeasures2030.org/",
+    tags: ["JavaScript", "Web Components", "WordPress", "Accessibility"],
   },
   {
     title: "EveryFarmer — Service Provider Platform",
