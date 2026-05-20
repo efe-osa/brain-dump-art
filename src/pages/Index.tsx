@@ -6,6 +6,7 @@ import Projects from "@/components/Projects";
 import Blog from "@/components/Blog";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import AccessibilityMenu from "@/components/AccessibilityMenu";
 
 const Index = () => {
   return (
@@ -20,6 +21,7 @@ const Index = () => {
         <Contact />
       </main>
       <Footer />
+      <AccessibilityMenu />
     </div>
   );
 };
