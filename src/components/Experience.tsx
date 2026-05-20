@@ -20,7 +20,7 @@ const experiences = [
       "Implemented Flux architecture to improve state predictability and reduce client-side logic complexity across the flagship cloud portal",
       "Executed a Playwright + xUnit proof-of-concept to assess integration ease, tooling, and test coverage requirements",
     ],
-    tools: ["C#", ".NET", "Blazor", "Fluxor", "Bootstrap", "SQL", "SCSS", "xUnit", "Azure", "Docker"],
+    tools: ["C#", ".NET", "Blazor", "Fluxor", "Bootstrap", "SQL", "SCSS", "xUnit", "RTL", "Azure", "Docker"],
   },
   {
     role: "Senior Front-End Engineer (Provider Relations Team)",
@@ -32,7 +32,7 @@ const experiences = [
       "Debugged and resolved erroneous progression in the providers' acquisition tracker, preventing bad data from advancing through the workflow and unblocking affected users",
       "Collaborated with a cross-functional scrum team to implement a responsive, accessible audit workflow",
     ],
-    tools: ["JavaScript", "React", "React Native", "PHP/Laravel", "Bootstrap", "REST API", "CKEditor"],
+    tools: ["JavaScript", "React", "React Native", "PHP/Laravel", "Bootstrap", "REST API", "RTL", "CKEditor"],
   },
   {
     role: "Full Stack Developer",
@@ -44,7 +44,7 @@ const experiences = [
       "Partnered with product owners and PMs to scope tickets and optimise Kanban workflows, accelerating delivery timelines by 28%",
       "Developed a scalable e-commerce PWA and an admin dashboard for managing engagement and commercial activities across 100+ businesses",
     ],
-    tools: ["JavaScript", "TypeScript", "React", "Redux", "Next.js", "Web Components", "GraphQL", "Tailwind CSS", "Storybook", "WordPress", "AWS", "Docker"],
+    tools: ["JavaScript", "TypeScript", "React", "Redux", "Next.js", "Web Components", "GraphQL", "Tailwind CSS", "Storybook", "WordPress", "RTL", "AWS", "Docker"],
   },
   {
     role: "Front-End Engineer",
