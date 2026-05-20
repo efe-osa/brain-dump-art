@@ -12,7 +12,6 @@ const Navbar = () => {
   const links = [
     { label: "About", id: "about" },
     { label: "Experience", id: "experience" },
-    { label: "Projects", id: "projects" },
     { label: "Blog", id: "blog" },
     { label: "Contact", id: "contact" },
   ];
@@ -20,18 +19,31 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-        <button onClick={() => scrollTo("hero")} className="text-xl font-bold text-foreground tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-          YN<span className="text-primary">.</span>
+        <button
+          onClick={() => scrollTo("hero")}
+          className="text-xl font-bold text-foreground tracking-tight"
+          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+        >
+          ÈJO<span className="text-primary">.</span>
         </button>
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
           {links.map((l) => (
-            <button key={l.id} onClick={() => scrollTo(l.id)} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <button
+              key={l.id}
+              onClick={() => scrollTo(l.id)}
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
               {l.label}
             </button>
           ))}
-          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="text-sm px-5 py-2 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity">
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm px-5 py-2 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity"
+          >
             Resume ↗
           </a>
         </div>
@@ -46,7 +58,11 @@ const Navbar = () => {
       {mobileOpen && (
         <div className="md:hidden border-t border-border bg-background px-6 py-4 flex flex-col gap-3">
           {links.map((l) => (
-            <button key={l.id} onClick={() => scrollTo(l.id)} className="text-sm text-muted-foreground hover:text-foreground transition-colors text-left py-2">
+            <button
+              key={l.id}
+              onClick={() => scrollTo(l.id)}
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors text-left py-2"
+            >
               {l.label}
             </button>
           ))}
