@@ -18,12 +18,13 @@ const projects: Project[] = [
     tags: ["C#", ".NET", "Blazor", "Fluxor", "Azure", "Salesforce API", "Deployment", "CI/CD"],
   },
   {
-    title: "Service Provider",
-    role: "Front-End Engineer — EveryFarmer",
+    title: "EveryFarmer — Service Provider Platform",
+    role: "Front-End Engineer — Service Provider Module",
     description:
       "Led front-end work on the agribusiness side of EveryFarmer's value chain enabling providers to manage products and services (inputs, implements, extension, storage, transport, logistics, and processing) offered to farmers. Built an interactive geospatial mapping tool with Google Maps that automated farm mapping assessment conducted by agents across 100,000+ service providers.",
     url: "https://everyfarmer.farm/",
     tags: [
+      "Service Provider Module",
       "Geospatial Mapping",
       "Product & Service Management",
       "JavaScript",
