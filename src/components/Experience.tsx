@@ -45,7 +45,21 @@ const experiences = [
       "Partnered with product owner and PM to scope tickets and optimise Kanban boards, accelerating delivery timelines by 28%",
       "Developed a scalable e-commerce PWA and an admin dashboard for managing engagement and commercial activities across 100+ businesses",
     ],
-    tools: ["JavaScript", "TypeScript", "React", "Redux", "Next.js", "Web Components", "GraphQL", "Tailwind CSS", "Storybook", "WordPress", "RTL", "AWS", "Docker"],
+    tools: [
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Redux",
+      "Next.js",
+      "Web Components",
+      "GraphQL",
+      "Tailwind CSS",
+      "Storybook",
+      "WordPress",
+      "RTL",
+      "AWS",
+      "Docker",
+    ],
   },
   {
     role: "Front-End Engineer (Service Provider Module)",
@@ -64,7 +78,7 @@ const experiences = [
     company: "Hotels.ng (HNG Internship)",
     period: "Mar 2018 – Jun 2018",
     bullets: [
-      "Created a chatbot service built on PHP with an HTML/CSS/JavaScript interface for conversational interactions, including hint commands like \"help\" to surface registered questions",
+      'Created a chatbot service built on PHP with an HTML/CSS/JavaScript interface for conversational interactions, including hint commands like "help" to surface registered questions',
     ],
     tools: ["PHP", "HTML5", "CSS3", "JavaScript"],
   },
@@ -75,9 +89,7 @@ const Experience = () => {
     <section id="experience" className="py-24 bg-muted/30">
       <div className="container mx-auto px-6">
         <p className="text-sm font-medium text-primary mb-2 tracking-widest uppercase">Experience</p>
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 tracking-tight">
-          Where I've worked
-        </h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 tracking-tight">Where I've worked</h2>
 
         <div className="space-y-0 relative">
           <div className="absolute left-[7px] top-2 bottom-2 w-px bg-border hidden md:block" />
@@ -89,8 +101,8 @@ const Experience = () => {
               <div className="p-6 rounded-xl bg-card shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)] transition-shadow">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
                   <div>
-                    <h3 className="text-lg font-semibold text-card-foreground">{exp.role}</h3>
-                    <p className="text-primary font-medium text-sm">{exp.company}</p>
+                    <h3 className="text-lg font-semibold text-card-foreground">{exp.company}</h3>
+                    <p className="text-primary font-medium text-sm">{exp.role}</p>
                   </div>
                   <p className="text-sm text-muted-foreground mt-1 sm:mt-0">{exp.period}</p>
                 </div>
