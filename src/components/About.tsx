@@ -23,6 +23,7 @@ const skillGroups = [
       "Accessibility & Performance Optimisation",
       "Internationalisation",
       "DevOps & Testing",
+      "CI/CD",
     ],
   },
 ];
