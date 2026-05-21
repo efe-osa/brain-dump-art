@@ -1,20 +1,12 @@
-## Goal
-Convert the two remaining projects (EveryFarmer, Equal Measures 2030) into laptop-mockup featured cards matching the Lemur Cloud Portal style, so all three projects in "Selected work" use the laptop screen treatment.
+## Add Deployment Module to Lemur Cloud Portal
 
-## Steps
+### 1. `src/components/Projects.tsx` — Lemur Cloud Portal card
 
-1. **Capture screenshots** of each live site and save to `src/assets/`:
-   - `everyfarmer-screenshot.png` from https://everyfarmer.farm/
-   - `equal-measures-screenshot.png` from https://equalmeasures2030.org/
+- **Description**: extend to mention the Deployment module — connects custom codebases for automated build, deploy, and redeploy across relay and automatic environments, with promotion to manual environments unlocking wider configuration scope.
+- **Tags**: add `Deployment` and `CI/CD`.
 
-2. **Refactor `src/components/Projects.tsx`**:
-   - Generalize `FeaturedProject` into a reusable `FeaturedProjectCard` component that accepts a project object + screenshot image.
-   - Alternate the layout (laptop left / content right, then content left / laptop right) so the three stacked cards feel visually varied.
-   - Remove the old `ProjectCard` grid and render all three projects as stacked featured cards with laptop mockups.
-   - Keep tags, role, description, and external link behavior unchanged.
+### 2. `src/components/Experience.tsx` — Ringtail Interactive (Lemur Team)
 
-3. **Verify** with a build/typecheck and a preview screenshot to confirm all three laptop mockups render correctly.
+- **New bullet**: "Shipped the Cloud Portal Deployment module connecting customer codebases to automated build, deploy, and redeploy flows across relay and automatic environments, with a promotion workflow for manual environments that unlocks wider runtime configuration."
 
-## Notes
-- No content/copy changes — only visual treatment.
-- Continues to use the existing `LaptopMockup` component as-is.
+No layout, styling, or other section changes.
