@@ -40,10 +40,6 @@ const Hero = () => {
           </h1>
           <div className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl leading-relaxed space-y-4">
             <p>
-              I'm a business-fluent technologist. I've owned features from the first whiteboard sketch through to
-              production, always with the user in mind.
-            </p>
-            <p>
               My work tends to live where complexity meets interface: designing component libraries that development
               teams actually want to use, building location-aware systems that handle real regulatory stakes, and
               migrating legacy codebases so that 250,000 users never feel the disruption. I care about performance,
