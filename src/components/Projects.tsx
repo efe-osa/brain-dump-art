@@ -26,6 +26,7 @@ const projects: Project[] = [
     tags: [
       
       "Geospatial Mapping",
+      "Product & Service Management",
       "JavaScript",
       "React",
       "Redux",
