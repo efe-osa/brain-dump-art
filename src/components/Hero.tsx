@@ -49,7 +49,10 @@ const Hero = () => {
               accessibility, and developer experience, not as checklist items but as measures of respect for the people
               using what I build.
             </p>
-            <span className="absolute -bottom-[5px] right-0 w-8 h-8 rounded-full bg-primary/30 animate-pulse border-2 border-primary/50" aria-hidden="true" />
+            <span
+              className="absolute -bottom-[15px] right-7 z-2 w-8 h-8 rounded-full bg-primary/30 animate-pulse border-2 border-primary/50"
+              aria-hidden="true"
+            />
           </div>
 
           <div className="flex flex-wrap items-center gap-4 mb-12">
