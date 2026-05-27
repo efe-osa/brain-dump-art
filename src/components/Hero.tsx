@@ -38,7 +38,10 @@ const Hero = () => {
               />
             </span>
           </h1>
-          <div className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl leading-relaxed space-y-4">
+          <div
+            className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl leading-relaxed space-y-4 resize overflow-auto rounded-lg border border-border bg-card/40 p-4 min-w-[280px] min-h-[120px]"
+            style={{ width: "100%", height: "auto" }}
+          >
             <p>
               My work tends to live where complexity meets interface: designing component libraries that development
               teams actually want to use, building location-aware systems that handle real regulatory stakes, and
