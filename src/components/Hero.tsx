@@ -50,7 +50,7 @@ const Hero = () => {
               using what I build.
             </p>
             <span
-              className="absolute -bottom-[15px] right-7 z-2 w-8 h-8 rounded-full bg-primary/30 animate-pulse border-2 border-primary/50"
+              className="absolute -bottom-[15px] -right-7 w-8 h-8 rounded-full bg-primary/30 animate-pulse border-2 border-primary/50"
               aria-hidden="true"
             />
           </div>
