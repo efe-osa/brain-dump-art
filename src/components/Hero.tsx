@@ -39,7 +39,7 @@ const Hero = () => {
             </span>
           </h1>
           <div
-            className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl leading-relaxed space-y-4 resize overflow-auto rounded-lg border border-border bg-card/40 p-4 min-w-[280px] min-h-[120px]"
+            className="relative text-base md:text-lg text-muted-foreground mb-8 max-w-2xl leading-relaxed space-y-4 resize overflow-auto rounded-lg border border-border bg-card/40 p-4 min-w-[280px] min-h-[120px]"
             style={{ width: "100%", height: "auto" }}
           >
             <p>
@@ -49,6 +49,7 @@ const Hero = () => {
               accessibility, and developer experience, not as checklist items but as measures of respect for the people
               using what I build.
             </p>
+            <span className="absolute bottom-1.5 right-1.5 w-2.5 h-2.5 rounded-full bg-primary animate-pulse" aria-hidden="true" />
           </div>
 
           <div className="flex flex-wrap items-center gap-4 mb-12">
