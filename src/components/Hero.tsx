@@ -34,7 +34,7 @@ const Hero = () => {
             <span className="text-primary">
               {displayed}
               <span
-                className={`inline-block w-[3px] h-[0.85em] bg-primary ml-1 align-middle ${done ? "animate-pulse" : ""}`}
+                className="inline-block w-[2.5px] h-[0.85em] bg-primary ml-1 align-middle animate-pulse"
               />
             </span>
           </h1>
