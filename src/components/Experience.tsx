@@ -12,9 +12,9 @@ const experiences = [
   {
     role: "Software Engineer (Lemur Team)",
     company: "Ringtail Interactive (Now Brink Gaming), Stockholm",
-    period: "Jan 2023 – Jan 2025",
+    period: "Jan 2023 – Dec 2024",
     bullets: [
-      "Built a responsive Blazor Component Library adopted across 90% of the interface, accelerating development velocity and enforcing WCAG and UI consistency at scale",
+      "Built a responsive Razor Component Library (Blazor, Bootstrap) adopted across 90% of the interface, accelerating development velocity and enforcing WCAG and UI consistency at scale",
       "Delivered and optimised cloud-hosted .NET/C# services for scalable SaaS provisioning, with secure secrets management via Azure Key Vault for production-grade security",
       "Led Salesforce API integration for customer journey workflows, establishing a data pipeline between engineering and business teams to improve manual handoffs",
       "Implemented Flux architecture to improve state predictability and reduce client-side logic complexity across the flagship cloud portal",
@@ -40,7 +40,7 @@ const experiences = [
     company: "Studio 14, Birmingham",
     period: "Dec 2019 – Aug 2022",
     bullets: [
-      "Drove web performance scores from 52% to 98% and supervised W3C accessibility compliance using Axe DevTools while hardening security (XSS/CSRF prevention)",
+      "Drove web performance scores from 52% to 68% and supervised W3C accessibility compliance using Axe DevTools while hardening security (XSS/CSRF prevention)",
       "Led adoption of the Web Components API for a community forum with WordPress CMS integration, reducing development time by 25% and enabling UI reusability",
       "Partnered with product owner and PM to scope tickets and optimise Kanban boards, accelerating delivery timelines by 28%",
       "Developed a scalable e-commerce PWA and an admin dashboard for managing engagement and commercial activities across 100+ businesses",
