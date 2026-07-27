@@ -39,13 +39,7 @@ const Hero = () => {
             </span>
           </h1>
           <div className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl leading-relaxed space-y-4">
-            <p>
-              My work tends to live where complexity meets interface: designing component libraries that development
-              teams actually want to use, building location-aware systems that handle real regulatory stakes, and
-              migrating legacy codebases so that 250,000 users never feel the disruption. I care about performance,
-              accessibility, and developer experience, not as checklist items but as measures of respect for the people
-              using what I build.
-            </p>
+            <p>My work tends to live where complexity meets interface</p>
           </div>
 
           <div className="flex flex-wrap items-center gap-4 mb-12">
