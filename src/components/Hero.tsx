@@ -63,9 +63,10 @@ const Hero = () => {
             {["6+ years shipping production software", "Gaming · Healthtech · Agritech", "Stockholm, Sweden"].map(
               (item) => (
                 <span key={item} className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-primary" />
                   {item}
                 </span>
+
               ),
             )}
           </div>
