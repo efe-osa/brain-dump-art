@@ -63,7 +63,7 @@ const Hero = () => {
           </div>
 
           <div className="flex flex-wrap gap-x-6 gap-y-2 mb-10 text-sm text-muted-foreground">
-            {["7+ years shipping production software", "Gaming · Healthtech · Agritech", "Stockholm, Sweden"].map(
+            {["7+ years shipping production software", "Open to new domains", "Stockholm, Sweden"].map(
               (item) => (
                 <span key={item} className="flex items-center gap-2">
                   <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-primary" />
