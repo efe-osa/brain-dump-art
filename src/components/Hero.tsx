@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
-  const fullName = "Efe-osa Jessye";
+  const fullName = "Efe Jessye";
   const [displayed, setDisplayed] = useState("");
   const [done, setDone] = useState(false);
 
