@@ -57,8 +57,8 @@ const Hero = () => {
               tends to live where complexity meets interface
             </p>
             <p>
-              I build product-grade web platforms across gaming, healthtech and agritech — TypeScript, React and Next.js
-              on the front, C#/.NET and Blazor on the back, shipped on Azure and AWS.
+              I build product-grade web platforms — TypeScript, React and Next.js on the front, C#/.NET and Blazor on
+              the back, shipped on Azure and AWS. Domain-agnostic by design: I learn the business, then build for it.
             </p>
           </div>
 
