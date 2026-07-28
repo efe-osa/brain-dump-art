@@ -34,9 +34,6 @@ const Hero = () => {
 
       <div className="container mx-auto px-6 py-32 relative z-10">
         <div className="max-w-3xl">
-          <p className="text-sm font-medium text-primary mb-4 tracking-widest uppercase">
-            Product (Full-Stack) Engineer
-          </p>
           <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 leading-[1.1] tracking-tight">
             Hi, I'm{" "}
             <span className="text-primary">
@@ -66,7 +63,7 @@ const Hero = () => {
           </div>
 
           <div className="flex flex-wrap gap-x-6 gap-y-2 mb-10 text-sm text-muted-foreground">
-            {["6+ years shipping production software", "Gaming · Healthtech · Agritech", "Stockholm, Sweden"].map(
+            {["7+ years shipping production software", "Gaming · Healthtech · Agritech", "Stockholm, Sweden"].map(
               (item) => (
                 <span key={item} className="flex items-center gap-2">
                   <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-primary" />
