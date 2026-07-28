@@ -39,7 +39,15 @@ const Hero = () => {
             </span>
           </h1>
           <div className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl leading-relaxed space-y-4">
-            <p>My work tends to live where complexity meets interface</p>
+            <p>
+              <Link
+                to="/experience"
+                className="text-primary font-medium underline underline-offset-4 hover:opacity-80 transition-opacity"
+              >
+                My work
+              </Link>{" "}
+              tends to live where complexity meets interface
+            </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-4 mb-12">
