@@ -8,6 +8,11 @@ const Hero = () => {
   const [done, setDone] = useState(false);
 
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setDisplayed(fullName);
+      setDone(true);
+      return;
+    }
     let i = 0;
     const interval = setInterval(() => {
       i++;
@@ -20,10 +25,12 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
+
   return (
     <section id="hero" className="min-h-screen flex items-center relative overflow-hidden">
-      <div className="absolute top-20 right-10 w-72 h-72 rounded-full bg-primary/10 blur-3xl" />
-      <div className="absolute bottom-20 left-10 w-96 h-96 rounded-full bg-secondary/40 blur-3xl" />
+      <div aria-hidden="true" className="absolute top-20 right-10 w-72 h-72 rounded-full bg-primary/10 blur-3xl" />
+      <div aria-hidden="true" className="absolute bottom-20 left-10 w-96 h-96 rounded-full bg-secondary/40 blur-3xl" />
+
 
       <div className="container mx-auto px-6 py-32 relative z-10">
         <div className="max-w-3xl">
@@ -62,9 +69,10 @@ const Hero = () => {
             {["6+ years shipping production software", "Gaming · Healthtech · Agritech", "Stockholm, Sweden"].map(
               (item) => (
                 <span key={item} className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-primary" />
                   {item}
                 </span>
+
               ),
             )}
           </div>
@@ -91,7 +99,7 @@ const Hero = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="GitHub"
+              aria-label="GitHub profile (opens in a new tab)"
             >
               <Github className="h-5 w-5" />
             </a>
@@ -100,14 +108,14 @@ const Hero = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="LinkedIn"
+              aria-label="LinkedIn profile (opens in a new tab)"
             >
               <Linkedin className="h-5 w-5" />
             </a>
             <a
               href="mailto:eosawaruoyelade@gmail.com"
               className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="Email"
+              aria-label="Email Efe-osa"
             >
               <Mail className="h-5 w-5" />
             </a>
