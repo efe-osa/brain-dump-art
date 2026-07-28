@@ -93,7 +93,7 @@ const Hero = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="GitHub"
+              aria-label="GitHub profile (opens in a new tab)"
             >
               <Github className="h-5 w-5" />
             </a>
