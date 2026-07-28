@@ -109,7 +109,7 @@ const Hero = () => {
             <a
               href="mailto:eosawaruoyelade@gmail.com"
               className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="Email"
+              aria-label="Email Efe-osa"
             >
               <Mail className="h-5 w-5" />
             </a>
