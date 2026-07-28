@@ -8,6 +8,11 @@ const Hero = () => {
   const [done, setDone] = useState(false);
 
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setDisplayed(fullName);
+      setDone(true);
+      return;
+    }
     let i = 0;
     const interval = setInterval(() => {
       i++;
@@ -19,6 +24,7 @@ const Hero = () => {
     }, 80);
     return () => clearInterval(interval);
   }, []);
+
 
   return (
     <section id="hero" className="min-h-screen flex items-center relative overflow-hidden">
