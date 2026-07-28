@@ -57,13 +57,13 @@ const Hero = () => {
               tends to live where complexity meets interface
             </p>
             <p>
-              I build product-grade web platforms across gaming, healthtech and agritech — TypeScript, React and Next.js
-              on the front, C#/.NET and Blazor on the back, shipped on Azure and AWS.
+              I build product-grade web platforms — TypeScript, React and Next.js on the front, C#/.NET and Blazor on
+              the back, shipped on Azure and AWS. Domain-agnostic by design: I learn the business, then build for it.
             </p>
           </div>
 
           <div className="flex flex-wrap gap-x-6 gap-y-2 mb-10 text-sm text-muted-foreground">
-            {["7+ years shipping production software", "Gaming · Healthtech · Agritech", "Stockholm, Sweden"].map(
+            {["7+ years shipping production software", "Open to new domains", "Stockholm, Sweden"].map(
               (item) => (
                 <span key={item} className="flex items-center gap-2">
                   <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-primary" />
