@@ -33,10 +33,13 @@ const Hero = () => {
           <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 leading-[1.1] tracking-tight">
             Hi, I'm{" "}
             <span className="text-primary">
-              {displayed}
-              <span
-                className={`inline-block w-[25px] h-[0.6em] bg-primary ml-1 align-middle ${done ? "animate-pulse" : ""}`}
-              />
+              <span className="sr-only">{fullName}</span>
+              <span aria-hidden="true">
+                {displayed}
+                <span
+                  className={`inline-block w-[25px] h-[0.6em] bg-primary ml-1 align-middle ${done ? "animate-pulse" : ""}`}
+                />
+              </span>
             </span>
           </h1>
           <div className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl leading-relaxed space-y-4">
@@ -49,6 +52,21 @@ const Hero = () => {
               </Link>{" "}
               tends to live where complexity meets interface
             </p>
+            <p>
+              I build product-grade web platforms across gaming, healthtech and agritech — TypeScript, React and Next.js
+              on the front, C#/.NET and Blazor on the back, shipped on Azure and AWS.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-x-6 gap-y-2 mb-10 text-sm text-muted-foreground">
+            {["6+ years shipping production software", "Gaming · Healthtech · Agritech", "Stockholm, Sweden"].map(
+              (item) => (
+                <span key={item} className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  {item}
+                </span>
+              ),
+            )}
           </div>
 
           <div className="flex flex-wrap items-center gap-4 mb-12">
@@ -56,8 +74,9 @@ const Hero = () => {
               onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
               className="px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity"
             >
-              Learn More
+              See my work
             </button>
+
             <button
               onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
               className="px-6 py-3 rounded-full border border-primary text-primary font-medium hover:bg-primary hover:text-primary-foreground transition-colors"
