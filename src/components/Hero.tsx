@@ -1,5 +1,6 @@
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const fullName = "Efe-osa Jessye";
