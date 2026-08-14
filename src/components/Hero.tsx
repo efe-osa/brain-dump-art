@@ -25,12 +25,10 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
-
   return (
     <section id="hero" className="min-h-screen flex items-center relative overflow-hidden">
       <div aria-hidden="true" className="absolute top-20 right-10 w-72 h-72 rounded-full bg-primary/10 blur-3xl" />
       <div aria-hidden="true" className="absolute bottom-20 left-10 w-96 h-96 rounded-full bg-secondary/40 blur-3xl" />
-
 
       <div className="container mx-auto px-6 py-32 relative z-10">
         <div className="max-w-3xl">
@@ -57,21 +55,18 @@ const Hero = () => {
               tends to live where complexity meets interface
             </p>
             <p>
-              I build product-grade web platforms — TypeScript, React and Next.js on the front, C#/.NET and Blazor on
+              I build production-grade web platforms — TypeScript, React and Next.js on the front, C#/.NET and Blazor on
               the back, shipped on Azure and AWS. Domain-agnostic by design: I learn the business, then build for it.
             </p>
           </div>
 
           <div className="flex flex-wrap gap-x-6 gap-y-2 mb-10 text-sm text-muted-foreground">
-            {["7+ years shipping production software", "Open to new domains", "Stockholm, Sweden"].map(
-              (item) => (
-                <span key={item} className="flex items-center gap-2">
-                  <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-primary" />
-                  {item}
-                </span>
-
-              ),
-            )}
+            {["7+ years shipping production software", "Open to new domains", "Stockholm, Sweden"].map((item) => (
+              <span key={item} className="flex items-center gap-2">
+                <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-primary" />
+                {item}
+              </span>
+            ))}
           </div>
 
           <div className="flex flex-wrap items-center gap-4 mb-12">
