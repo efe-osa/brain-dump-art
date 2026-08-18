@@ -14,12 +14,12 @@ const experiences = [
     company: "Ringtail Interactive (Now Brink Gaming), Stockholm",
     period: "Jan 2023 – Dec 2024",
     bullets: [
+      "Designed and delivered the Cloud Portal Deployment module, enabling game developers to connect their codebases for automated build, deploy, and redeploy flows across development environments and empower them in multiplayer game development.",
       "Built a responsive Razor Component Library (Blazor, Bootstrap) adopted across 90% of the interface, accelerating development velocity and enforcing WCAG and UI consistency at scale",
       "Delivered and optimised cloud-hosted .NET/C# services for scalable SaaS provisioning, with secure secrets management via Azure Key Vault for production-grade security",
       "Led Salesforce API integration for customer journey workflows, establishing a data pipeline between engineering and business teams to improve manual handoffs",
       "Implemented Flux architecture to improve state predictability and reduce client-side logic complexity across the flagship cloud portal",
       "Executed a Playwright + xUnit proof-of-concept to assess integration ease, tooling, and test coverage requirements",
-      "Shipped the Cloud Portal Deployment module enabling game developers to connect their codebases to automated build, deploy, and redeploy flows across relay and automatic environments, with a promotion workflow for manual environments that unlocks wider runtime configuration",
     ],
     tools: ["C#", ".NET", "Blazor", "Fluxor", "Bootstrap", "SQL", "SCSS", "xUnit", "RTL", "Azure", "Docker"],
   },
