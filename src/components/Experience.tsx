@@ -40,7 +40,7 @@ const experiences = [
     company: "Studio 14, Birmingham",
     period: "Dec 2019 – Aug 2022",
     bullets: [
-      "Drove web performance scores from 52% to 68% and supervised W3C accessibility compliance using Axe DevTools while hardening security (XSS/CSRF prevention)",
+      "Drove web performance scores from 52% to 98% and supervised W3C accessibility compliance using Axe DevTools while hardening security (XSS/CSRF prevention)",
       "Led adoption of the Web Components API for a community forum with WordPress CMS integration, reducing development time by 25% and enabling UI reusability",
       "Partnered with product owner and PM to scope tickets and optimise Kanban boards, accelerating delivery timelines by 28%",
       "Developed a scalable e-commerce PWA and an admin dashboard for managing engagement and commercial activities across 100+ businesses",
