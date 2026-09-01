@@ -57,9 +57,9 @@ const ProjectCard = ({ project }: { project: Project }) => {
       href={project.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex flex-col h-full p-6 rounded-xl bg-card shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)] transition-all duration-300 cursor-pointer"
+      className="group flex flex-col h-[420px] p-6 rounded-xl bg-card shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)] transition-all duration-300 cursor-pointer overflow-hidden"
     >
-      <div className="flex items-start justify-between mb-3">
+      <div className="flex-none flex items-start justify-between mb-3">
         <div className="flex items-center gap-2 text-primary">
           <Globe className="h-4 w-4" />
           <span className="text-xs font-medium uppercase tracking-wider">Live Site</span>
@@ -67,15 +67,17 @@ const ProjectCard = ({ project }: { project: Project }) => {
         <ArrowUpRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors shrink-1" />
       </div>
 
-      <h3 className="text-lg font-semibold text-card-foreground mb-1 group-hover:text-primary transition-colors">
+      <h3 className="flex-none text-lg font-semibold text-card-foreground mb-1 group-hover:text-primary transition-colors">
         {project.title}
       </h3>
 
-      <p className="text-xs text-primary font-medium mb-3">{project.role}</p>
+      <p className="flex-none text-xs text-primary font-medium mb-3">{project.role}</p>
 
-      <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
+      <div className="flex-1 min-h-0 overflow-y-auto pr-1 mb-4">
+        <p className="text-sm text-muted-foreground leading-relaxed">{project.description}</p>
+      </div>
 
-      <div className="flex flex-wrap gap-1.5 pt-4 mt-auto border-t border-border">
+      <div className="flex-none flex flex-wrap gap-1.5 pt-4 mt-auto border-t border-border">
         {project.tags.map((tag) => (
           <span key={tag} className="text-xs px-2 py-0.5 rounded bg-secondary/60 text-secondary-foreground">
             {tag}
