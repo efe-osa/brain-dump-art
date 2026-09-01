@@ -22,7 +22,7 @@ const projects: Project[] = [
     title: "Everyfarmer - Service Provider",
     role: "Front-End Engineer",
     description:
-      "Led front-end delivery of web platform, fostering easier management for products and services (inputs, implements, extension, storage, transport, logistics, and processing) offered to farmers. Built an interactive geospatial mapping tool with Google Maps that automated farm mapping assessment conducted by agents from 100,000+ service providers.",
+      "A platform fostering easier management across the farming value chain, for products and services (inputs, implements, extension, storage, transport, logistics, and processing) offered to farmers. Led front-end delivery and built an interactive geospatial mapping tool with Google Maps that automated farm mapping assessment conducted by agents from 100,000+ service providers.",
     url: "https://everyfarmer.farm/",
     tags: [
       "Geospatial Mapping",
