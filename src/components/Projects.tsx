@@ -14,7 +14,7 @@ const projects: Project[] = [
     title: "Ringtail Interactive - Lemur Cloud Portal",
     role: "Software Engineer",
     description:
-      "A scalable cloud-hosted SaaS portal built with .NET and Blazor, providing provisioning, customer journey workflows, and secure secrets management. Includes a Deployment module that lets games developers connect their codebases for automated build, deploy, and redeploy across relay and automatic environments, with promotion to manual environments unlocking wider configuration scope.",
+      "A scalable cloud-hosted SaaS portal built with .NET and Blazor, providing provisioning, customer journey workflows, and secure secrets management. Includes a Deployment module that lets game developers connect their codebases for automated build, deploy, and redeploy across relay and automatic environments, with promotion to manual environments unlocking wider configuration scope.",
     url: "https://www.br.ink/lemur",
     tags: ["C#", ".NET", "Blazor", "Fluxor", "Azure", "Salesforce API"],
   },
