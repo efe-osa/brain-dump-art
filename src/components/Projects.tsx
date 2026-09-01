@@ -35,19 +35,19 @@ const projects: Project[] = [
     ],
   },
   {
-    title: "Read it",
-    role: "Full Stack Developer",
-    description: "A Reddit blog",
-    url: "https://fervent-bhabha-e5febb.netlify.app//",
-    tags: ["JavaScript", "Reddit API", "Responsive web design", "Netlify", "CI/CD"],
-  },
-  {
     title: "Studio 14 - Equal Measures 2030",
     role: "Full Stack Developer",
     description:
       "A data-driven advocacy platform visualising gender equality metrics across the Sustainable Development Goals for global policymakers and campaigners.",
     url: "https://equalmeasures2030.org/",
     tags: ["JavaScript", "Web Components", "WordPress", "Accessibility", "CI/CD"],
+  },
+  {
+    title: "Read it",
+    role: "Full Stack Developer",
+    description: "A Reddit blog",
+    url: "https://fervent-bhabha-e5febb.netlify.app//",
+    tags: ["JavaScript", "Reddit API", "Responsive web design", "Netlify", "CI/CD"],
   },
 ];
 
