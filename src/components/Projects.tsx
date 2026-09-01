@@ -67,12 +67,13 @@ const ProjectCard = ({ project }: { project: Project }) => {
         <ArrowUpRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors shrink-1" />
       </div>
 
-      <div className="flex items-baseline gap-2 mb-3">
-        <h3 className="text-lg font-semibold text-card-foreground group-hover:text-primary transition-colors">
-          {project.title}
-        </h3>
-        <span className="text-xs text-primary font-medium">{project.role}</span>
-      </div>
+      <h3 className="text-lg font-semibold text-card-foreground mb-2 group-hover:text-primary transition-colors">
+        {project.title}
+      </h3>
+
+      <span className="inline-flex text-xs font-medium px-2.5 py-1 rounded-full bg-primary/10 text-primary mb-4">
+        {project.role}
+      </span>
 
       <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
 
