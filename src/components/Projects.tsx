@@ -10,8 +10,8 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Lemur Cloud Portal",
-    role: "Software Engineer — Ringtail Interactive / Brink",
+    title: " Ringtail Interactive - Lemur Cloud Portal",
+    role: "Software Engineer",
     description:
       "A scalable cloud-hosted SaaS portal built with .NET and Blazor, providing provisioning, customer journey workflows, and secure secrets management. Includes a Deployment module that lets game developers connect their codebases for automated build, deploy, and redeploy across relay and automatic environments, with promotion to manual environments unlocking wider configuration scope.",
     url: "https://www.br.ink/lemur",
@@ -24,7 +24,6 @@ const projects: Project[] = [
       "Led front-end work on the agribusiness side of EveryFarmer's value chain enabling providers to manage products and services (inputs, implements, extension, storage, transport, logistics, and processing) offered to farmers. Built an interactive geospatial mapping tool with Google Maps that automated farm mapping assessment conducted by agents across 100,000+ service providers.",
     url: "https://everyfarmer.farm/",
     tags: [
-      
       "Geospatial Mapping",
       "Product & Service Management",
       "JavaScript",
@@ -35,8 +34,8 @@ const projects: Project[] = [
     ],
   },
   {
-    title: "Equal Measures 2030",
-    role: "Full Stack Developer — Studio 14",
+    title: "Studio 14 - Equal Measures 2030",
+    role: "Full Stack Developer",
     description:
       "A data-driven advocacy platform visualising gender equality metrics across the Sustainable Development Goals for global policymakers and campaigners.",
     url: "https://equalmeasures2030.org/",
