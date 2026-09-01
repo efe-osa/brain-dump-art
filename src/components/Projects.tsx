@@ -106,10 +106,12 @@ const Projects = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <div className="flex items-center justify-center gap-4 mt-8">
-            <CarouselPrevious className="static translate-y-0" />
-            <CarouselNext className="static translate-y-0" />
-          </div>
+          <CarouselPrevious
+            className="absolute left-0 top-1/2 -translate-y-1/2 h-11 w-11 bg-card text-card-foreground border-2 border-border hover:bg-primary hover:text-primary-foreground hover:border-primary shadow-[var(--shadow-medium)] z-10 -translate-x-1/2 md:-translate-x-0"
+          />
+          <CarouselNext
+            className="absolute right-0 top-1/2 -translate-y-1/2 h-11 w-11 bg-card text-card-foreground border-2 border-border hover:bg-primary hover:text-primary-foreground hover:border-primary shadow-[var(--shadow-medium)] z-10 translate-x-1/2 md:translate-x-0"
+          />
         </Carousel>
       </div>
     </section>
