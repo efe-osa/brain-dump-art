@@ -1,11 +1,5 @@
 import { ArrowUpRight, Globe } from "lucide-react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 interface Project {
   title: string;
@@ -39,6 +33,13 @@ const projects: Project[] = [
       "Google Maps API",
       "CI/CD",
     ],
+  },
+  {
+    title: "Read it",
+    role: "Full Stack Developer",
+    description: "A Reddit blog",
+    url: "https://fervent-bhabha-e5febb.netlify.app//",
+    tags: ["JavaScript", "Reddit API", "Responsive web design", "Netlify", "CI/CD"],
   },
   {
     title: "Studio 14 - Equal Measures 2030",
@@ -101,17 +102,13 @@ const Projects = () => {
         >
           <CarouselContent className="-ml-4">
             {projects.map((project, index) => (
-              <CarouselItem key={index} className="pl-4 basis-full md:basis-1/2">
+              <CarouselItem key={index} className="pl-4 basis-full md:basis-1/2 lg:basis-1/3">
                 <ProjectCard project={project} />
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious
-            className="absolute left-0 top-1/2 -translate-y-1/2 h-12 w-12 bg-primary text-primary-foreground border-2 border-primary hover:bg-primary/90 hover:border-primary shadow-[var(--shadow-medium)] z-10 -translate-x-1/3 md:-translate-x-0 [&_svg]:h-6 [&_svg]:w-6"
-          />
-          <CarouselNext
-            className="absolute right-0 top-1/2 -translate-y-1/2 h-12 w-12 bg-primary text-primary-foreground border-2 border-primary hover:bg-primary/90 hover:border-primary shadow-[var(--shadow-medium)] z-10 translate-x-1/3 md:translate-x-0 [&_svg]:h-6 [&_svg]:w-6"
-          />
+          <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 h-11 w-11 bg-card text-card-foreground border-2 border-border hover:bg-primary hover:text-primary-foreground hover:border-primary shadow-[var(--shadow-medium)] z-10 -translate-x-1/2 md:-translate-x-0" />
+          <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 h-11 w-11 bg-card text-card-foreground border-2 border-border hover:bg-primary hover:text-primary-foreground hover:border-primary shadow-[var(--shadow-medium)] z-10 translate-x-1/2 md:translate-x-0" />
         </Carousel>
       </div>
     </section>
