@@ -65,21 +65,14 @@ const About = () => {
                   {group.label}
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {group.items.map((skill, i) => {
-                    const isBubble = group.label !== "Core Competencies" && group.label !== "Tools & Platforms";
-                    return (
-                      <span
-                        key={skill}
-                        className={`px-3 py-1.5 text-xs rounded-full bg-secondary text-secondary-foreground font-medium ${isBubble ? "animate-bubble shadow-[var(--shadow-soft)]" : ""}`}
-                        style={isBubble ? {
-                          animationDelay: `${i * 0.35}s`,
-                          animationDuration: `${3.5 + (i % 3) * 0.6}s`,
-                        } : undefined}
-                      >
-                        {skill}
-                      </span>
-                    );
-                  })}
+                  {group.items.map((skill) => (
+                    <span
+                      key={skill}
+                      className="px-3 py-1.5 text-xs rounded-full bg-secondary text-secondary-foreground font-medium"
+                    >
+                      {skill}
+                    </span>
+                  ))}
                 </div>
               </div>
             ))}
