@@ -71,7 +71,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
         {project.title}
       </h3>
 
-      <span className="inline-flex text-xs font-medium px-2.5 py-1 rounded-full bg-primary/10 text-primary mb-4">
+      <span className="inline-flex self-start text-xs font-medium px-2.5 py-1 rounded-full bg-primary/10 text-primary mb-4">
         {project.role}
       </span>
 
