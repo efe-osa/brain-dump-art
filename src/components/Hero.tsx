@@ -55,7 +55,7 @@ const Hero = () => {
               tends to live where complexity meets interface
             </p>
             <p>
-              Domain-agnostic by design: I learn the business, then build for it. I build production-grade web
+              Domain-agnostic by design: I learn the business, then build for it. Delivering production-grade web
               applications and SaaS products, across front-end and full-stack.
             </p>
           </div>
