@@ -55,7 +55,7 @@ const Hero = () => {
               tends to live where complexity meets interface
             </p>
             <p>
-              I build production-grade web applications and SaaS products with TypeScript, React, Next.js, Node.js and
+              I build production-grade web applications and SaaS products with TypeScript, React, Next.js, Node.js, and
               ASP.NET Core. Domain-agnostic by design: I learn the business, then build for it.
             </p>
           </div>
