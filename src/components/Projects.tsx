@@ -1,4 +1,11 @@
 import { ArrowUpRight, Globe } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 interface Project {
   title: string;
@@ -10,12 +17,12 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: " Ringtail Interactive - Lemur Cloud Portal",
+    title: "Ringtail Interactive - Lemur Cloud Portal",
     role: "Software Engineer",
     description:
-      "A scalable cloud-hosted SaaS portal built with .NET and Blazor, providing provisioning, customer journey workflows, and secure secrets management. Includes a Deployment module that lets game developers connect their codebases for automated build, deploy, and redeploy across relay and automatic environments, with promotion to manual environments unlocking wider configuration scope.",
+      "A scalable cloud-hosted SaaS portal built with .NET and Blazor, providing provisioning, customer journey workflows, and secure secrets management. Includes a Deployment module that lets games developers connect their codebases for automated build, deploy, and redeploy across relay and automatic environments, with promotion to manual environments unlocking wider configuration scope.",
     url: "https://www.br.ink/lemur",
-    tags: ["C#", ".NET", "Blazor", "Fluxor", "Azure", "Salesforce API", "Deployment"],
+    tags: ["C#", ".NET", "Blazor", "Fluxor", "Azure", "Salesforce API"],
   },
   {
     title: "Everyfarmer - Service Provider",
@@ -85,11 +92,25 @@ const Projects = () => {
         <p className="text-sm font-medium text-primary mb-2 tracking-widest uppercase">Projects</p>
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 tracking-tight">Selected work</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <ProjectCard key={index} project={project} />
-          ))}
-        </div>
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full"
+        >
+          <CarouselContent className="-ml-4">
+            {projects.map((project, index) => (
+              <CarouselItem key={index} className="pl-4 basis-full md:basis-1/2 lg:basis-1/3">
+                <ProjectCard project={project} />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <div className="flex items-center justify-center gap-4 mt-8">
+            <CarouselPrevious className="static translate-y-0" />
+            <CarouselNext className="static translate-y-0" />
+          </div>
+        </Carousel>
       </div>
     </section>
   );
