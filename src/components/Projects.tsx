@@ -101,16 +101,16 @@ const Projects = () => {
         >
           <CarouselContent className="-ml-4">
             {projects.map((project, index) => (
-              <CarouselItem key={index} className="pl-4 basis-full md:basis-1/2 lg:basis-1/3">
+              <CarouselItem key={index} className="pl-4 basis-full md:basis-1/2">
                 <ProjectCard project={project} />
               </CarouselItem>
             ))}
           </CarouselContent>
           <CarouselPrevious
-            className="absolute left-0 top-1/2 -translate-y-1/2 h-11 w-11 bg-card text-card-foreground border-2 border-border hover:bg-primary hover:text-primary-foreground hover:border-primary shadow-[var(--shadow-medium)] z-10 -translate-x-1/2 md:-translate-x-0"
+            className="absolute left-0 top-1/2 -translate-y-1/2 h-12 w-12 bg-primary text-primary-foreground border-2 border-primary hover:bg-primary/90 hover:border-primary shadow-[var(--shadow-medium)] z-10 -translate-x-1/3 md:-translate-x-0 [&_svg]:h-6 [&_svg]:w-6"
           />
           <CarouselNext
-            className="absolute right-0 top-1/2 -translate-y-1/2 h-11 w-11 bg-card text-card-foreground border-2 border-border hover:bg-primary hover:text-primary-foreground hover:border-primary shadow-[var(--shadow-medium)] z-10 translate-x-1/2 md:translate-x-0"
+            className="absolute right-0 top-1/2 -translate-y-1/2 h-12 w-12 bg-primary text-primary-foreground border-2 border-primary hover:bg-primary/90 hover:border-primary shadow-[var(--shadow-medium)] z-10 translate-x-1/3 md:translate-x-0 [&_svg]:h-6 [&_svg]:w-6"
           />
         </Carousel>
       </div>
