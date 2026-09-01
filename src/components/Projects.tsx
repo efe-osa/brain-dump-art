@@ -14,7 +14,7 @@ const projects: Project[] = [
     title: "Ringtail Interactive - Lemur Cloud Portal",
     role: "Software Engineer",
     description:
-      "A scalable cloud-hosted SaaS portal built with .NET and Blazor, providing SDK provisioning, customer journey workflows, and secure secrets management. Includes a Deployment module designed to enable game developers to manage deployment operations (automate builds, deploys, and redeploys) across different environments, with promotion to manual environments unlocking wider configuration scope.",
+      "A scalable cloud-hosted SaaS portal built with .NET and Blazor, providing SDK provisioning, customer journey workflows, and secure secrets management. Includes a Deployment module designed to facilitate deployment operations (automate builds, deploys, and redeploys) across different environments, with promotion to manual environments unlocking wider configuration scope.",
     url: "https://www.br.ink/lemur",
     tags: ["C#", ".NET", "Blazor", "Fluxor", "Azure", "Salesforce API"],
   },
@@ -22,7 +22,7 @@ const projects: Project[] = [
     title: "Everyfarmer - Service Provider",
     role: "Front-End Engineer",
     description:
-      "Led front-end work on the agribusiness side of EveryFarmer's value chain enabling providers to manage products and services (inputs, implements, extension, storage, transport, logistics, and processing) offered to farmers. Built an interactive geospatial mapping tool with Google Maps that automated farm mapping assessment conducted by agents across 100,000+ service providers.",
+      "Led front-end delivery of web platform, fostering easier management for products and services (inputs, implements, extension, storage, transport, logistics, and processing) offered to farmers. Built an interactive geospatial mapping tool with Google Maps that automated farm mapping assessment conducted by agents from 100,000+ service providers.",
     url: "https://everyfarmer.farm/",
     tags: [
       "Geospatial Mapping",
