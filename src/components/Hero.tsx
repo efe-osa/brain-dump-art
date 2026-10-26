@@ -30,8 +30,8 @@ const Hero = () => {
       <div aria-hidden="true" className="absolute top-20 right-10 w-72 h-72 rounded-full bg-primary/10 blur-3xl" />
       <div aria-hidden="true" className="absolute bottom-20 left-10 w-96 h-96 rounded-full bg-secondary/40 blur-3xl" />
 
-      <div className="container mx-auto px-6 py-32 relative z-10">
-        <div className="max-w-3xl">
+      <div className="container mx-auto px-6 py-32 relative z-10 flex flex-col lg:flex-row lg:items-center gap-16">
+        <div className="max-w-3xl flex-1">
           <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 leading-[1.1] tracking-tight">
             Hi, I'm{" "}
             <span className="text-primary">
@@ -115,6 +115,8 @@ const Hero = () => {
             </a>
           </div>
         </div>
+
+        <CodeCard />
       </div>
 
       <button
