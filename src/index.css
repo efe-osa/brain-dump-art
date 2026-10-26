@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap");
 
 @layer base {
   :root {
@@ -17,6 +17,7 @@
 
     --primary: 248 64% 70%;
     --primary-foreground: 250 20% 12%;
+    --primary-strong: 248 45% 48%;
 
     --secondary: 44 100% 90%;
     --secondary-foreground: 250 20% 12%;
@@ -62,6 +63,7 @@
 
     --primary: 248 64% 70%;
     --primary-foreground: 250 20% 12%;
+    --primary-strong: 248 75% 80%;
 
     --secondary: 44 40% 20%;
     --secondary-foreground: 45 30% 95%;
@@ -133,6 +135,7 @@
     --popover-foreground: 0 0% 0%;
     --primary: 250 100% 30%;
     --primary-foreground: 0 0% 100%;
+    --primary-strong: 250 100% 30%;
     --secondary: 0 0% 95%;
     --secondary-foreground: 0 0% 0%;
     --muted: 0 0% 92%;
@@ -153,6 +156,7 @@
     --popover-foreground: 0 0% 100%;
     --primary: 55 100% 65%;
     --primary-foreground: 0 0% 0%;
+    --primary-strong: 55 100% 65%;
     --secondary: 0 0% 10%;
     --secondary-foreground: 0 0% 100%;
     --muted: 0 0% 12%;
@@ -217,5 +221,77 @@
   .animate-bubble {
     animation: bubble-float 4s ease-in-out infinite;
     will-change: transform;
+  }
+}
+
+@layer components {
+  .skill-pill {
+    @apply inline-flex items-center px-3 py-1.5 text-xs rounded-full font-medium border transition-all duration-200;
+  }
+
+  .skill-pill:hover {
+    @apply -translate-y-0.5 shadow-[var(--shadow-medium)];
+  }
+
+  .skill-pill--lang {
+    @apply bg-primary/10 text-foreground border-primary/45;
+  }
+
+  .skill-pill--web {
+    @apply bg-secondary text-secondary-foreground border-secondary-foreground/15;
+  }
+
+  .skill-pill--tool {
+    @apply bg-card text-foreground border-border;
+  }
+
+  /* Dark mode: lift each tier so the three groups stay distinguishable */
+  .dark .skill-pill--lang {
+    background-color: hsl(var(--primary) / 0.32);
+    border-color: hsl(var(--primary) / 0.65);
+  }
+
+  .dark .skill-pill--tool {
+    background-color: hsl(var(--muted));
+    border-color: hsl(var(--muted-foreground) / 0.4);
+  }
+
+  /* High contrast: uniform 2px outline, lavender group tinted with the accent */
+  .high-contrast .skill-pill {
+    border-width: 2px;
+    border-color: hsl(var(--foreground));
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+
+  .high-contrast .skill-pill--lang {
+    background-color: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+  }
+
+  /* Invert the middle tier so all three groups read differently */
+  .high-contrast .skill-pill--web {
+    background-color: hsl(var(--foreground));
+    color: hsl(var(--background));
+  }
+
+  .high-contrast .skill-pill:hover {
+    background-color: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+  }
+}
+
+@layer utilities {
+  /* Proportional reading face for long-form copy; mono stays for labels and pills */
+  .font-read {
+    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-pill,
+  .skill-pill:hover {
+    transition: none;
+    transform: none;
   }
 }
