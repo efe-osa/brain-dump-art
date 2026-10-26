@@ -1,5 +1,4 @@
-import { Github, Linkedin, Mail } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Github, Linkedin } from "lucide-react";
 
 const Contact = () => {
   return (
@@ -16,22 +15,13 @@ const Contact = () => {
             </p>
           </div>
 
-          <div className="mb-10 space-y-4">
-            <a href="mailto:eosawaruoyelade@gmail.com" className="inline-block">
-              <Button className="rounded-full px-8">
-                <Mail className="h-4 w-4" />
-                Send Message
-              </Button>
+          <div className="mb-10">
+            <a
+              href="mailto:eosawaruoyelade@gmail.com"
+              className="text-lg md:text-xl font-medium text-primary-strong underline underline-offset-8 hover:opacity-80 transition-opacity break-all"
+            >
+              eosawaruoyelade@gmail.com
             </a>
-            <p className="text-sm text-muted-foreground">
-              or write to me directly:{" "}
-              <a
-                href="mailto:eosawaruoyelade@gmail.com"
-                className="text-primary-strong font-medium hover:underline underline-offset-4"
-              >
-                eosawaruoyelade@gmail.com
-              </a>
-            </p>
           </div>
 
           <div className="flex items-center justify-center gap-6">
