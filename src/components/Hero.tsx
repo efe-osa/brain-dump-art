@@ -38,9 +38,11 @@ const Hero = () => {
               <span className="sr-only">{fullName}</span>
               <span aria-hidden="true">
                 {displayed}
-                <span
-                  className={`inline-block w-[25px] h-[0.6em] bg-primary ml-1 align-middle ${done ? "animate-pulse" : ""}`}
-                />
+                {!done && (
+                  <span
+                    className="inline-block w-[25px] h-[0.6em] bg-primary ml-1 align-middle"
+                  />
+                )}
               </span>
             </span>
           </h1>
@@ -48,7 +50,7 @@ const Hero = () => {
             <p>
               <Link
                 to="/experience"
-                className="text-primary font-medium underline underline-offset-4 hover:opacity-80 transition-opacity"
+                className="text-primary-strong font-medium underline underline-offset-4 hover:opacity-80 transition-opacity"
               >
                 My work
               </Link>{" "}

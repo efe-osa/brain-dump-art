@@ -88,7 +88,7 @@ const Experience = () => {
   return (
     <section id="experience" className="py-24 bg-muted/30">
       <div className="container mx-auto px-6">
-        <p className="text-sm font-medium text-primary mb-2 tracking-widest uppercase">Experience</p>
+        <p className="text-sm font-medium text-primary-strong mb-2 tracking-widest uppercase">Experience</p>
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 tracking-tight">Where I've worked</h2>
 
         <div className="space-y-0 relative">
@@ -102,7 +102,7 @@ const Experience = () => {
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
                   <div>
                     <h3 className="text-lg font-semibold text-card-foreground">{exp.company}</h3>
-                    <p className="text-primary font-medium text-sm">{exp.role}</p>
+                    <p className="text-primary-strong font-medium text-sm">{exp.role}</p>
                   </div>
                   <p className="text-sm text-muted-foreground mt-1 sm:mt-0">{exp.period}</p>
                 </div>
