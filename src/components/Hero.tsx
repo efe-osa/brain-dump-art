@@ -60,13 +60,6 @@ const Hero = () => {
             >
               View work
             </button>
-
-            <a
-              href="mailto:eosawaruoyelade@gmail.com"
-              className="px-6 py-3 rounded-full border border-primary text-primary font-medium hover:bg-primary hover:text-primary-foreground transition-colors"
-            >
-              Email me
-            </a>
           </div>
 
           <div className="flex items-center gap-5">
