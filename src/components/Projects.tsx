@@ -15,19 +15,19 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Ringtail Interactive - Lemur Cloud Portal",
+    title: "Lemur Cloud Portal",
     role: "Software Engineer",
     description:
-      "A scalable cloud-hosted SaaS portal built with .NET and Blazor, providing SDK provisioning, customer journey workflows, and secure secrets management. Includes a Deployment module designed to facilitate deployment operations (automate builds, deploys, and redeploys) across different environments, with promotion to manual environments unlocking wider configuration scope.",
+      "Built the Deployment module with C#, .NET and Blazor, enabling game developers to connect codebases and automate builds, deployments and redeployments across development environments.",
     url: "https://www.br.ink/lemur",
     image: lemurImg,
     tags: ["C#", ".NET", "Blazor", "Fluxor", "Azure", "Salesforce API"],
   },
   {
-    title: "Everyfarmer - Service Provider",
+    title: "Everyfarmer — Service Provider",
     role: "Front-End Engineer",
     description:
-      "A platform fostering easier management across the farming value chain, for products and services (inputs, implements, extension, storage, transport, logistics, and processing) offered to farmers. Led front-end delivery and built an interactive geospatial mapping tool with Google Maps that automated farm mapping assessment conducted by agents from 100,000+ service providers.",
+      "Led service-provider workflows with JavaScript, React and Redux. Built a Google Maps farm-mapping tool that automated assessments for 100,000+ service providers, reducing operating expenses by $10,000.",
     url: "https://everyfarmer.farm/",
     image: everyfarmerImg,
     tags: [
@@ -41,10 +41,10 @@ const projects: Project[] = [
     ],
   },
   {
-    title: "Studio 14 - Equal Measures 2030",
+    title: "Equal Measures 2030",
     role: "Full Stack Developer",
     description:
-      "A data-driven advocacy platform visualising gender equality metrics across the Sustainable Development Goals for global policymakers and campaigners.",
+      "Contributed to a JavaScript and WordPress advocacy platform using Web Components, making gender-equality metrics across the Sustainable Development Goals accessible to policymakers and campaigners.",
     url: "https://equalmeasures2030.org/",
     image: equalmeasuresImg,
     tags: ["JavaScript", "Web Components", "WordPress", "Accessibility", "CI/CD"],
@@ -52,24 +52,26 @@ const projects: Project[] = [
   {
     title: "Read it",
     role: "Full Stack Developer",
-    description: "A Reddit blog",
-    url: "https://fervent-bhabha-e5febb.netlify.app//",
+    description: "Built a responsive JavaScript blog using the Reddit API and deployed it on Netlify, bringing Reddit posts into a standalone reading experience.",
+    url: "https://fervent-bhabha-e5febb.netlify.app/",
     image: readitImg,
     tags: ["JavaScript", "Reddit API", "Responsive web design", "Netlify", "CI/CD"],
   },
 ];
 
 const ProjectCard = ({ project }: { project: Project }) => {
+  const titleId = `project-${project.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
   return (
     <a
       href={project.url}
       target="_blank"
       rel="noopener noreferrer"
+      aria-labelledby={titleId}
       className="group flex flex-col h-full p-6 rounded-xl bg-card shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)] transition-all duration-300 cursor-pointer"
     >
       <img
         src={project.image}
-        alt={`${project.title} preview`}
+        alt=""
         loading="lazy"
         width={1280}
         height={800}
@@ -78,14 +80,15 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
       <div className="flex items-start justify-between mb-3">
         <div className="flex items-center gap-2 text-primary-strong">
-          <Globe className="h-4 w-4" />
+          <Globe className="h-4 w-4" aria-hidden="true" />
           <span className="text-xs font-medium uppercase tracking-wider">Live Site</span>
         </div>
-        <ArrowUpRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors shrink-1" />
+        <ArrowUpRight aria-hidden="true" className="h-4 w-4 text-muted-foreground group-hover:text-primary-strong transition-colors shrink-0" />
       </div>
 
-      <h3 className="text-lg font-semibold text-card-foreground mb-2 group-hover:text-primary transition-colors">
+      <h3 id={titleId} className="text-lg font-semibold text-card-foreground mb-2 group-hover:text-primary-strong transition-colors">
         {project.title}
+        <span className="sr-only"> (opens in a new tab)</span>
       </h3>
 
       <span className="inline-flex self-start text-xs font-medium px-2.5 py-1 rounded-full bg-primary/10 text-primary-strong mb-4">
