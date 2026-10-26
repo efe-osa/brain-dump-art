@@ -46,45 +46,31 @@ const Hero = () => {
               </span>
             </span>
           </h1>
-          <div className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl leading-relaxed space-y-4">
-            <p>
-              <Link
-                to="/experience"
-                className="text-primary-strong font-medium underline underline-offset-4 hover:opacity-80 transition-opacity"
-              >
-                My work
-              </Link>{" "}
-              tends to live where complexity meets interface
-            </p>
-            <p>
-              Domain-agnostic by design: I learn the business, then build for it. Delivering production-grade web
-              applications and SaaS products, across front-end and full-stack.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap gap-x-6 gap-y-2 mb-10 text-sm text-muted-foreground">
-            {["7+ years shipping production software", "Open to new domains", "Stockholm, Sweden"].map((item) => (
-              <span key={item} className="flex items-center gap-2">
-                <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-primary" />
-                {item}
-              </span>
-            ))}
-          </div>
+          <p className="text-base md:text-lg text-muted-foreground mb-10 max-w-2xl leading-relaxed">
+            Product-minded engineer shipping accessible, production-grade web apps across front-end and
+            full-stack — domain-agnostic by design.{" "}
+            <Link
+              to="/experience"
+              className="text-primary-strong font-medium underline underline-offset-4 hover:opacity-80 transition-opacity"
+            >
+              See my experience
+            </Link>
+          </p>
 
           <div className="flex flex-wrap items-center gap-4 mb-12">
             <button
               onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
               className="px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity"
             >
-              See my work
+              View work
             </button>
 
-            <button
-              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+            <a
+              href="mailto:eosawaruoyelade@gmail.com"
               className="px-6 py-3 rounded-full border border-primary text-primary font-medium hover:bg-primary hover:text-primary-foreground transition-colors"
             >
-              Get in Touch
-            </button>
+              Email me
+            </a>
           </div>
 
           <div className="flex items-center gap-5">

@@ -1,45 +1,58 @@
 import { ArrowUpRight } from "lucide-react";
-import BlogCard from "./BlogCard";
 
 const posts = [
   {
     title: "The Journey to a Better You",
-    excerpt: "Reflections on personal growth, self-improvement, and the mindset shifts that help you become the best version of yourself.",
-    date: "Medium",
-    readTime: "5 min",
     category: "Personal Growth",
+    readTime: "5 min",
     url: "https://medium.com/@Efe-osa/the-journey-to-a-better-you-b316c259b404",
   },
   {
     title: "Making the Move to Web Development: A Programming Beginner's Guide",
-    excerpt: "A practical guide for beginners taking their first steps into web development—what to learn, where to start, and how to stay motivated.",
-    date: "Medium",
-    readTime: "7 min",
     category: "Web Development",
+    readTime: "7 min",
     url: "https://medium.com/@Efe-osa/making-the-move-to-web-development-programming-beginners-guide-50800e3a37a3",
   },
 ];
 
 const Blog = () => {
   return (
-    <section id="blog" className="py-24 bg-muted/30">
-      <div className="container mx-auto px-6">
+    <section id="blog" className="py-24">
+      <div className="container mx-auto px-6 max-w-3xl">
         <p className="text-sm font-medium text-primary-strong mb-2 tracking-widest uppercase">My Scribbles</p>
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 tracking-tight">
-          Latest writing
-        </h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-10 tracking-tight">Latest writing</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {posts.map((post, index) => (
-            <BlogCard key={index} {...post} />
+        <ul className="divide-y divide-border border-y border-border">
+          {posts.map((post) => (
+            <li key={post.title}>
+              <a
+                href={post.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between gap-4 py-5"
+              >
+                <div>
+                  <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors">
+                    {post.title}
+                  </h3>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    {post.category} · {post.readTime} read
+                  </p>
+                </div>
+                <ArrowUpRight
+                  className="h-4 w-4 shrink-0 text-muted-foreground group-hover:text-primary transition-colors"
+                  aria-hidden="true"
+                />
+              </a>
+            </li>
           ))}
-        </div>
+        </ul>
 
         <a
           href="https://medium.com/@Efe-osa"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 mt-10 text-sm font-medium text-primary-strong hover:underline underline-offset-4"
+          className="inline-flex items-center gap-1.5 mt-8 text-sm font-medium text-primary-strong hover:underline underline-offset-4"
         >
           Read more on Medium
           <ArrowUpRight className="h-4 w-4" aria-hidden="true" />

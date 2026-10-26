@@ -102,11 +102,6 @@ const About = () => {
                 to building responsive, reusable, and WCAG-compliant component systems, optimising web
                 performance across multi-platform environments, and improving developer experience.
               </p>
-              <p>
-                An agile collaborator skilled at translating complex requirements into reliable,
-                performant, user-focused solutions that balance technical quality, accessibility,
-                and real business impact.
-              </p>
             </div>
 
             <div className="mt-10">
