@@ -10,7 +10,7 @@ const Contact = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 tracking-tight">
               Let's connect
             </h2>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="font-read text-lg text-muted-foreground leading-relaxed">
               I'm currently open to new opportunities. Drop me a note and I'll get back to you.
             </p>
           </div>

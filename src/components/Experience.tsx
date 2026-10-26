@@ -108,7 +108,7 @@ const Experience = () => {
                 </div>
                 <ul className="space-y-2 mb-4">
                   {exp.bullets.map((b, j) => (
-                    <li key={j} className="text-sm text-muted-foreground flex items-start gap-2">
+                    <li key={j} className="font-read text-base leading-relaxed text-muted-foreground flex items-start gap-2">
                       <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary/60 shrink-0" />
                       {b}
                     </li>
