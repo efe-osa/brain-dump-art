@@ -116,6 +116,10 @@
   }
 
   /* Accessible focus indicators for keyboard users */
+  section[id] {
+    scroll-margin-top: 6rem;
+  }
+
   *:focus {
     outline: none;
   }

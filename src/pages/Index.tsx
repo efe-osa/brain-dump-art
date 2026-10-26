@@ -11,7 +11,7 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <main>
+      <main id="main-content" tabIndex={-1} className="scroll-mt-24">
         <Hero />
         <Projects />
         <About />
