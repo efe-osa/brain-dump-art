@@ -1,4 +1,7 @@
-import { Check } from "lucide-react";
+import { Check, ChevronDown } from "lucide-react";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { useCountUp } from "@/hooks/use-count-up";
 
 type Stat = { value: number; suffix: string; label: string };
@@ -52,6 +55,19 @@ const competencies = [
   "CI/CD",
 ];
 
+const keySkills: { label: string; tone: Tone }[] = [
+  { label: "JavaScript", tone: "skill-pill--lang" },
+  { label: "TypeScript", tone: "skill-pill--lang" },
+  { label: "C#", tone: "skill-pill--lang" },
+  { label: "React", tone: "skill-pill--web" },
+  { label: "Next.js", tone: "skill-pill--web" },
+  { label: "Blazor", tone: "skill-pill--web" },
+  { label: "Node.js", tone: "skill-pill--tool" },
+  { label: ".NET", tone: "skill-pill--tool" },
+  { label: "AWS", tone: "skill-pill--tool" },
+  { label: "Azure", tone: "skill-pill--tool" },
+];
+
 const StatCard = ({ value, suffix, label }: Stat) => {
   const { ref, display } = useCountUp(value);
 
@@ -76,6 +92,7 @@ const StatCard = ({ value, suffix, label }: Stat) => {
 };
 
 const About = () => {
+  const [skillsOpen, setSkillsOpen] = useState(false);
   return (
     <section id="about" className="py-24">
       <div className="container mx-auto px-6">
@@ -121,6 +138,22 @@ const About = () => {
 
           <div className="space-y-7">
             <p className="text-sm font-medium text-primary-strong tracking-widest uppercase">Tech Stack</p>
+            <div>
+              <p className="text-xs font-semibold text-foreground/80 mb-3 uppercase tracking-wider">Key skills</p>
+              <ul className="flex flex-wrap gap-2" aria-label="Key skills">
+                {keySkills.map((skill) => (
+                  <li key={skill.label} className={`skill-pill ${skill.tone}`}>{skill.label}</li>
+                ))}
+              </ul>
+            </div>
+            <Collapsible open={skillsOpen} onOpenChange={setSkillsOpen}>
+              <CollapsibleTrigger asChild>
+                <Button variant="outline" className="min-h-11 mb-6">
+                  {skillsOpen ? "Hide full skills list" : "Show all skills"}
+                  <ChevronDown aria-hidden="true" className={skillsOpen ? "rotate-180" : ""} />
+                </Button>
+              </CollapsibleTrigger>
+              <CollapsibleContent className="space-y-7">
             {skillGroups.map((group) => (
               <div key={group.label}>
                 <p className="text-xs font-semibold text-foreground/80 mb-3 uppercase tracking-wider">
@@ -144,6 +177,8 @@ const About = () => {
                 </div>
               </div>
             ))}
+              </CollapsibleContent>
+            </Collapsible>
           </div>
         </div>
       </div>

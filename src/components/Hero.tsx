@@ -1,6 +1,7 @@
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   const fullName = "Efe Jessye";
@@ -8,13 +9,20 @@ const Hero = () => {
   const [done, setDone] = useState(false);
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let interval: ReturnType<typeof setInterval> | undefined;
+    const finish = () => {
+      clearInterval(interval);
       setDisplayed(fullName);
       setDone(true);
-      return;
-    }
+    };
+    const onPreferenceChange = () => {
+      if (preference.matches) finish();
+    };
+    preference.addEventListener("change", onPreferenceChange);
     let i = 0;
-    const interval = setInterval(() => {
+    if (preference.matches) finish();
+    else interval = setInterval(() => {
       i++;
       setDisplayed(fullName.slice(0, i));
       if (i >= fullName.length) {
@@ -22,7 +30,10 @@ const Hero = () => {
         setDone(true);
       }
     }, 80);
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+      preference.removeEventListener("change", onPreferenceChange);
+    };
   }, []);
 
   return (
@@ -54,12 +65,9 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-wrap items-center gap-4 mb-12">
-            <button
-              onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
-              className="px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity"
-            >
-              View work
-            </button>
+            <Button asChild size="lg" className="rounded-full">
+              <Link to="/#projects">View work</Link>
+            </Button>
           </div>
 
           <div className="flex items-center gap-5">
@@ -94,13 +102,6 @@ const Hero = () => {
         <CodeCard />
       </div>
 
-      <button
-        onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground hover:text-primary transition-colors animate-bounce"
-        aria-label="Scroll down"
-      >
-        <ArrowDown className="h-5 w-5" />
-      </button>
     </section>
   );
 };

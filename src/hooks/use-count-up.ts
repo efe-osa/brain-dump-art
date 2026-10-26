@@ -13,15 +13,11 @@ export function useCountUp(target: number, duration = 1400) {
     const node = ref.current;
     if (!node) return;
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setDisplay(target);
-      return;
-    }
-
+    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
     let frame = 0;
     const observer = new IntersectionObserver(
       (entries) => {
-        if (!entries[0]?.isIntersecting || started.current) return;
+        if (!entries[0]?.isIntersecting || started.current || preference.matches) return;
         started.current = true;
 
         const start = performance.now();
@@ -37,11 +33,21 @@ export function useCountUp(target: number, duration = 1400) {
       { threshold: 0.35 },
     );
 
-    observer.observe(node);
+    const onPreferenceChange = () => {
+      if (!preference.matches) return;
+      observer.disconnect();
+      cancelAnimationFrame(frame);
+      started.current = true;
+      setDisplay(target);
+    };
+    preference.addEventListener("change", onPreferenceChange);
+    if (preference.matches) onPreferenceChange();
+    else observer.observe(node);
 
     return () => {
       observer.disconnect();
       cancelAnimationFrame(frame);
+      preference.removeEventListener("change", onPreferenceChange);
     };
   }, [target, duration]);
 
