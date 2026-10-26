@@ -7,7 +7,7 @@ const ExperiencePage = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <main className="pt-24">
+      <main id="main-content" tabIndex={-1} className="pt-24 scroll-mt-24">
         <Experience />
       </main>
       <Footer />
