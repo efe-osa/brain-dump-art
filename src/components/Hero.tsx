@@ -38,17 +38,13 @@ const Hero = () => {
               <span className="sr-only">{fullName}</span>
               <span aria-hidden="true">
                 {displayed}
-                {!done && (
-                  <span
-                    className="inline-block w-[25px] h-[0.6em] bg-primary ml-1 align-middle"
-                  />
-                )}
+                {!done && <span className="inline-block w-[25px] h-[0.6em] bg-primary ml-1 align-middle" />}
               </span>
             </span>
           </h1>
           <p className="text-base md:text-lg text-muted-foreground mb-10 max-w-2xl leading-relaxed">
-            Product-minded engineer shipping accessible, production-grade web apps across front-end and
-            full-stack — domain-agnostic by design.{" "}
+            Domain-agnostic by design: I learn the business, then build for it. Delivering production-grade web
+            applications and SaaS products, across front-end and full-stack.
             <Link
               to="/experience"
               className="text-primary-strong font-medium underline underline-offset-4 hover:opacity-80 transition-opacity"
@@ -129,11 +125,15 @@ const CodeCard = () => (
     </div>
     <pre className="px-5 py-5 text-[13px] leading-7 whitespace-pre text-foreground">
       <code>
-        <span className="text-primary-strong">const</span> efe = {"{"}{"\n"}
+        <span className="text-primary-strong">const</span> efe = {"{"}
+        {"\n"}
         {"  "}years: <span className="text-primary-strong">7</span>,{"\n"}
         {"  "}role: <span className="text-primary-strong">"Product-minded engineer"</span>,{"\n"}
-        {"  "}stack: [<span className="text-primary-strong">"TypeScript"</span>, <span className="text-primary-strong">"React"</span>, <span className="text-primary-strong">"C#/.NET"</span>],{"\n"}
-        {"  "}focus: [<span className="text-primary-strong">"Design systems"</span>, <span className="text-primary-strong">"Accessibility"</span>],{"\n"}
+        {"  "}stack: [<span className="text-primary-strong">"TypeScript"</span>,{" "}
+        <span className="text-primary-strong">"React"</span>, <span className="text-primary-strong">"C#/.NET"</span>],
+        {"\n"}
+        {"  "}focus: [<span className="text-primary-strong">"Design systems"</span>,{" "}
+        <span className="text-primary-strong">"Accessibility"</span>],{"\n"}
         {"  "}location: <span className="text-primary-strong">"Stockholm, Sweden"</span>,{"\n"}
         {"  "}status: <span className="text-primary-strong">"open to new domains"</span>,{"\n"}
         {"}"};
