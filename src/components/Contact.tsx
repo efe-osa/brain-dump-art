@@ -16,15 +16,23 @@ const Contact = () => {
             </p>
           </div>
 
-          <a
-            href="mailto:eosawaruoyelade@gmail.com"
-            className="inline-block mb-10"
-          >
-            <Button className="rounded-full px-8">
-              <Mail className="h-4 w-4" />
-              Send Message
-            </Button>
-          </a>
+          <div className="mb-10 space-y-4">
+            <a href="mailto:eosawaruoyelade@gmail.com" className="inline-block">
+              <Button className="rounded-full px-8">
+                <Mail className="h-4 w-4" />
+                Send Message
+              </Button>
+            </a>
+            <p className="text-sm text-muted-foreground">
+              or write to me directly:{" "}
+              <a
+                href="mailto:eosawaruoyelade@gmail.com"
+                className="text-primary-strong font-medium hover:underline underline-offset-4"
+              >
+                eosawaruoyelade@gmail.com
+              </a>
+            </p>
+          </div>
 
           <div className="flex items-center justify-center gap-6">
             {[

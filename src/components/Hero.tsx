@@ -30,8 +30,8 @@ const Hero = () => {
       <div aria-hidden="true" className="absolute top-20 right-10 w-72 h-72 rounded-full bg-primary/10 blur-3xl" />
       <div aria-hidden="true" className="absolute bottom-20 left-10 w-96 h-96 rounded-full bg-secondary/40 blur-3xl" />
 
-      <div className="container mx-auto px-6 py-32 relative z-10">
-        <div className="max-w-3xl">
+      <div className="container mx-auto px-6 py-32 relative z-10 flex flex-col lg:flex-row lg:items-center gap-16">
+        <div className="max-w-3xl flex-1">
           <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 leading-[1.1] tracking-tight">
             Hi, I'm{" "}
             <span className="text-primary">
@@ -115,6 +115,8 @@ const Hero = () => {
             </a>
           </div>
         </div>
+
+        <CodeCard />
       </div>
 
       <button
@@ -127,5 +129,31 @@ const Hero = () => {
     </section>
   );
 };
+
+const CodeCard = () => (
+  <div
+    aria-hidden="true"
+    className="hidden lg:block w-[420px] shrink-0 rounded-xl bg-card border border-border shadow-[var(--shadow-medium)] overflow-hidden"
+  >
+    <div className="flex items-center gap-1.5 px-4 py-3 border-b border-border">
+      <span className="w-3 h-3 rounded-full bg-muted-foreground/30" />
+      <span className="w-3 h-3 rounded-full bg-muted-foreground/30" />
+      <span className="w-3 h-3 rounded-full bg-muted-foreground/30" />
+      <span className="ml-3 text-xs text-muted-foreground">efe.config.ts</span>
+    </div>
+    <pre className="px-5 py-5 text-[13px] leading-7 whitespace-pre text-foreground">
+      <code>
+        <span className="text-primary-strong">const</span> efe = {"{"}{"\n"}
+        {"  "}years: <span className="text-primary-strong">7</span>,{"\n"}
+        {"  "}role: <span className="text-primary-strong">"Product-minded engineer"</span>,{"\n"}
+        {"  "}stack: [<span className="text-primary-strong">"TypeScript"</span>, <span className="text-primary-strong">"React"</span>, <span className="text-primary-strong">"C#/.NET"</span>],{"\n"}
+        {"  "}focus: [<span className="text-primary-strong">"Design systems"</span>, <span className="text-primary-strong">"Accessibility"</span>],{"\n"}
+        {"  "}location: <span className="text-primary-strong">"Stockholm, Sweden"</span>,{"\n"}
+        {"  "}status: <span className="text-primary-strong">"open to new domains"</span>,{"\n"}
+        {"}"};
+      </code>
+    </pre>
+  </div>
+);
 
 export default Hero;

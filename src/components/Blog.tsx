@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "lucide-react";
 import BlogCard from "./BlogCard";
 
 const posts = [
@@ -33,6 +34,16 @@ const Blog = () => {
             <BlogCard key={index} {...post} />
           ))}
         </div>
+
+        <a
+          href="https://medium.com/@Efe-osa"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 mt-10 text-sm font-medium text-primary-strong hover:underline underline-offset-4"
+        >
+          Read more on Medium
+          <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+        </a>
       </div>
     </section>
   );
