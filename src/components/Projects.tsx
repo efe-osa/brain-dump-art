@@ -18,7 +18,7 @@ const projects: Project[] = [
     title: "Lemur Cloud Portal",
     role: "Software Engineer",
     description:
-      "Built the customer portal designed to enable game developers to configure our flagship game engine and release multiplayer games faster (https://www.youtube.com/watch?v=5xECfeLYdPw). Led project configurations and deployment module development for codebase connection and automated code releases.
+      "Built the customer portal designed to enable game developers to configure our flagship game engine and release multiplayer games faster (https://www.youtube.com/watch?v=5xECfeLYdPw). Led project configurations and deployment module development for codebase connection and automated code releases.",
     url: "https://www.br.ink/lemur",
     image: lemurImg,
     tags: ["C#", ".NET", "Blazor", "Fluxor", "Azure", "Salesforce API"],
@@ -52,7 +52,8 @@ const projects: Project[] = [
   {
     title: "Read it",
     role: "Full Stack Developer",
-    description: "Built a responsive JavaScript blog using the Reddit API and deployed it on Netlify, bringing Reddit posts into a standalone reading experience.",
+    description:
+      "Built a responsive JavaScript blog using the Reddit API and deployed it on Netlify, bringing Reddit posts into a standalone reading experience.",
     url: "https://fervent-bhabha-e5febb.netlify.app/",
     image: readitImg,
     tags: ["JavaScript", "Reddit API", "Responsive web design", "Netlify", "CI/CD"],
@@ -83,10 +84,16 @@ const ProjectCard = ({ project }: { project: Project }) => {
           <Globe className="h-4 w-4" aria-hidden="true" />
           <span className="text-xs font-medium uppercase tracking-wider">Live Site</span>
         </div>
-        <ArrowUpRight aria-hidden="true" className="h-4 w-4 text-muted-foreground group-hover:text-primary-strong transition-colors shrink-0" />
+        <ArrowUpRight
+          aria-hidden="true"
+          className="h-4 w-4 text-muted-foreground group-hover:text-primary-strong transition-colors shrink-0"
+        />
       </div>
 
-      <h3 id={titleId} className="text-lg font-semibold text-card-foreground mb-2 group-hover:text-primary-strong transition-colors">
+      <h3
+        id={titleId}
+        className="text-lg font-semibold text-card-foreground mb-2 group-hover:text-primary-strong transition-colors"
+      >
         {project.title}
         <span className="sr-only"> (opens in a new tab)</span>
       </h3>
