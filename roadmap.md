@@ -1,6 +1,6 @@
 # Accessibility improvements
 
-- [ ] 1. Accessible navigation: named mobile toggle, real links, skip link; review before proceeding.
+- [x] 1. Accessible navigation: named mobile toggle, real links, skip link; verified in browser, awaiting review.
 - [ ] 2. Keyboard-friendly accessibility settings and stronger focus indicators.
 - [ ] 3. Comfortable 44×44px menu and social-link targets.
 - [ ] 4. Simplify the introduction and remove the duplicate bouncing arrow.
