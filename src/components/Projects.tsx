@@ -92,7 +92,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
         {project.role}
       </span>
 
-      <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
+      <p className="font-read text-base text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
 
       <div className="flex flex-wrap gap-1.5 pt-4 mt-auto border-t border-border">
         {project.tags.map((tag) => (

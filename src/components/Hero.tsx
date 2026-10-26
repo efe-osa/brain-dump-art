@@ -42,7 +42,7 @@ const Hero = () => {
               </span>
             </span>
           </h1>
-          <p className="text-base md:text-lg text-muted-foreground mb-10 max-w-2xl leading-relaxed">
+          <p className="font-read text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed">
             Domain-agnostic by design: I learn the business, then build for it. Delivering production-grade web
             applications and SaaS products, across front-end and full-stack.{" "}
             <Link

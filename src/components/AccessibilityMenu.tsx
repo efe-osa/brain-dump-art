@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Accessibility, Minus, Plus, Contrast, RotateCcw, Moon, Sun } from "lucide-react";
 
 type Size = "sm" | "base" | "lg" | "xl";
@@ -15,6 +15,32 @@ const AccessibilityMenu = () => {
   const [size, setSize] = useState<Size>("base");
   const [highContrast, setHighContrast] = useState(false);
   const [dark, setDark] = useState(false);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+
+  const close = (returnFocus = true) => {
+    setOpen(false);
+    if (returnFocus) triggerRef.current?.focus();
+  };
+
+  // Move focus into the panel on open; Escape and outside clicks close it
+  useEffect(() => {
+    if (!open) return;
+    panelRef.current?.querySelector<HTMLElement>("button:not([disabled])")?.focus();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") close();
+    };
+    const onPointer = (e: PointerEvent) => {
+      const t = e.target as Node;
+      if (!panelRef.current?.contains(t) && !triggerRef.current?.contains(t)) close(false);
+    };
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("pointerdown", onPointer);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("pointerdown", onPointer);
+    };
+  }, [open]);
 
   // Load persisted prefs
   useEffect(() => {
@@ -60,11 +86,13 @@ const AccessibilityMenu = () => {
     <>
       {open && (
         <div
+          ref={panelRef}
+          id="a11y-panel"
           role="dialog"
-          aria-label="Accessibility settings"
+          aria-labelledby="a11y-title"
           className="fixed bottom-[7.25rem] right-6 z-50 w-64 rounded-2xl border border-border bg-card p-4 shadow-lifted"
         >
-          <h2 className="text-sm font-semibold text-foreground mb-3">Accessibility</h2>
+          <h2 id="a11y-title" className="text-sm font-semibold text-foreground mb-3">Accessibility</h2>
 
           <div className="mb-4">
             <div className="flex items-center justify-between mb-2">
@@ -142,9 +170,11 @@ const AccessibilityMenu = () => {
       )}
 
       <button
-        onClick={() => setOpen((v) => !v)}
-        aria-label="Accessibility settings"
+        ref={triggerRef}
+        onClick={() => (open ? close() : setOpen(true))}
+        aria-label={open ? "Close accessibility settings" : "Open accessibility settings"}
         aria-expanded={open}
+        aria-controls="a11y-panel"
         className="fixed bottom-14 right-6 z-50 inline-flex items-center justify-center h-12 w-12 rounded-full bg-primary text-primary-foreground shadow-lifted hover:opacity-90 transition-opacity"
       >
         <Accessibility className="h-5 w-5" />
