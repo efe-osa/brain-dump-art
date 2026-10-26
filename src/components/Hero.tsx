@@ -45,7 +45,7 @@ const Hero = () => {
       <div className="container mx-auto px-6 py-32 relative z-10 flex flex-col lg:flex-row lg:items-center gap-16">
         <div className="max-w-3xl flex-1">
           <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 leading-[1.1] tracking-tight">
-            Hi, Welcome to{" "}
+            Hi, I'm{" "}
             <span className="text-primary">
               <span className="sr-only">{fullName}</span>
               <span aria-hidden="true">
@@ -53,7 +53,6 @@ const Hero = () => {
                 {!done && <span className="inline-block w-[25px] h-[0.6em] bg-primary ml-1 align-middle" />}
               </span>
             </span>
-            space
           </h1>
           <p className="font-read text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed">
             Domain-agnostic by design: I learn the business, then build for it. Delivering production-grade web
