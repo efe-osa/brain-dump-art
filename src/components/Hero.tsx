@@ -44,7 +44,7 @@ const Hero = () => {
           </h1>
           <p className="text-base md:text-lg text-muted-foreground mb-10 max-w-2xl leading-relaxed">
             Domain-agnostic by design: I learn the business, then build for it. Delivering production-grade web
-            applications and SaaS products, across front-end and full-stack.
+            applications and SaaS products, across front-end and full-stack.{" "}
             <Link
               to="/experience"
               className="text-primary-strong font-medium underline underline-offset-4 hover:opacity-80 transition-opacity"
