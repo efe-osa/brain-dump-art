@@ -234,7 +234,7 @@
   }
 
   .skill-pill--lang {
-    @apply bg-primary/10 text-primary border-primary/30;
+    @apply bg-primary/10 text-foreground border-primary/45;
   }
 
   .skill-pill--web {
@@ -243,6 +243,17 @@
 
   .skill-pill--tool {
     @apply bg-card text-foreground border-border;
+  }
+
+  /* Dark mode: lift each tier so the three groups stay distinguishable */
+  .dark .skill-pill--lang {
+    background-color: hsl(var(--primary) / 0.22);
+    border-color: hsl(var(--primary) / 0.5);
+  }
+
+  .dark .skill-pill--tool {
+    background-color: hsl(var(--muted));
+    border-color: hsl(var(--muted-foreground) / 0.4);
   }
 
   /* High contrast: uniform 2px outline, lavender group tinted with the accent */
@@ -256,6 +267,12 @@
   .high-contrast .skill-pill--lang {
     background-color: hsl(var(--accent));
     color: hsl(var(--accent-foreground));
+  }
+
+  /* Invert the middle tier so all three groups read differently */
+  .high-contrast .skill-pill--web {
+    background-color: hsl(var(--foreground));
+    color: hsl(var(--background));
   }
 
   .high-contrast .skill-pill:hover {

@@ -87,7 +87,7 @@ const About = () => {
 
         <div className="grid md:grid-cols-2 gap-16 items-start">
           <div>
-            <p className="text-sm font-medium text-primary mb-2 tracking-widest uppercase">About</p>
+            <p className="text-sm font-medium text-primary-strong mb-2 tracking-widest uppercase">About</p>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 tracking-tight">
               Product-minded engineer who ships with purpose
             </h2>
@@ -110,13 +110,13 @@ const About = () => {
             </div>
 
             <div className="mt-10">
-              <p className="text-sm font-medium text-primary mb-4 tracking-widest uppercase">
+              <p className="text-sm font-medium text-primary-strong mb-4 tracking-widest uppercase">
                 How I work
               </p>
               <ul className="grid gap-3 sm:grid-cols-2">
                 {competencies.map((item) => (
                   <li key={item} className="flex items-start gap-2.5 text-sm text-muted-foreground">
-                    <Check className="h-4 w-4 mt-0.5 shrink-0 text-primary" aria-hidden="true" />
+                    <Check className="h-4 w-4 mt-0.5 shrink-0 text-primary-strong" aria-hidden="true" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -125,7 +125,7 @@ const About = () => {
           </div>
 
           <div className="space-y-7">
-            <p className="text-sm font-medium text-primary tracking-widest uppercase">Tech Stack</p>
+            <p className="text-sm font-medium text-primary-strong tracking-widest uppercase">Tech Stack</p>
             {skillGroups.map((group) => (
               <div key={group.label}>
                 <p className="text-xs font-semibold text-foreground/80 mb-3 uppercase tracking-wider">
