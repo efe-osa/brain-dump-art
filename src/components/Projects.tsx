@@ -1,11 +1,16 @@
 import { ArrowUpRight, Globe } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import lemurImg from "@/assets/lemur.jpg";
+import everyfarmerImg from "@/assets/everyfarmer.jpg";
+import equalmeasuresImg from "@/assets/equalmeasures.jpg";
+import readitImg from "@/assets/readit.jpg";
 
 interface Project {
   title: string;
   role: string;
   description: string;
   url: string;
+  image: string;
   tags: string[];
 }
 

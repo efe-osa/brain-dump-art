@@ -130,4 +130,30 @@ const Hero = () => {
   );
 };
 
+const CodeCard = () => (
+  <div
+    aria-hidden="true"
+    className="hidden lg:block w-[420px] shrink-0 rounded-xl bg-card border border-border shadow-[var(--shadow-medium)] overflow-hidden"
+  >
+    <div className="flex items-center gap-1.5 px-4 py-3 border-b border-border">
+      <span className="w-3 h-3 rounded-full bg-muted-foreground/30" />
+      <span className="w-3 h-3 rounded-full bg-muted-foreground/30" />
+      <span className="w-3 h-3 rounded-full bg-muted-foreground/30" />
+      <span className="ml-3 text-xs text-muted-foreground">efe.config.ts</span>
+    </div>
+    <pre className="px-5 py-5 text-[13px] leading-7 whitespace-pre text-foreground">
+      <code>
+        <span className="text-primary-strong">const</span> efe = {"{"}{"\n"}
+        {"  "}years: <span className="text-primary-strong">7</span>,{"\n"}
+        {"  "}role: <span className="text-primary-strong">"Product-minded engineer"</span>,{"\n"}
+        {"  "}stack: [<span className="text-primary-strong">"TypeScript"</span>, <span className="text-primary-strong">"React"</span>, <span className="text-primary-strong">"C#/.NET"</span>],{"\n"}
+        {"  "}focus: [<span className="text-primary-strong">"Design systems"</span>, <span className="text-primary-strong">"Accessibility"</span>],{"\n"}
+        {"  "}location: <span className="text-primary-strong">"Stockholm, Sweden"</span>,{"\n"}
+        {"  "}status: <span className="text-primary-strong">"open to new domains"</span>,{"\n"}
+        {"}"};
+      </code>
+    </pre>
+  </div>
+);
+
 export default Hero;
