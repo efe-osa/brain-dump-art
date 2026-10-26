@@ -28,10 +28,33 @@ const skillGroups = [
   },
 ];
 
+const stats = [
+  { value: "7+", label: "Years shipping production software" },
+  { value: "250K+", label: "Users on platforms I've modernised" },
+  { value: "90%", label: "UI coverage with reusable components" },
+  { value: "80%", label: "Test coverage on recent projects" },
+];
+
 const About = () => {
   return (
     <section id="about" className="py-24">
       <div className="container mx-auto px-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+          {stats.map((stat) => (
+            <div
+              key={stat.label}
+              className="p-6 rounded-xl bg-card border border-border shadow-[var(--shadow-soft)] text-center md:text-left"
+            >
+              <p className="text-3xl md:text-4xl font-bold text-primary mb-2 tracking-tight">
+                {stat.value}
+              </p>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                {stat.label}
+              </p>
+            </div>
+          ))}
+        </div>
+
         <div className="grid md:grid-cols-2 gap-16 items-start">
           <div>
             <p className="text-sm font-medium text-primary mb-2 tracking-widest uppercase">About</p>
