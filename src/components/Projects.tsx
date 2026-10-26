@@ -1,5 +1,4 @@
 import { ArrowUpRight, Globe } from "lucide-react";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import lemurImg from "@/assets/lemur.jpg";
 import everyfarmerImg from "@/assets/everyfarmer.jpg";
 import equalmeasuresImg from "@/assets/equalmeasures.jpg";
@@ -113,23 +112,11 @@ const Projects = () => {
         <p className="text-sm font-medium text-primary-strong mb-2 tracking-widest uppercase">Projects</p>
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 tracking-tight">Selected work</h2>
 
-        <Carousel
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          className="w-full"
-        >
-          <CarouselContent className="-ml-4">
-            {projects.map((project, index) => (
-              <CarouselItem key={index} className="pl-4 basis-full md:basis-1/2 lg:basis-1/3">
-                <ProjectCard project={project} />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 h-11 w-11 bg-card text-card-foreground border-2 border-border hover:bg-primary hover:text-primary-foreground hover:border-primary shadow-[var(--shadow-medium)] z-10 -translate-x-1/2 md:-translate-x-0" />
-          <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 h-11 w-11 bg-card text-card-foreground border-2 border-border hover:bg-primary hover:text-primary-foreground hover:border-primary shadow-[var(--shadow-medium)] z-10 translate-x-1/2 md:translate-x-0" />
-        </Carousel>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {projects.map((project) => (
+            <ProjectCard key={project.title} project={project} />
+          ))}
+        </div>
       </div>
     </section>
   );
