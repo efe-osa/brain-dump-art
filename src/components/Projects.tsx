@@ -18,7 +18,7 @@ const projects: Project[] = [
     title: "Lemur Cloud Portal",
     role: "Software Engineer",
     description:
-      "Built the Deployment module with C#, .NET and Blazor, enabling game developers to connect codebases and automate builds, deployments and redeployments across development environments.",
+      "Built the customer portal designed to enable game developers to configure our flagship game engine and release multiplayer games faster (https://www.youtube.com/watch?v=5xECfeLYdPw). Led project configurations and deployment module development for codebase connection and automated code releases.
     url: "https://www.br.ink/lemur",
     image: lemurImg,
     tags: ["C#", ".NET", "Blazor", "Fluxor", "Azure", "Salesforce API"],
@@ -44,7 +44,7 @@ const projects: Project[] = [
     title: "Equal Measures 2030",
     role: "Full Stack Developer",
     description:
-      "Contributed to a JavaScript and WordPress advocacy platform using Web Components, making gender-equality metrics across the Sustainable Development Goals accessible to policymakers and campaigners.",
+      "Contributed to a JavaScript and WordPress advocacy website using Web Components, making gender-equality metrics across the Sustainable Development Goals accessible to policymakers and campaigners.",
     url: "https://equalmeasures2030.org/",
     image: equalmeasuresImg,
     tags: ["JavaScript", "Web Components", "WordPress", "Accessibility", "CI/CD"],
