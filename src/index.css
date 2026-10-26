@@ -219,3 +219,58 @@
     will-change: transform;
   }
 }
+
+@layer components {
+  .skill-pill {
+    @apply inline-flex items-center px-3 py-1.5 text-xs rounded-full font-medium border transition-all duration-200;
+  }
+
+  .skill-pill:hover {
+    @apply -translate-y-0.5 shadow-[var(--shadow-medium)];
+  }
+
+  .skill-pill--lang {
+    @apply bg-primary/10 text-primary border-primary/30;
+  }
+
+  .skill-pill--web {
+    @apply bg-secondary text-secondary-foreground border-secondary-foreground/15;
+  }
+
+  .skill-pill--tool {
+    @apply bg-card text-foreground border-border;
+  }
+
+  /* High contrast: uniform 2px outline, lavender group tinted with the accent */
+  .high-contrast .skill-pill {
+    border-width: 2px;
+    border-color: hsl(var(--foreground));
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+
+  .high-contrast .skill-pill--lang {
+    background-color: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+  }
+
+  .high-contrast .skill-pill:hover {
+    background-color: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+  }
+}
+
+@layer utilities {
+  /* Proportional reading face for long-form copy; mono stays for labels and pills */
+  .font-read {
+    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-pill,
+  .skill-pill:hover {
+    transition: none;
+    transform: none;
+  }
+}
