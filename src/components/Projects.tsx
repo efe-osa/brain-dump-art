@@ -21,6 +21,7 @@ const projects: Project[] = [
     description:
       "A scalable cloud-hosted SaaS portal built with .NET and Blazor, providing SDK provisioning, customer journey workflows, and secure secrets management. Includes a Deployment module designed to facilitate deployment operations (automate builds, deploys, and redeploys) across different environments, with promotion to manual environments unlocking wider configuration scope.",
     url: "https://www.br.ink/lemur",
+    image: lemurImg,
     tags: ["C#", ".NET", "Blazor", "Fluxor", "Azure", "Salesforce API"],
   },
   {
@@ -29,6 +30,7 @@ const projects: Project[] = [
     description:
       "A platform fostering easier management across the farming value chain, for products and services (inputs, implements, extension, storage, transport, logistics, and processing) offered to farmers. Led front-end delivery and built an interactive geospatial mapping tool with Google Maps that automated farm mapping assessment conducted by agents from 100,000+ service providers.",
     url: "https://everyfarmer.farm/",
+    image: everyfarmerImg,
     tags: [
       "Geospatial Mapping",
       "Product & Service Management",
@@ -45,6 +47,7 @@ const projects: Project[] = [
     description:
       "A data-driven advocacy platform visualising gender equality metrics across the Sustainable Development Goals for global policymakers and campaigners.",
     url: "https://equalmeasures2030.org/",
+    image: equalmeasuresImg,
     tags: ["JavaScript", "Web Components", "WordPress", "Accessibility", "CI/CD"],
   },
   {
@@ -52,6 +55,7 @@ const projects: Project[] = [
     role: "Full Stack Developer",
     description: "A Reddit blog",
     url: "https://fervent-bhabha-e5febb.netlify.app//",
+    image: readitImg,
     tags: ["JavaScript", "Reddit API", "Responsive web design", "Netlify", "CI/CD"],
   },
 ];
@@ -64,6 +68,15 @@ const ProjectCard = ({ project }: { project: Project }) => {
       rel="noopener noreferrer"
       className="group flex flex-col h-full p-6 rounded-xl bg-card shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)] transition-all duration-300 cursor-pointer"
     >
+      <img
+        src={project.image}
+        alt={`${project.title} preview`}
+        loading="lazy"
+        width={1280}
+        height={800}
+        className="w-full h-40 object-cover object-top rounded-lg border border-border mb-4"
+      />
+
       <div className="flex items-start justify-between mb-3">
         <div className="flex items-center gap-2 text-primary-strong">
           <Globe className="h-4 w-4" />
