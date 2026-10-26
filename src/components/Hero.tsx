@@ -38,9 +38,11 @@ const Hero = () => {
               <span className="sr-only">{fullName}</span>
               <span aria-hidden="true">
                 {displayed}
-                <span
-                  className={`inline-block w-[25px] h-[0.6em] bg-primary ml-1 align-middle ${done ? "animate-pulse" : ""}`}
-                />
+                {!done && (
+                  <span
+                    className="inline-block w-[25px] h-[0.6em] bg-primary ml-1 align-middle"
+                  />
+                )}
               </span>
             </span>
           </h1>
