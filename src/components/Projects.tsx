@@ -60,7 +60,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
       className="group flex flex-col h-full p-6 rounded-xl bg-card shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)] transition-all duration-300 cursor-pointer"
     >
       <div className="flex items-start justify-between mb-3">
-        <div className="flex items-center gap-2 text-primary">
+        <div className="flex items-center gap-2 text-primary-strong">
           <Globe className="h-4 w-4" />
           <span className="text-xs font-medium uppercase tracking-wider">Live Site</span>
         </div>
@@ -71,7 +71,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
         {project.title}
       </h3>
 
-      <span className="inline-flex self-start text-xs font-medium px-2.5 py-1 rounded-full bg-primary/10 text-primary mb-4">
+      <span className="inline-flex self-start text-xs font-medium px-2.5 py-1 rounded-full bg-primary/10 text-primary-strong mb-4">
         {project.role}
       </span>
 
@@ -92,7 +92,7 @@ const Projects = () => {
   return (
     <section id="projects" className="py-24">
       <div className="container mx-auto px-6">
-        <p className="text-sm font-medium text-primary mb-2 tracking-widest uppercase">Projects</p>
+        <p className="text-sm font-medium text-primary-strong mb-2 tracking-widest uppercase">Projects</p>
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 tracking-tight">Selected work</h2>
 
         <Carousel

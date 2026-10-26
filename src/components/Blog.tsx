@@ -23,7 +23,7 @@ const Blog = () => {
   return (
     <section id="blog" className="py-24 bg-muted/30">
       <div className="container mx-auto px-6">
-        <p className="text-sm font-medium text-primary mb-2 tracking-widest uppercase">My Scribbles</p>
+        <p className="text-sm font-medium text-primary-strong mb-2 tracking-widest uppercase">My Scribbles</p>
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 tracking-tight">
           Latest writing
         </h2>

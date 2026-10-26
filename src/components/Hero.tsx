@@ -48,7 +48,7 @@ const Hero = () => {
             <p>
               <Link
                 to="/experience"
-                className="text-primary font-medium underline underline-offset-4 hover:opacity-80 transition-opacity"
+                className="text-primary-strong font-medium underline underline-offset-4 hover:opacity-80 transition-opacity"
               >
                 My work
               </Link>{" "}
