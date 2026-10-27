@@ -82,6 +82,8 @@ const AccessibilityMenu = () => {
     setDark(false);
   };
 
+  const hasCustomSettings = size !== "base" || highContrast || dark;
+
   return (
     <>
       {open && (
@@ -172,12 +174,22 @@ const AccessibilityMenu = () => {
       <button
         ref={triggerRef}
         onClick={() => (open ? close() : setOpen(true))}
-        aria-label={open ? "Close accessibility settings" : "Open accessibility settings"}
+        aria-label={open
+          ? "Close accessibility settings"
+          : hasCustomSettings
+            ? "Open accessibility settings — custom settings active"
+            : "Open accessibility settings"}
         aria-expanded={open}
         aria-controls="a11y-panel"
-        className="fixed bottom-14 right-6 z-50 inline-flex items-center justify-center h-12 w-12 rounded-full bg-primary text-primary-foreground shadow-lifted hover:opacity-90 transition-opacity"
+        className="relative fixed bottom-14 right-6 z-50 inline-flex items-center justify-center h-12 w-12 rounded-full bg-primary text-primary-foreground shadow-lifted hover:opacity-90 transition-opacity"
       >
-        <Accessibility className="h-5 w-5" />
+        <Accessibility className="h-5 w-5" aria-hidden="true" />
+        {hasCustomSettings && (
+          <span
+            aria-hidden="true"
+            className="absolute top-1 right-1 h-3 w-3 rounded-full border-2 border-primary bg-primary-foreground"
+          />
+        )}
       </button>
     </>
   );
