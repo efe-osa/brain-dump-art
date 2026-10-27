@@ -258,7 +258,7 @@
   /* Narrower shell for text-first sections: experience, writing, contact.
      Caps the measure at roughly 60-66 characters whatever the screen width. */
   .page-shell--read {
-    max-width: 46rem;
+    max-width: 48rem;
   }
 
   .skill-pill {
