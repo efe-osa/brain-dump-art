@@ -118,7 +118,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
 const Projects = () => {
   return (
     <section id="projects" className="py-24">
-      <div className="container mx-auto px-6">
+      <div className="page-shell">
         <p className="text-sm font-medium text-primary-strong mb-2 tracking-widest uppercase">Projects</p>
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 tracking-tight">Selected work</h2>
 

@@ -246,6 +246,21 @@
 }
 
 @layer components {
+  /* Wide, viewport-scaled gutters keep content centred and the reading line
+     short instead of stretching from edge to edge on large screens. */
+  .page-shell {
+    margin-inline: auto;
+    width: 100%;
+    max-width: 78rem;
+    padding-inline: clamp(1.5rem, 7vw, 7rem);
+  }
+
+  /* Narrower shell for text-first sections: experience, writing, contact.
+     Caps the measure at roughly 60-66 characters whatever the screen width. */
+  .page-shell--read {
+    max-width: 48rem;
+  }
+
   .skill-pill {
     @apply inline-flex items-center px-3 py-1.5 text-xs rounded-full font-medium border transition-all duration-200;
   }
