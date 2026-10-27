@@ -82,6 +82,8 @@ const AccessibilityMenu = () => {
     setDark(false);
   };
 
+  const hasCustomSettings = size !== "base" || highContrast || dark;
+
   return (
     <>
       {open && (
