@@ -81,7 +81,7 @@ const highlightMetrics = (text: string) =>
 
 const Experience = () => (
   <section id="experience" aria-labelledby="experience-heading" className="bg-background pb-16 pt-8 md:pb-24 md:pt-12 [overflow-wrap:anywhere]">
-    <div className="page-shell page-shell--read page-shell--read-wide">
+    <div className="page-shell page-shell--read">
       <header className="mb-10 md:mb-14">
         <p className="mb-2 text-sm font-medium uppercase text-primary-strong">Experience</p>
         <div className="flex flex-col items-start justify-between gap-5 lg:flex-row lg:items-center">

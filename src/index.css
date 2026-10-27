@@ -263,15 +263,6 @@
     max-width: 48rem;
   }
 
-  /* Experience keeps a centred reading column but with noticeably shallower
-     side gutters than the other text sections, so the page breathes less and
-     the timeline holds more of the viewport. */
-  .page-shell--read-wide {
-    max-width: 56rem;
-    padding-inline: clamp(1.5rem, 4vw, 4rem);
-  }
-
-
   .skill-pill {
     @apply inline-flex items-center px-3 py-1.5 text-xs rounded-full font-medium border transition-all duration-200;
   }
