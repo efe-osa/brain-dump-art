@@ -57,7 +57,7 @@ const Hero = () => {
             <span className="invisible" aria-hidden="true">
               {INTRO} <span className="text-primary-strong font-medium underline underline-offset-4">See my experience</span>
             </span>
-            <span className="absolute inset-0" aria-hidden="true">
+            <span className="hero-typed absolute inset-0" aria-hidden="true">
               {typed}
               {!done && <span className="hero-caret inline-block w-[3px] h-[1em] bg-primary ml-0.5 align-middle" />}
               {done && (
