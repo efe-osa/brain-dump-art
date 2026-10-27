@@ -23,6 +23,9 @@ async def check_resume_facts():
         assert "100,000+" in await everyfarmer.inner_text()
         assert "$10,000" in await everyfarmer.inner_text()
         assert "80%" in await everyfarmer.inner_text()
+        roles = await page.locator("article h2").all_text_contents()
+        # Studio 14 is listed above Reliance Health by request.
+        assert roles.index("Full Stack Developer") < roles.index("Senior Frontend Engineer")
         education = page.get_by_role("region", name="Education")
         assert "Stockholm University" in await education.inner_text()
         assert "2023–2026" in await education.inner_text()

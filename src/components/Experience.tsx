@@ -28,19 +28,6 @@ const experiences = [
     tools: ["C#", "ASP.NET Core", "Blazor", "Fluxor", "Bootstrap", "Postgres", "EF Core", "SQL", "SCSS", "xUnit", "Azure", "Docker"],
   },
   {
-    role: "Senior Frontend Engineer",
-    company: "Reliance Health",
-    location: "Abuja",
-    period: "Oct 2021 – Jun 2022",
-    bullets: [
-      "Owned the migration of a legacy platform to a component-based JavaScript architecture, scaling performance for 250,000+ active users and 4,000+ businesses.",
-      "Built a CKEditor-based contract review and signing tool, increasing user data accuracy by 25% during provider acquisition.",
-      "Redesigned the audit system and provider acquisition tracker with a cross-functional team, contributing to product maturity ahead of a successful $40 million Series B funding round.",
-      "Translated stakeholder feedback into product improvements, ensuring 100% alignment with design specifications and improving user adoption.",
-    ],
-    tools: ["JavaScript", "React", "React Native", "PHP/Laravel", "Bootstrap", "REST API", "CKEditor"],
-  },
-  {
     role: "Full Stack Developer",
     company: "Studio 14",
     location: "Birmingham",
@@ -52,6 +39,19 @@ const experiences = [
       "Integrated automated WCAG accessibility and HTML validation into CI/CD, and hardened application security against XSS and CSRF.",
     ],
     tools: ["JavaScript", "TypeScript", "Web Components", "React", "Redux", "Next.js", "GraphQL", "SWR", "Styled Components", "Tailwind CSS", "Storybook", "SCSS", "WordPress CMS", "Brotli", "AWS"],
+  },
+  {
+    role: "Senior Frontend Engineer",
+    company: "Reliance Health",
+    location: "Abuja",
+    period: "Oct 2021 – Jun 2022",
+    bullets: [
+      "Owned the migration of a legacy platform to a component-based JavaScript architecture, scaling performance for 250,000+ active users and 4,000+ businesses.",
+      "Built a CKEditor-based contract review and signing tool, increasing user data accuracy by 25% during provider acquisition.",
+      "Redesigned the audit system and provider acquisition tracker with a cross-functional team, contributing to product maturity ahead of a successful $40 million Series B funding round.",
+      "Translated stakeholder feedback into product improvements, ensuring 100% alignment with design specifications and improving user adoption.",
+    ],
+    tools: ["JavaScript", "React", "React Native", "PHP/Laravel", "Bootstrap", "REST API", "CKEditor"],
   },
   {
     role: "Frontend Engineer",
@@ -85,7 +85,7 @@ const Experience = () => (
       <header className="mb-10 md:mb-14">
         <p className="mb-2 text-sm font-medium uppercase text-primary-strong">Experience</p>
         <div className="flex flex-col items-start justify-between gap-5 lg:flex-row lg:items-center">
-          <h1 id="experience-heading" className="text-3xl font-bold tracking-normal text-foreground md:text-4xl">Where I've worked</h1>
+          <h1 id="experience-heading" className="text-3xl font-bold tracking-normal text-foreground md:text-4xl">Where my work has taken me</h1>
           <Button asChild size="lg" variant="outline" className="h-auto min-h-11 shrink-0 whitespace-normal px-4">
             <a href={resumeAsset.url} download="Efe-Jessye-Resume.pdf" target="_blank" rel="noopener noreferrer">
               <Download aria-hidden="true" /> Download résumé (PDF)
@@ -94,7 +94,8 @@ const Experience = () => (
           </Button>
         </div>
         <p className="font-read mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-          7+ years delivering consumer and SaaS products across frontend and full-stack roles. Based in Stockholm, with experience in Sweden, the UK and Nigeria.
+          I've spent seven years building products with teams in Nigeria, the UK and Sweden — health platforms, multiplayer games, farm marketplaces.
+          Every role taught me something I carry into the next one, and I'm open to where the next build takes me.
         </p>
       </header>
 
