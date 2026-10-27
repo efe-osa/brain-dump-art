@@ -70,7 +70,6 @@ const ProjectCard = ({ project }: { project: Project }) => {
       aria-labelledby={titleId}
       className="group flex flex-col h-full p-6 rounded-xl bg-card border border-transparent shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)] transition-all duration-300 cursor-pointer"
     >
-
       <div className="flex items-start justify-between mb-3">
         <div className="flex items-center gap-2 text-primary-strong">
           <Globe className="h-4 w-4" aria-hidden="true" />
