@@ -31,7 +31,8 @@ async def check_resume_facts():
         download = page.get_by_role("link", name="Download résumé (PDF)")
         url = await download.get_attribute("href")
         assert url and "/__l5e/assets-v1/" in url
-        response = await page.request.get(urljoin(page.url, url))
+        # The local Vite server does not proxy hosted asset paths.
+        response = await page.request.get(urljoin("https://id-preview--82153c6f-55cb-4617-b07a-5f1e41bd8698.lovable.app", url))
         assert response.ok
         assert (await response.body()).startswith(b"%PDF")
         await browser.close()

@@ -26,7 +26,7 @@ const Navbar = () => {
 
   return (
     <>
-    <Button asChild className="fixed left-6 top-3 z-[60] -translate-y-24 focus:translate-y-0 focus-visible:ring-primary-strong">
+    <Button asChild className="fixed left-6 right-6 top-3 z-[60] h-auto min-h-11 -translate-y-48 whitespace-normal focus:translate-y-0 focus-visible:ring-primary-strong sm:right-auto">
       <a href="#main-content">Skip to main content</a>
     </Button>
     <nav aria-label="Main navigation" className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
