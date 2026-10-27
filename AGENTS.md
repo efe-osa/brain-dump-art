@@ -8,3 +8,4 @@
 - Use the shared Collapsible and Button components for the full skills disclosure; key skills remain outside it so they are always available.
 - Disable CSS motion globally under reduced motion and listen for live preference changes in JavaScript animations; settings changes must take effect without reloading.
 - Project cards use their heading as their accessible link name; descriptions and tool lists must not inflate that name.
+- Experience uses role-first semantic timeline entries and the asset-backed current resume link; keep dated qualifications separate and retain overlapping employment dates as supplied rather than inferring contracts or gaps.
