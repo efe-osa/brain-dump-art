@@ -126,7 +126,7 @@ const CodeCard = () => (
       <span className="w-3 h-3 rounded-full bg-muted-foreground/30" />
       <span className="ml-3 text-xs text-muted-foreground">efe.config.ts</span>
     </div>
-    <pre className="px-5 py-5 text-xs leading-6 xl:text-[13px] xl:leading-7 whitespace-pre text-foreground">
+    <pre className="px-5 py-5 text-xs leading-6 xl:text-[13px] xl:leading-7 whitespace-pre-wrap text-foreground">
       <code>
         <span className="text-primary-strong">const</span> efe = {"{"}
         {"\n"}
