@@ -263,6 +263,24 @@
     max-width: 48rem;
   }
 
+  /* Stacked-card deck for Selected Work: each full-width card sticks in place
+     and the next one scrolls over it (top offsets are set per item inline).
+     Under reduced motion the deck falls back to a plain static list. */
+  .project-deck__item {
+    position: sticky;
+    margin-bottom: 2.5rem;
+  }
+
+  .project-deck__item:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .project-deck__item {
+      position: static;
+    }
+  }
+
   .skill-pill {
     @apply inline-flex items-center px-3 py-1.5 text-xs rounded-full font-medium border transition-all duration-200;
   }
