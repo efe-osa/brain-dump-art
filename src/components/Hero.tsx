@@ -1,15 +1,47 @@
-import { Github, Linkedin, Mail } from "lucide-react";
-import { useEffect, useState } from "react";
+import { Check, Github, Linkedin, Mail } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 
 const INTRO =
   "Domain-agnostic by design: I learn the business, then build for it. Delivering production-grade web applications and SaaS products, across front-end and full-stack.";
 
+const EMAIL = "eosawaruoyelade@gmail.com";
+
+// The clipboard API only works in a secure context, so keep a legacy path for
+// older browsers and plain-http previews.
+async function copyToClipboard(text: string) {
+  try {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(text);
+      return true;
+    }
+  } catch {
+    // Permission denied or unavailable — fall through to the legacy path.
+  }
+  try {
+    const scratch = document.createElement("textarea");
+    scratch.value = text;
+    scratch.setAttribute("readonly", "");
+    scratch.style.position = "fixed";
+    scratch.style.top = "-1000px";
+    document.body.appendChild(scratch);
+    scratch.select();
+    const copied = document.execCommand("copy");
+    document.body.removeChild(scratch);
+    return copied;
+  } catch {
+    return false;
+  }
+}
+
 const Hero = () => {
   const fullName = "Efe Jessye";
   const [typed, setTyped] = useState("");
   const [done, setDone] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const resetTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   useEffect(() => {
     const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -37,8 +69,22 @@ const Hero = () => {
     return () => {
       clearInterval(interval);
       preference.removeEventListener("change", onPreferenceChange);
+      clearTimeout(resetTimer.current);
     };
   }, []);
+
+  const handleCopyEmail = async () => {
+    if (await copyToClipboard(EMAIL)) {
+      setCopied(true);
+      clearTimeout(resetTimer.current);
+      resetTimer.current = setTimeout(() => setCopied(false), 2500);
+      toast.success("Email copied to clipboard", { description: EMAIL });
+    } else {
+      toast.error("Couldn't copy the email automatically", {
+        description: `You can reach me at ${EMAIL}`,
+      });
+    }
+  };
 
   return (
     <section id="hero" className="min-h-screen flex items-center relative overflow-hidden">
@@ -77,6 +123,16 @@ const Hero = () => {
           <div className="flex flex-wrap items-center gap-4 mb-12">
             <Button asChild size="lg" className="rounded-full">
               <Link to="/#projects">View work</Link>
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="rounded-full"
+              onClick={handleCopyEmail}
+              aria-label={`Copy email address ${EMAIL} to clipboard`}
+            >
+              {copied ? <Check className="h-4 w-4" /> : <Mail className="h-4 w-4" />}
+              {copied ? "Email copied" : "Copy email"}
             </Button>
           </div>
 
