@@ -1,5 +1,6 @@
 """Run with python3 tests/experience_resume.py against the running preview."""
 import asyncio
+from urllib.parse import urljoin
 from playwright.async_api import async_playwright
 
 
@@ -30,7 +31,7 @@ async def check_resume_facts():
         download = page.get_by_role("link", name="Download résumé (PDF)")
         url = await download.get_attribute("href")
         assert url and "/__l5e/assets-v1/" in url
-        response = await page.request.get(url)
+        response = await page.request.get(urljoin(page.url, url))
         assert response.ok
         assert (await response.body()).startswith(b"%PDF")
         await browser.close()
