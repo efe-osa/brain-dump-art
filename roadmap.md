@@ -17,4 +17,4 @@
 
 - [ ] Fix and improve fonts across the site (user request).
 
-Steps 2–7 wait for the user's review of the preceding change. Provide a specific review prompt after each step.
+Steps 2–7 wait for the user's review of the preceding change. Provide a specific review prompt after each step.- [ ] Fix: page jumps to #about on initial load
