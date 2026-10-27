@@ -1,17 +1,18 @@
-import { createOpenAI } from "@ai-sdk/openai";
-import { streamText, type ModelMessage } from "ai";
+import { createOpenAI } from "npm:@ai-sdk/openai@3";
+import { streamText, Output, jsonSchema, type ModelMessage } from "npm:ai@6";
 
 import {
   createLovableAiGatewayRunIdFetch,
   getLovableAiGatewayRunId,
   withLovableAiGatewayRunIdHeader,
-} from "../../ai-apps-gateway-sdk/examples/run-id.ts";
+} from "./run-id.ts";
 
 export function createResponsesCall(
   request: Request,
   config: { baseURL: string; apiKey: string; model: string },
   messages: ModelMessage[],
   instructions?: string,
+  schema?: Record<string, unknown>,
 ) {
   const runIdFetch = createLovableAiGatewayRunIdFetch(getLovableAiGatewayRunId(request));
   const provider = createOpenAI({
@@ -23,8 +24,9 @@ export function createResponsesCall(
   const reasoning = config.model !== "openai/chat-latest";
   const result = streamText({
     model: provider.responses(config.model),
-    // AI SDK 6 lacks `instructions`: rename this key to `system` there.
-    ...(instructions ? { instructions } : {}),
+    ...(instructions ? { system: instructions } : {}),
+    ...(schema ? { output: Output.object({ schema: jsonSchema(schema) }) } : {}),
+    maxRetries: 0,
     messages,
     abortSignal: request.signal,
     providerOptions: {
@@ -33,7 +35,7 @@ export function createResponsesCall(
         ...(reasoning
           ? {
               forceReasoning: true,
-              reasoningEffort: "medium",
+              reasoningEffort: "low",
               reasoningSummary: "auto",
               include: ["reasoning.encrypted_content"],
             }
@@ -43,6 +45,7 @@ export function createResponsesCall(
   });
   return {
     result,
+    runIdFetch,
     response: () =>
       withLovableAiGatewayRunIdHeader(result.toUIMessageStreamResponse({ sendReasoning: true }), runIdFetch),
   };
