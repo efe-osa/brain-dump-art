@@ -45,10 +45,10 @@ const Hero = () => {
       <div aria-hidden="true" className="absolute top-20 right-10 w-72 h-72 rounded-full bg-primary/10 blur-3xl" />
       <div aria-hidden="true" className="absolute bottom-20 left-10 w-96 h-96 rounded-full bg-secondary/40 blur-3xl" />
 
-      <div className="page-shell py-32 relative z-10 flex flex-col xl:flex-row xl:items-center gap-16">
+      <div className="relative z-10 flex flex-col xl:flex-row xl:items-center gap-16 py-32 w-full max-w-[100rem] mx-auto px-5 md:px-10">
         <div className="max-w-3xl flex-1">
           <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 leading-[1.1] tracking-tight">
-            Hi, I'm <span className="text-primary">{fullName}</span>
+            Hi, I'm <span className="text-primary whitespace-nowrap">{fullName}</span>
           </h1>
 
           <p className="font-read text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed relative">
