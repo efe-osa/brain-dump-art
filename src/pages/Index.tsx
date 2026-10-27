@@ -3,7 +3,6 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Projects from "@/components/Projects";
 import Blog from "@/components/Blog";
-import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import AccessibilityMenu from "@/components/AccessibilityMenu";
 
@@ -16,7 +15,6 @@ const Index = () => {
         <Projects />
         <About />
         <Blog />
-        <Contact />
       </main>
       <Footer />
       <AccessibilityMenu />
