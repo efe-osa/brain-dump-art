@@ -101,7 +101,8 @@ const Hero = () => {
             <span className="sr-only">{INTRO}</span>
             {/* Hidden copy reserves the final height so typing never shifts the page */}
             <span className="invisible" aria-hidden="true">
-              {INTRO} <span className="text-primary-strong font-medium underline underline-offset-4">See my experience</span>
+              {INTRO}{" "}
+              <span className="text-primary-strong font-medium underline underline-offset-4">See my experience</span>
             </span>
             <span className="hero-typed absolute inset-0" aria-hidden="true">
               {typed}
@@ -154,13 +155,6 @@ const Hero = () => {
               aria-label="LinkedIn profile (opens in a new tab)"
             >
               <Linkedin className="h-5 w-5" />
-            </a>
-            <a
-              href="mailto:eosawaruoyelade@gmail.com"
-              className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="Email Efe-osa"
-            >
-              <Mail className="h-5 w-5" />
             </a>
           </div>
         </div>
