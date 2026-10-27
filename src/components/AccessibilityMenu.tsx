@@ -187,7 +187,7 @@ const AccessibilityMenu = () => {
         {hasCustomSettings && (
           <span
             aria-hidden="true"
-            className="absolute top-1 right-1 h-3 w-3 rounded-full border-2 border-primary bg-foreground"
+            className="absolute top-1 right-1 h-3 w-3 rounded-full border-2 border-primary bg-primary-foreground"
           />
         )}
       </button>
