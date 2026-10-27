@@ -222,6 +222,17 @@
   html:not(.dark):not(.high-contrast) #projects a.group:focus-visible {
     border-color: hsl(var(--primary) / 0.5);
   }
+
+  /* Deck cards need a visible edge: each card slides over the one below it, so
+     the outline is what tells them apart. Light mode gets a firmer line than the
+     default hairline; dark and high-contrast keep --border (near-black / white). */
+  .project-deck a.group {
+    border-color: hsl(var(--border));
+  }
+
+  html:not(.dark):not(.high-contrast) .project-deck a.group {
+    border-color: hsl(var(--foreground) / 0.18);
+  }
 }
 
 @layer utilities {
