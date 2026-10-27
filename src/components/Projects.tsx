@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { ArrowUpRight, Globe } from "lucide-react";
 import lemurImg from "@/assets/lemur.jpg";
 import everyfarmerImg from "@/assets/everyfarmer.jpg";
