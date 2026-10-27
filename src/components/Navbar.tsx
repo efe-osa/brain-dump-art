@@ -10,6 +10,9 @@ const Navbar = () => {
 
   useEffect(() => {
     setMobileOpen(false);
+    // Only react to fragments from actual navigation — a stale #fragment left in
+    // the URL from a previous visit must not yank a fresh load off the top.
+    if (location.key === "default") return;
     if (!location.hash) return;
     const target = document.getElementById(location.hash.slice(1));
     if (!target) return;
