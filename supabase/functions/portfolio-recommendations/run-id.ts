@@ -2,6 +2,7 @@ const LOVABLE_AIG_RUN_ID_HEADER = "X-Lovable-AIG-Run-ID";
 
 export function createLovableAiGatewayRunIdFetch(initialRunId?: string) {
   let runId = initialRunId?.trim() || undefined;
+  let upstreamStatus: number | undefined;
   let resolveRunId: (value: string | undefined) => void = () => {};
   let runIdResolved = false;
   const runIdReady = new Promise<string | undefined>((resolve) => {
@@ -29,6 +30,7 @@ export function createLovableAiGatewayRunIdFetch(initialRunId?: string) {
 
       try {
         const response = await fetch(input, { ...init, headers });
+        upstreamStatus = response.status;
         publishRunId(response.headers.get(LOVABLE_AIG_RUN_ID_HEADER) ?? undefined);
         return response;
       } catch (error) {
@@ -37,6 +39,7 @@ export function createLovableAiGatewayRunIdFetch(initialRunId?: string) {
       }
     },
     getRunId: () => runId,
+    getStatus: () => upstreamStatus,
     waitForRunId: () => (runId ? Promise.resolve(runId) : runIdReady),
   };
 }
