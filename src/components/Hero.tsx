@@ -3,9 +3,12 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
+const INTRO =
+  "Domain-agnostic by design: I learn the business, then build for it. Delivering production-grade web applications and SaaS products, across front-end and full-stack.";
+
 const Hero = () => {
   const fullName = "Efe Jessye";
-  const [displayed, setDisplayed] = useState("");
+  const [typed, setTyped] = useState("");
   const [done, setDone] = useState(false);
 
   useEffect(() => {
@@ -13,7 +16,7 @@ const Hero = () => {
     let interval: ReturnType<typeof setInterval> | undefined;
     const finish = () => {
       clearInterval(interval);
-      setDisplayed(fullName);
+      setTyped(INTRO);
       setDone(true);
     };
     const onPreferenceChange = () => {
@@ -25,12 +28,12 @@ const Hero = () => {
     else
       interval = setInterval(() => {
         i++;
-        setDisplayed(fullName.slice(0, i));
-        if (i >= fullName.length) {
+        setTyped(INTRO.slice(0, i));
+        if (i >= INTRO.length) {
           clearInterval(interval);
           setDone(true);
         }
-      }, 80);
+      }, 18);
     return () => {
       clearInterval(interval);
       preference.removeEventListener("change", onPreferenceChange);
@@ -45,24 +48,30 @@ const Hero = () => {
       <div className="container mx-auto px-6 py-32 relative z-10 flex flex-col lg:flex-row lg:items-center gap-16">
         <div className="max-w-3xl flex-1">
           <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 leading-[1.1] tracking-tight">
-            Hi, I'm{" "}
-            <span className="text-primary">
-              <span className="sr-only">{fullName}</span>
-              <span aria-hidden="true">
-                {displayed}
-                {!done && <span className="inline-block w-[25px] h-[0.6em] bg-primary ml-1 align-middle" />}
-              </span>
-            </span>
+            Hi, I'm <span className="text-primary">{fullName}</span>
           </h1>
-          <p className="font-read text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed">
-            Domain-agnostic by design: I learn the business, then build for it. Delivering production-grade web
-            applications and SaaS products, across front-end and full-stack.{" "}
-            <Link
-              to="/experience"
-              className="text-primary-strong font-medium underline underline-offset-4 hover:opacity-80 transition-opacity"
-            >
-              See my experience
-            </Link>
+
+          <p className="font-read text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed relative">
+            <span className="sr-only">{INTRO}</span>
+            {/* Hidden copy reserves the final height so typing never shifts the page */}
+            <span className="invisible" aria-hidden="true">
+              {INTRO} <span className="text-primary-strong font-medium underline underline-offset-4">See my experience</span>
+            </span>
+            <span className="hero-typed absolute inset-0" aria-hidden="true">
+              {typed}
+              {!done && <span className="hero-caret inline-block w-[3px] h-[1em] bg-primary ml-0.5 align-middle" />}
+              {done && (
+                <>
+                  {" "}
+                  <Link
+                    to="/experience"
+                    className="hero-fade-in text-primary-strong font-medium underline underline-offset-4 hover:opacity-80 transition-opacity"
+                  >
+                    See my experience
+                  </Link>
+                </>
+              )}
+            </span>
           </p>
 
           <div className="flex flex-wrap items-center gap-4 mb-12">

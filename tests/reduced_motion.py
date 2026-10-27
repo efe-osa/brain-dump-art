@@ -2,6 +2,12 @@
 import asyncio
 from playwright.async_api import async_playwright
 
+INTRO = (
+    "Domain-agnostic by design: I learn the business, then build for it. "
+    "Delivering production-grade web applications and SaaS products, "
+    "across front-end and full-stack."
+)
+
 
 async def check_reduced_motion():
     async with async_playwright() as playwright:
@@ -12,7 +18,7 @@ async def check_reduced_motion():
         page = await context.new_page()
         await page.goto("http://localhost:8080", wait_until="networkidle")
         # Reduced motion shows final content without typing or counting.
-        assert await page.locator("h1 [aria-hidden=true]").inner_text() == "Efe Jessye"
+        assert INTRO in await page.locator("#hero .hero-typed").inner_text()
         assert await page.locator("#about p.text-primary [aria-hidden=true]").all_inner_texts() == [
             "7+", "250K+", "90%", "80%"
         ]
@@ -20,11 +26,12 @@ async def check_reduced_motion():
         await page.emulate_media(reduced_motion="no-preference")
         await page.reload(wait_until="domcontentloaded")
         await page.wait_for_timeout(160)
-        assert await page.locator("h1 [aria-hidden=true]").inner_text() != "Efe Jessye"
+        assert INTRO not in await page.locator("#hero .hero-typed").inner_text()
         # Changing the preference live must finish an active animation immediately.
         await page.emulate_media(reduced_motion="reduce")
         await page.wait_for_timeout(100)
-        assert await page.locator("h1 [aria-hidden=true]").inner_text() == "Efe Jessye"
+        assert INTRO in await page.locator("#hero .hero-typed").inner_text()
+        assert await page.locator("#hero p a[href='/experience']").is_visible()
         assert await page.locator("#about p.text-primary [aria-hidden=true]").all_inner_texts() == [
             "7+", "250K+", "90%", "80%"
         ]
