@@ -17,10 +17,4 @@
 
 - [ ] Fix and improve fonts across the site (user request).
 
-Steps 2–7 wait for the user's review of the preceding change. Provide a specific review prompt after each step.
-
-- [x] Fix: page jumps to #about on initial load (fragment effect now ignores a stale hash on first load)
-
-# Selected work layout
-
-- [ ] Preview the recommended full-width stacked-row layout (image beside text, alternating sides) — user reviewing.
+Steps 2–7 wait for the user's review of the preceding change. Provide a specific review prompt after each step.- [x] Fix: page jumps to #about on initial load (fragment effect now ignores a stale hash on first load)

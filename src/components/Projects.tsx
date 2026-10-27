@@ -60,61 +60,56 @@ const projects: Project[] = [
   },
 ];
 
-const ProjectCard = ({ project, index }: { project: Project; index: number }) => {
+const ProjectCard = ({ project }: { project: Project }) => {
   const titleId = `project-${project.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
-  const flip = index % 2 === 1;
   return (
     <a
       href={project.url}
       target="_blank"
       rel="noopener noreferrer"
       aria-labelledby={titleId}
-      className="group grid items-center gap-5 md:grid-cols-2 md:gap-10 rounded-xl bg-card border border-transparent shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)] transition-all duration-300 cursor-pointer p-6 md:p-8"
+      className="group flex flex-col h-full p-6 rounded-xl bg-card border border-transparent shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)] transition-all duration-300 cursor-pointer"
     >
-      <div className={flip ? "md:order-2" : ""}>
-        <img
-          src={project.image}
-          alt=""
-          loading="lazy"
-          width={1280}
-          height={800}
-          className="w-full h-52 md:h-60 object-cover object-top rounded-lg border border-border"
+      <img
+        src={project.image}
+        alt=""
+        loading="lazy"
+        width={1280}
+        height={800}
+        className="w-full h-40 object-cover object-top rounded-lg border border-border mb-4"
+      />
+
+      <div className="flex items-start justify-between mb-3">
+        <div className="flex items-center gap-2 text-primary-strong">
+          <Globe className="h-4 w-4" aria-hidden="true" />
+          <span className="text-xs font-medium uppercase tracking-wider">Live Site</span>
+        </div>
+        <ArrowUpRight
+          aria-hidden="true"
+          className="h-4 w-4 text-muted-foreground group-hover:text-primary-strong transition-colors shrink-0"
         />
       </div>
 
-      <div className={flip ? "md:order-1" : ""}>
-        <div className="flex items-center justify-between mb-3">
-          <div className="flex items-center gap-2 text-primary-strong">
-            <Globe className="h-4 w-4" aria-hidden="true" />
-            <span className="text-xs font-medium uppercase tracking-wider">Live Site</span>
-          </div>
-          <ArrowUpRight
-            aria-hidden="true"
-            className="h-4 w-4 text-muted-foreground group-hover:text-primary-strong transition-colors shrink-0"
-          />
-        </div>
+      <h3
+        id={titleId}
+        className="text-lg font-semibold text-card-foreground mb-2 group-hover:text-primary-strong transition-colors"
+      >
+        {project.title}
+        <span className="sr-only"> (opens in a new tab)</span>
+      </h3>
 
-        <h3
-          id={titleId}
-          className="text-xl md:text-2xl font-semibold text-card-foreground mb-2 group-hover:text-primary-strong transition-colors"
-        >
-          {project.title}
-          <span className="sr-only"> (opens in a new tab)</span>
-        </h3>
+      <span className="inline-flex self-start text-xs font-medium px-2.5 py-1 rounded-full bg-primary/10 text-primary-strong mb-4">
+        {project.role}
+      </span>
 
-        <span className="inline-flex self-start text-xs font-medium px-2.5 py-1 rounded-full bg-primary/10 text-primary-strong mb-4">
-          {project.role}
-        </span>
+      <p className="font-read text-base text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
 
-        <p className="font-read text-base text-muted-foreground leading-relaxed">{project.description}</p>
-
-        <div className="flex flex-wrap gap-1.5 pt-4 mt-4 border-t border-border">
-          {project.tags.map((tag) => (
-            <span key={tag} className="text-xs px-2 py-0.5 rounded-full bg-secondary text-secondary-foreground">
-              {tag}
-            </span>
-          ))}
-        </div>
+      <div className="flex flex-wrap gap-1.5 pt-4 mt-auto border-t border-border">
+        {project.tags.map((tag) => (
+          <span key={tag} className="text-xs px-2 py-0.5 rounded-full bg-secondary text-secondary-foreground">
+            {tag}
+          </span>
+        ))}
       </div>
     </a>
   );
@@ -127,9 +122,9 @@ const Projects = () => {
         <p className="text-sm font-medium text-primary-strong mb-2 tracking-widest uppercase">Projects</p>
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 tracking-tight">Selected work</h2>
 
-        <div className="flex flex-col gap-6">
-          {projects.map((project, index) => (
-            <ProjectCard key={project.title} project={project} index={index} />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {projects.map((project) => (
+            <ProjectCard key={project.title} project={project} />
           ))}
         </div>
       </div>
