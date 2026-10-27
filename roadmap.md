@@ -1,6 +1,7 @@
 # Accessibility improvements
 
 - [ ] Current request: improve Experience hierarchy, spacing and metric emphasis; verify content against the newly uploaded resume; add education and a current PDF download.
+- [ ] Suggest clearer wording for “Where I've worked”.
 
 - [x] Current request: retain View work as a link, remove the duplicate arrow, respect reduced motion throughout, keep ordinary navigation links, shorten project summaries and names, and disclose the full skills list accessibly; verified keyboard, desktop and narrow-screen flows.
 
