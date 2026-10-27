@@ -1,7 +1,8 @@
 # Accessibility improvements
 
 - [x] Current request: improved Experience hierarchy, spacing and metric emphasis; verified content against the newly uploaded resume; added education, certifications and a current PDF download. Checked facts, PDF retrieval, appearance settings, keyboard skip link and 200% mobile reflow.
-- [x] Suggested “Professional experience” as a clearer recruiter-focused heading; wording remains unchanged pending user choice.
+- [x] Current request: made the Experience heading and intro personal ("Where my work has taken me"), and listed Studio 14 above Reliance Health; verified order with the resume test.
+- [x] Suggested “Professional experience” as a clearer recruiter-focused heading; superseded by the personal heading the user asked for.
 
 - [x] Current request: retain View work as a link, remove the duplicate arrow, respect reduced motion throughout, keep ordinary navigation links, shorten project summaries and names, and disclose the full skills list accessibly; verified keyboard, desktop and narrow-screen flows.
 
