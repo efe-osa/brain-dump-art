@@ -121,13 +121,32 @@ const ProjectCard = ({ project }: { project: Project }) => {
 };
 
 const Projects = () => {
+  // Equalise card heights so a covering card fully hides the one beneath it;
+  // unequal heights would leave slivers of the previous card peeking out.
+  const deckRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const deck = deckRef.current;
+    const cards = deck?.querySelectorAll<HTMLElement>("a.group");
+    if (!deck || !cards?.length) return;
+    const equalise = () => {
+      const max = Math.max(...Array.from(cards, (card) => card.getBoundingClientRect().height));
+      cards.forEach((card) => {
+        card.style.minHeight = `${Math.ceil(max)}px`;
+      });
+    };
+    equalise();
+    const observer = new ResizeObserver(equalise);
+    cards.forEach((card) => observer.observe(card));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section id="projects" className="py-24">
       <div className="page-shell">
         <p className="text-sm font-medium text-primary-strong mb-2 tracking-widest uppercase">Projects</p>
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 tracking-tight">Selected work</h2>
 
-        <div className="project-deck">
+        <div className="project-deck" ref={deckRef}>
           {projects.map((project, index) => (
             <div
               key={project.title}
