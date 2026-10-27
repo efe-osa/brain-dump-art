@@ -126,6 +126,13 @@
     scroll-margin-top: 6rem;
   }
 
+  /* Keep keyboard-focused items clear of the fixed nav (top) and the floating
+     accessibility button (bottom) when the browser scrolls them into view */
+  html {
+    scroll-padding-top: 5rem;
+    scroll-padding-bottom: 8rem;
+  }
+
   *:focus {
     outline: none;
   }
