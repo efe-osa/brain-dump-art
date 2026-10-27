@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import { ArrowUpRight, Globe } from "lucide-react";
 import lemurImg from "@/assets/lemur.jpg";
 import everyfarmerImg from "@/assets/everyfarmer.jpg";
@@ -69,7 +68,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
       target="_blank"
       rel="noopener noreferrer"
       aria-labelledby={titleId}
-      className="group flex flex-col md:flex-row md:min-h-[320px] overflow-hidden rounded-xl bg-card border border-transparent shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)] transition-all duration-300 cursor-pointer"
+      className="group flex flex-col h-full p-6 rounded-xl bg-card border border-transparent shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)] transition-all duration-300 cursor-pointer"
     >
       <img
         src={project.image}
@@ -77,84 +76,55 @@ const ProjectCard = ({ project }: { project: Project }) => {
         loading="lazy"
         width={1280}
         height={800}
-        className="w-full h-44 md:h-auto md:w-[36%] lg:w-[380px] md:self-stretch shrink-0 object-cover object-top border-b md:border-b-0 md:border-r border-border"
+        className="w-full h-40 object-cover object-top rounded-lg border border-border mb-4"
       />
 
-      <div className="flex flex-col flex-1 p-6 md:p-8">
-        <div className="flex items-start justify-between mb-3">
-          <div className="flex items-center gap-2 text-primary-strong">
-            <Globe className="h-4 w-4" aria-hidden="true" />
-            <span className="text-xs font-medium uppercase tracking-wider">Live Site</span>
-          </div>
-          <ArrowUpRight
-            aria-hidden="true"
-            className="h-4 w-4 text-muted-foreground group-hover:text-primary-strong transition-colors shrink-0"
-          />
+      <div className="flex items-start justify-between mb-3">
+        <div className="flex items-center gap-2 text-primary-strong">
+          <Globe className="h-4 w-4" aria-hidden="true" />
+          <span className="text-xs font-medium uppercase tracking-wider">Live Site</span>
         </div>
+        <ArrowUpRight
+          aria-hidden="true"
+          className="h-4 w-4 text-muted-foreground group-hover:text-primary-strong transition-colors shrink-0"
+        />
+      </div>
 
-        <h3
-          id={titleId}
-          className="text-xl md:text-2xl font-semibold text-card-foreground mb-2 group-hover:text-primary-strong transition-colors"
-        >
-          {project.title}
-          <span className="sr-only"> (opens in a new tab)</span>
-        </h3>
+      <h3
+        id={titleId}
+        className="text-lg font-semibold text-card-foreground mb-2 group-hover:text-primary-strong transition-colors"
+      >
+        {project.title}
+        <span className="sr-only"> (opens in a new tab)</span>
+      </h3>
 
-        <span className="inline-flex self-start text-xs font-medium px-2.5 py-1 rounded-full bg-primary/10 text-primary-strong mb-4">
-          {project.role}
-        </span>
+      <span className="inline-flex self-start text-xs font-medium px-2.5 py-1 rounded-full bg-primary/10 text-primary-strong mb-4">
+        {project.role}
+      </span>
 
-        <p className="font-read text-base md:text-lg text-muted-foreground mb-4 leading-relaxed">
-          {project.description}
-        </p>
+      <p className="font-read text-base text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
 
-        <div className="flex flex-wrap gap-1.5 pt-4 mt-auto border-t border-border">
-          {project.tags.map((tag) => (
-            <span key={tag} className="text-xs px-2 py-0.5 rounded-full bg-secondary text-secondary-foreground">
-              {tag}
-            </span>
-          ))}
-        </div>
+      <div className="flex flex-wrap gap-1.5 pt-4 mt-auto border-t border-border">
+        {project.tags.map((tag) => (
+          <span key={tag} className="text-xs px-2 py-0.5 rounded-full bg-secondary text-secondary-foreground">
+            {tag}
+          </span>
+        ))}
       </div>
     </a>
   );
 };
 
 const Projects = () => {
-  // Equalise card heights so a covering card fully hides the one beneath it;
-  // unequal heights would leave slivers of the previous card peeking out.
-  const deckRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const deck = deckRef.current;
-    const cards = deck?.querySelectorAll<HTMLElement>("a.group");
-    if (!deck || !cards?.length) return;
-    const equalise = () => {
-      const max = Math.max(...Array.from(cards, (card) => card.getBoundingClientRect().height));
-      cards.forEach((card) => {
-        card.style.minHeight = `${Math.ceil(max)}px`;
-      });
-    };
-    equalise();
-    const observer = new ResizeObserver(equalise);
-    cards.forEach((card) => observer.observe(card));
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section id="projects" className="py-24">
       <div className="page-shell">
         <p className="text-sm font-medium text-primary-strong mb-2 tracking-widest uppercase">Projects</p>
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 tracking-tight">Selected work</h2>
 
-        <div className="project-deck" ref={deckRef}>
-          {projects.map((project, index) => (
-            <div
-              key={project.title}
-              className="project-deck__item"
-              style={{ top: `calc(5.5rem + ${index * 0.875}rem)` }}
-            >
-              <ProjectCard project={project} />
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {projects.map((project) => (
+            <ProjectCard key={project.title} project={project} />
           ))}
         </div>
       </div>

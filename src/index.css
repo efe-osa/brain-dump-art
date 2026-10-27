@@ -263,30 +263,6 @@
     max-width: 48rem;
   }
 
-  /* Stacked-card deck for Selected Work: each full-width card sticks in place
-     and the next one scrolls over it (top offsets are set per item inline).
-     No vertical margins: the browser fits a sticky item's margin box inside
-     the deck, so margins would push cards off their pin position early.
-     Trailing padding keeps the aligned stack resting in view before the deck
-     scrolls away. Under reduced motion the deck falls back to a plain list. */
-  .project-deck {
-    padding-bottom: 6rem;
-  }
-
-  .project-deck__item {
-    position: sticky;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .project-deck {
-      padding-bottom: 0;
-    }
-
-    .project-deck__item {
-      position: static;
-    }
-  }
-
   .skill-pill {
     @apply inline-flex items-center px-3 py-1.5 text-xs rounded-full font-medium border transition-all duration-200;
   }
