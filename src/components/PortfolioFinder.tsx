@@ -68,7 +68,7 @@ const PortfolioFinder = () => {
   };
 
   return (
-    <section id="find-work" aria-labelledby="finder-heading" className="py-16 border-y border-border bg-muted/40">
+    <section id="find-work" aria-labelledby="finder-heading" className="py-16 border-y border-border bg-muted/40 [overflow-wrap:anywhere]">
       <div className="page-shell page-shell--read">
         <p className="flex items-center gap-2 text-sm text-primary-strong mb-3"><Sparkles className="h-4 w-4" aria-hidden="true" /> A closer look</p>
         <h2 id="finder-heading" className="text-2xl md:text-3xl font-bold mb-6">What are you looking for?</h2>
@@ -78,7 +78,7 @@ const PortfolioFinder = () => {
             disabled={loading} aria-describedby="finder-privacy" placeholder="I’m looking for React projects with maps, or writing for someone starting web development…"
             className="font-read text-lg leading-relaxed min-h-28" />
           <div className="flex flex-wrap items-center gap-3">
-            <Button type="submit" size="lg" disabled={loading || !query.trim()} className="px-5"><Search aria-hidden="true" />{loading ? "Finding matches…" : "Find relevant work"}</Button>
+            <Button type="submit" size="lg" disabled={loading || !query.trim()} className="px-5 h-auto min-h-11 max-w-full whitespace-normal"><Search aria-hidden="true" />{loading ? "Finding matches…" : "Find relevant work"}</Button>
             {loading && <Button type="button" variant="outline" size="lg" onClick={() => abortRef.current?.abort()}><Square aria-hidden="true" /> Stop</Button>}
           </div>
           <p id="finder-privacy" className="text-xs text-muted-foreground leading-relaxed">Powered by Lovable AI · Your request is sent for AI processing. Please leave out private information.</p>
