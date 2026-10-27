@@ -265,6 +265,8 @@
 
   /* Stacked-card deck for Selected Work: each full-width card sticks in place
      and the next one scrolls over it (top offsets are set per item inline).
+     No vertical margins: the browser fits a sticky item's margin box inside
+     the deck, so margins would push cards off their pin position early.
      Trailing padding keeps the aligned stack resting in view before the deck
      scrolls away. Under reduced motion the deck falls back to a plain list. */
   .project-deck {
@@ -273,11 +275,6 @@
 
   .project-deck__item {
     position: sticky;
-    margin-bottom: 2.5rem;
-  }
-
-  .project-deck__item:last-child {
-    margin-bottom: 0;
   }
 
   @media (prefers-reduced-motion: reduce) {
