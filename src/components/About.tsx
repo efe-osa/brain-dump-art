@@ -95,7 +95,7 @@ const About = () => {
   const [skillsOpen, setSkillsOpen] = useState(false);
   return (
     <section id="about" className="py-24">
-      <div className="container mx-auto px-6">
+      <div className="page-shell">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 items-stretch">
           {stats.map((stat) => (
             <StatCard key={stat.label} {...stat} />

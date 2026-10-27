@@ -30,7 +30,7 @@ const Navbar = () => {
       <a href="#main-content">Skip to main content</a>
     </Button>
     <nav aria-label="Main navigation" className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="page-shell py-4 flex items-center justify-between">
         <Button asChild variant="ghost" className="px-0 text-xl font-bold text-foreground" >
           <Link to="/" aria-label="Efe Jessye home" onClick={() => setMobileOpen(false)}>
             ÈJO<span className="text-primary-strong">.</span>
@@ -70,7 +70,7 @@ const Navbar = () => {
             setMobileOpen(false);
             menuTrigger.current?.focus();
           }}
-          className={`${mobileOpen ? "flex" : "hidden"} md:hidden border-t border-border bg-background px-6 py-4 flex-col gap-3`}>
+          className={`${mobileOpen ? "flex" : "hidden"} page-shell md:hidden border-t border-border bg-background py-4 flex-col gap-3`}>
           {links.map((l) => (
             <Button asChild variant="ghost"
               key={l.id}

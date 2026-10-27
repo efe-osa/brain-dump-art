@@ -18,7 +18,7 @@ const posts = [
 const Blog = () => {
   return (
     <section id="blog" className="py-24">
-      <div className="container mx-auto px-6 max-w-3xl">
+      <div className="page-shell page-shell--read">
         <p className="text-sm font-medium text-primary-strong mb-2 tracking-widest uppercase">My Scribbles</p>
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-10 tracking-tight">Latest writing</h2>
 
