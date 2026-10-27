@@ -18,7 +18,7 @@ const projects: Project[] = [
     title: "Lemur Cloud Portal",
     role: "Software Engineer",
     description:
-      "Customer portal designed to enable game developers to configure our flagship game engine and release multiplayer games faster.,
+      "Customer portal designed to enable game developers to configure our flagship game engine and release multiplayer games faster.",
     url: "https://www.br.ink/lemur",
     image: lemurImg,
     tags: ["C#", ".NET", "Blazor", "Fluxor", "Azure", "Salesforce API"],
