@@ -18,7 +18,7 @@ const projects: Project[] = [
     title: "Lemur Cloud Portal",
     role: "Software Engineer",
     description:
-      "Built the customer portal designed to enable game developers to configure our flagship game engine and release multiplayer games faster. Delivered project configurations and deployment module development for codebase connection and automated code releases.",
+      "Customer portal designed to enable game developers to configure our flagship game engine and release multiplayer games faster.,
     url: "https://www.br.ink/lemur",
     image: lemurImg,
     tags: ["C#", ".NET", "Blazor", "Fluxor", "Azure", "Salesforce API"],
@@ -27,7 +27,7 @@ const projects: Project[] = [
     title: "Everyfarmer — Service Provider",
     role: "Front-End Engineer",
     description:
-      "Led service-provider workflows with JavaScript, React and Redux. Built a Google Maps farm-mapping tool that automated assessments for 100,000+ service providers, reducing operating expenses by $10,000.",
+      "Platform connecting farmers and other actors in the farming cycle",
     url: "https://everyfarmer.farm/",
     image: everyfarmerImg,
     tags: [
@@ -44,7 +44,7 @@ const projects: Project[] = [
     title: "Equal Measures 2030",
     role: "Full Stack Developer",
     description:
-      "Contributed to a JavaScript and WordPress advocacy website using Web Components, making gender-equality metrics across the Sustainable Development Goals accessible to policymakers and campaigners.",
+      "Advocacy website making gender-equality metrics across the Sustainable Development Goals accessible to policymakers and campaigners.",
     url: "https://equalmeasures2030.org/",
     image: equalmeasuresImg,
     tags: ["JavaScript", "Web Components", "WordPress", "Accessibility", "CI/CD"],
@@ -53,7 +53,7 @@ const projects: Project[] = [
     title: "Read it",
     role: "Full Stack Developer",
     description:
-      "Built a responsive JavaScript blog using the Reddit API and deployed it on Netlify, bringing Reddit posts into a standalone reading experience.",
+      "Reddit posts into a standalone reading experience.",
     url: "https://fervent-bhabha-e5febb.netlify.app/",
     image: readitImg,
     tags: ["JavaScript", "Reddit API", "Responsive web design", "Netlify", "CI/CD"],
