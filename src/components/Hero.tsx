@@ -104,9 +104,9 @@ const Hero = () => {
               {INTRO}{" "}
               <span className="text-primary-strong font-medium underline underline-offset-4">See my experience</span>
             </span>
-            <span className="hero-typed absolute inset-0" aria-hidden="true">
-              {typed}
-              {!done && <span className="hero-caret inline-block w-[3px] h-[1em] bg-primary ml-0.5 align-middle" />}
+            <span className="hero-typed absolute inset-0">
+              <span aria-hidden="true">{typed}</span>
+              {!done && <span aria-hidden="true" className="hero-caret inline-block w-[3px] h-[1em] bg-primary ml-0.5 align-middle" />}
               {done && (
                 <>
                   {" "}
