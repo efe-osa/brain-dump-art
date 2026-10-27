@@ -45,7 +45,7 @@ const Hero = () => {
       <div aria-hidden="true" className="absolute top-20 right-10 w-72 h-72 rounded-full bg-primary/10 blur-3xl" />
       <div aria-hidden="true" className="absolute bottom-20 left-10 w-96 h-96 rounded-full bg-secondary/40 blur-3xl" />
 
-      <div className="relative z-10 flex flex-col xl:flex-row xl:items-center gap-16 py-32 w-full max-w-[100rem] mx-auto px-5 md:px-10">
+      <div className="relative z-10 flex flex-col lg:flex-row lg:items-center gap-12 lg:gap-8 xl:gap-16 py-32 w-full max-w-[100rem] mx-auto px-5 md:px-10">
         <div className="max-w-3xl flex-1">
           <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 leading-[1.1] tracking-tight">
             Hi, I'm <span className="text-primary whitespace-nowrap">{fullName}</span>
@@ -118,7 +118,7 @@ const Hero = () => {
 const CodeCard = () => (
   <div
     aria-hidden="true"
-    className="hidden xl:block w-full max-w-[420px] shrink-0 rounded-xl bg-card border border-border shadow-[var(--shadow-medium)] overflow-hidden"
+    className="hidden lg:block w-[368px] xl:w-[420px] shrink-0 rounded-xl bg-card border border-border shadow-[var(--shadow-medium)] overflow-hidden"
   >
     <div className="flex items-center gap-1.5 px-4 py-3 border-b border-border">
       <span className="w-3 h-3 rounded-full bg-muted-foreground/30" />
@@ -126,7 +126,7 @@ const CodeCard = () => (
       <span className="w-3 h-3 rounded-full bg-muted-foreground/30" />
       <span className="ml-3 text-xs text-muted-foreground">efe.config.ts</span>
     </div>
-    <pre className="px-5 py-5 text-[13px] leading-7 whitespace-pre text-foreground">
+    <pre className="px-5 py-5 text-xs leading-6 xl:text-[13px] xl:leading-7 whitespace-pre text-foreground">
       <code>
         <span className="text-primary-strong">const</span> efe = {"{"}
         {"\n"}
