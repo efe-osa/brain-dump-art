@@ -210,6 +210,16 @@
   .high-contrast #projects a.group:hover * {
     color: hsl(var(--accent-foreground)) !important;
   }
+
+  /* Light mode hover: selected works cards get a subtle lavender accent edge
+     so the interaction reads clearly without a loud outline (WCAG 1.4.11 exempt —
+     the accent is decorative reinforcement, the title colour shift carries the cue) */
+  html:not(.dark):not(.high-contrast) #work a.group:hover,
+  html:not(.dark):not(.high-contrast) #projects a.group:hover,
+  html:not(.dark):not(.high-contrast) #work a.group:focus-visible,
+  html:not(.dark):not(.high-contrast) #projects a.group:focus-visible {
+    border-color: hsl(var(--primary) / 0.5);
+  }
 }
 
 @layer utilities {

@@ -68,7 +68,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
       target="_blank"
       rel="noopener noreferrer"
       aria-labelledby={titleId}
-      className="group flex flex-col h-full p-6 rounded-xl bg-card shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)] transition-all duration-300 cursor-pointer"
+      className="group flex flex-col h-full p-6 rounded-xl bg-card border border-transparent shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)] transition-all duration-300 cursor-pointer"
     >
       <img
         src={project.image}
