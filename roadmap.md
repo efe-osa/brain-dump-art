@@ -1,5 +1,7 @@
 # Accessibility improvements
 
+- [ ] Current request: improve Experience hierarchy, spacing and metric emphasis; verify content against the newly uploaded resume; add education and a current PDF download.
+
 - [x] Current request: retain View work as a link, remove the duplicate arrow, respect reduced motion throughout, keep ordinary navigation links, shorten project summaries and names, and disclose the full skills list accessibly; verified keyboard, desktop and narrow-screen flows.
 
 - [x] 1. Accessible navigation: named mobile toggle, real links, skip link; verified in browser, awaiting review.
