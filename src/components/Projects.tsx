@@ -69,7 +69,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
       target="_blank"
       rel="noopener noreferrer"
       aria-labelledby={titleId}
-      className="group flex flex-col md:flex-row md:min-h-[240px] overflow-hidden rounded-xl bg-card border shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)] transition-all duration-300 cursor-pointer"
+      className="group flex flex-col md:flex-row md:min-h-[320px] overflow-hidden rounded-xl bg-card border border-transparent shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)] transition-all duration-300 cursor-pointer"
     >
       <img
         src={project.image}
@@ -77,11 +77,11 @@ const ProjectCard = ({ project }: { project: Project }) => {
         loading="lazy"
         width={1280}
         height={800}
-        className="w-full h-40 md:h-auto md:w-[36%] lg:w-[380px] md:self-stretch shrink-0 object-cover object-top border-b md:border-b-0 md:border-r border-border"
+        className="w-full h-44 md:h-auto md:w-[36%] lg:w-[380px] md:self-stretch shrink-0 object-cover object-top border-b md:border-b-0 md:border-r border-border"
       />
 
-      <div className="flex flex-col flex-1 p-5 md:p-6">
-        <div className="flex items-start justify-between mb-2">
+      <div className="flex flex-col flex-1 p-6 md:p-8">
+        <div className="flex items-start justify-between mb-3">
           <div className="flex items-center gap-2 text-primary-strong">
             <Globe className="h-4 w-4" aria-hidden="true" />
             <span className="text-xs font-medium uppercase tracking-wider">Live Site</span>
@@ -94,21 +94,21 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
         <h3
           id={titleId}
-          className="text-lg md:text-xl font-semibold text-card-foreground mb-1.5 group-hover:text-primary-strong transition-colors"
+          className="text-xl md:text-2xl font-semibold text-card-foreground mb-2 group-hover:text-primary-strong transition-colors"
         >
           {project.title}
           <span className="sr-only"> (opens in a new tab)</span>
         </h3>
 
-        <span className="inline-flex self-start text-xs font-medium px-2.5 py-0.5 rounded-full bg-primary/10 text-primary-strong mb-3">
+        <span className="inline-flex self-start text-xs font-medium px-2.5 py-1 rounded-full bg-primary/10 text-primary-strong mb-4">
           {project.role}
         </span>
 
-        <p className="font-read text-base text-muted-foreground mb-3 leading-relaxed">
+        <p className="font-read text-base md:text-lg text-muted-foreground mb-4 leading-relaxed">
           {project.description}
         </p>
 
-        <div className="flex flex-wrap gap-1.5 pt-3 mt-auto border-t border-border">
+        <div className="flex flex-wrap gap-1.5 pt-4 mt-auto border-t border-border">
           {project.tags.map((tag) => (
             <span key={tag} className="text-xs px-2 py-0.5 rounded-full bg-secondary text-secondary-foreground">
               {tag}
