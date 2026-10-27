@@ -24,7 +24,6 @@ const Navbar = () => {
   const links = [
     { label: "Work", id: "projects" },
     { label: "About", id: "about" },
-    { label: "Contact", id: "contact" },
   ];
 
   return (

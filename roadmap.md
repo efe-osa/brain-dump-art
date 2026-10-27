@@ -17,5 +17,7 @@
 
 - [ ] Fix and improve fonts across the site (user request).
 
-Steps 2–7 wait for the user's review of the preceding change. Provide a specific review prompt after each step.- [x] Fix: page jumps to #about on initial load (fragment effect now ignores a stale hash on first load)
+Steps 2–7 wait for the user's review of the preceding change. Provide a specific review prompt after each step.
+- [x] Fix: page jumps to #about on initial load (fragment effect now ignores a stale hash on first load)
 - [x] Current request: hero "Copy email" button copies the address to the clipboard and confirms with a notification; moved notifications to the bottom centre so they never cover the accessibility button; verified click, keyboard, clipboard contents and both appearance modes.
+- [x] Current request: removed the contact section and its navigation link; the address stays reachable from the hero (Copy email button and email icon); verified nav, page end and mobile menu in the browser.
