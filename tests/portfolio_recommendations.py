@@ -36,6 +36,12 @@ async def check_browser():
             await page.route('**/functions/v1/portfolio-recommendations', respond)
         await page.goto('http://localhost:8080')
         query = page.get_by_label('Your interests or the challenge')
+        toggle = page.get_by_role('button', name='Find work that fits your interests')
+        assert await toggle.get_attribute('aria-expanded') == 'false'
+        assert not await query.is_visible()
+        await toggle.focus()
+        await page.keyboard.press('Enter')
+        assert await toggle.get_attribute('aria-expanded') == 'true'
         await query.fill('React projects using geospatial maps and a beginner guide to web development')
         await page.get_by_role('button', name='Find relevant work', exact=True).click()
         await page.wait_for_function("!document.querySelector('#portfolio-query').disabled", timeout=180000)
@@ -45,6 +51,12 @@ async def check_browser():
         assert 'https://everyfarmer.farm/' in destinations
         assert any('programming-beginners-guide' in x for x in destinations)
         assert all(url in [x['url'] for x in CATALOG] for url in destinations)
+        await toggle.focus()
+        await page.keyboard.press('Space')
+        assert not await query.is_visible()
+        await page.keyboard.press('Enter')
+        assert await query.input_value() == 'React projects using geospatial maps and a beginner guide to web development'
+        assert await links.count() >= 2
         if os.environ.get('LIVE_AI_TEST') != '1':
             await query.fill('Underwater archaeology')
             await page.get_by_role('button', name='Find relevant work', exact=True).click()

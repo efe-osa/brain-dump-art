@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { ArrowUpRight, Search, Square, Sparkles } from "lucide-react";
+import { ArrowUpRight, ChevronDown, ChevronUp, Search, Square, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
 interface Recommendation {
   id: string;
@@ -12,6 +13,7 @@ interface Recommendation {
 }
 
 const PortfolioFinder = () => {
+  const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const [summary, setSummary] = useState("");
@@ -68,10 +70,18 @@ const PortfolioFinder = () => {
   };
 
   return (
-    <section id="find-work" aria-labelledby="finder-heading" className="py-16 border-y border-border bg-muted/40 [overflow-wrap:anywhere]">
+    <section id="find-work" aria-labelledby="finder-heading" className="py-6 border-y border-border bg-muted/40 [overflow-wrap:anywhere]">
       <div className="page-shell page-shell--read">
-        <p className="flex items-center gap-2 text-sm text-primary-strong mb-3"><Sparkles className="h-4 w-4" aria-hidden="true" /> A closer look</p>
-        <h2 id="finder-heading" className="text-2xl md:text-3xl font-bold mb-6">What are you looking for?</h2>
+        <Collapsible open={open} onOpenChange={setOpen}>
+          <h2 id="finder-heading">
+            <CollapsibleTrigger asChild>
+              <Button variant="ghost" className="w-full justify-between gap-3 h-auto min-h-11 px-0 py-2 whitespace-normal text-left hover:bg-transparent hover:text-primary-strong">
+                <span className="flex items-center gap-3"><Sparkles className="h-4 w-4 shrink-0 text-primary-strong" aria-hidden="true" /> Find work that fits your interests</span>
+                {open ? <ChevronUp aria-hidden="true" /> : <ChevronDown aria-hidden="true" />}
+              </Button>
+            </CollapsibleTrigger>
+          </h2>
+          <CollapsibleContent className="pt-6 pb-2">
         <form onSubmit={search} className="space-y-4">
           <label htmlFor="portfolio-query" className="block text-sm font-medium">Your interests or the challenge you’re working on</label>
           <Textarea id="portfolio-query" value={query} onChange={event => setQuery(event.target.value)} maxLength={1000} required
@@ -97,6 +107,8 @@ const PortfolioFinder = () => {
             </li>)}
           </ul>
         </div>}
+          </CollapsibleContent>
+        </Collapsible>
       </div>
     </section>
   );
