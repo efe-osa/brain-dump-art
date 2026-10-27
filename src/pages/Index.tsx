@@ -5,6 +5,7 @@ import Projects from "@/components/Projects";
 import Blog from "@/components/Blog";
 import Footer from "@/components/Footer";
 import AccessibilityMenu from "@/components/AccessibilityMenu";
+import PortfolioFinder from "@/components/PortfolioFinder";
 
 const Index = () => {
   return (
@@ -12,6 +13,7 @@ const Index = () => {
       <Navbar />
       <main id="main-content" tabIndex={-1} className="scroll-mt-24">
         <Hero />
+        <PortfolioFinder />
         <Projects />
         <About />
         <Blog />

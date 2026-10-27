@@ -1,5 +1,7 @@
 # Accessibility improvements
 
+- [x] Current request: AI-powered visitor recommendations grounded in the site's projects and writing; accessible input, relevant links, safe errors and a verified real request returning both a project and a post.
+
 - [x] Current request: improved Experience hierarchy, spacing and metric emphasis; verified content against the newly uploaded resume; added education, certifications and a current PDF download. Checked facts, PDF retrieval, appearance settings, keyboard skip link and 200% mobile reflow.
 - [x] Current request: made the Experience heading and intro personal ("Where my work has taken me"), and listed Studio 14 above Reliance Health; verified order with the resume test.
 - [x] Current request: wide viewport-scaled gutters on every section and a narrower centred column for experience, writing and contact; reflowed the stat strip so no label clips; verified measures, overflow and screenshots at 768/949/1024/1280/1440.
