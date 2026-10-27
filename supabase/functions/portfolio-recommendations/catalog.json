@@ -1,0 +1,89 @@
+[
+  {
+    "id": "lemur",
+    "kind": "project",
+    "title": "Lemur Cloud Portal",
+    "description": "Customer portal designed to enable game developers to configure our flagship game engine and release multiplayer games faster.",
+    "url": "https://www.br.ink/lemur",
+    "role": "Software Engineer",
+    "tags": [
+      "C#",
+      ".NET",
+      "Blazor",
+      "Fluxor",
+      "Azure",
+      "Salesforce API"
+    ]
+  },
+  {
+    "id": "everyfarmer",
+    "kind": "project",
+    "title": "Everyfarmer \u2014 Service Provider",
+    "description": "Platform connecting farmers and other actors in the farming cycle",
+    "url": "https://everyfarmer.farm/",
+    "role": "Front-End Engineer",
+    "tags": [
+      "Geospatial Mapping",
+      "Product & Service Management",
+      "JavaScript",
+      "React",
+      "Redux",
+      "Google Maps API",
+      "CI/CD"
+    ]
+  },
+  {
+    "id": "equal-measures",
+    "kind": "project",
+    "title": "Equal Measures 2030",
+    "description": "Advocacy website making gender-equality metrics across the Sustainable Development Goals accessible to policymakers and campaigners.",
+    "url": "https://equalmeasures2030.org/",
+    "role": "Full Stack Developer",
+    "tags": [
+      "JavaScript",
+      "Web Components",
+      "WordPress",
+      "Accessibility",
+      "CI/CD"
+    ]
+  },
+  {
+    "id": "read-it",
+    "kind": "project",
+    "title": "Read it",
+    "description": "Reddit posts into a standalone reading experience.",
+    "url": "https://fervent-bhabha-e5febb.netlify.app/",
+    "role": "Full Stack Developer",
+    "tags": [
+      "JavaScript",
+      "Reddit API",
+      "Responsive web design",
+      "Netlify",
+      "CI/CD"
+    ]
+  },
+  {
+    "id": "better-you",
+    "kind": "post",
+    "title": "The Journey to a Better You",
+    "description": "",
+    "url": "https://medium.com/@Efe-osa/the-journey-to-a-better-you-b316c259b404",
+    "category": "Personal Growth",
+    "readTime": "5 min",
+    "tags": [
+      "Personal Growth"
+    ]
+  },
+  {
+    "id": "web-development-guide",
+    "kind": "post",
+    "title": "Making the Move to Web Development: A Programming Beginner's Guide",
+    "description": "",
+    "url": "https://medium.com/@Efe-osa/making-the-move-to-web-development-programming-beginners-guide-50800e3a37a3",
+    "category": "Web Development",
+    "readTime": "7 min",
+    "tags": [
+      "Web Development"
+    ]
+  }
+]
