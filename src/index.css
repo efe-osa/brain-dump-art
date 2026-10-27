@@ -255,9 +255,10 @@
     padding-inline: clamp(1.5rem, 7vw, 7rem);
   }
 
-  /* Narrower shell for text-first sections: experience, writing, contact. */
+  /* Narrower shell for text-first sections: experience, writing, contact.
+     Caps the measure at roughly 60-66 characters whatever the screen width. */
   .page-shell--read {
-    max-width: 56rem;
+    max-width: 46rem;
   }
 
   .skill-pill {
