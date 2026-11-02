@@ -2,6 +2,12 @@ import { ArrowUpRight } from "lucide-react";
 
 const posts = [
   {
+    title: "i18n vs l10n are the same, or are they?",
+    category: "Web Development",
+    readTime: "5 min",
+    url: "https://medium.com/@Efe-osa/i18n-vs-l10n-whats-the-difference-and-why-should-you-care-5987c75363cb",
+  },
+  {
     title: "The Journey to a Better You",
     category: "Personal Growth",
     readTime: "5 min",

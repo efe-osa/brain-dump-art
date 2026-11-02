@@ -63,6 +63,18 @@
     ]
   },
   {
+    "id": "i18n-vs-l10n",
+    "kind": "post",
+    "title": "i18n vs l10n are the same, or are they?",
+    "description": "What internationalization and localization actually mean and how they differ in practice.",
+    "url": "https://medium.com/@Efe-osa/i18n-vs-l10n-whats-the-difference-and-why-should-you-care-5987c75363cb",
+    "category": "Web Development",
+    "readTime": "5 min",
+    "tags": [
+      "Web Development"
+    ]
+  },
+  {
     "id": "better-you",
     "kind": "post",
     "title": "The Journey to a Better You",
