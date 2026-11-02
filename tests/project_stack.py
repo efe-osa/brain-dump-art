@@ -36,7 +36,7 @@ async def check():
                     await page.keyboard.press("Tab")
                 link = links.nth(i)
                 await page.wait_for_timeout(100)
-                assert title in await link.inner_text()
+                assert await page.get_by_role("link", name=f"{title} (opens in a new tab)", exact=True).count() == 1
                 assert await link.evaluate("(el)=>document.activeElement===el")
                 assert await link.evaluate("""(el)=>{
                     const r=el.getBoundingClientRect();
