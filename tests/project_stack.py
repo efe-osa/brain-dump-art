@@ -12,6 +12,22 @@ async def check():
         await page.evaluate("document.fonts.ready")
         links = page.locator("#projects li a")
         assert await links.count() == 4
+        for i, title in enumerate(TITLES):
+            await page.locator('.project-track').evaluate("""(el,i)=>window.scrollTo(0,
+                window.scrollY+el.getBoundingClientRect().top-
+                parseFloat(getComputedStyle(document.documentElement).fontSize)*5.5+i*innerHeight*0.65)""", i)
+            await page.wait_for_timeout(100)
+            assert await page.locator('#projects h2 [aria-hidden]').inner_text() == title
+            assert await links.nth(i).evaluate("""(el)=>{
+                const r=el.getBoundingClientRect();
+                return el.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));
+            }"""), f"Wrong project revealed: {title}"
+        await page.locator('.project-track').evaluate("""el=>window.scrollTo(0,
+            window.scrollY+el.getBoundingClientRect().top-
+            parseFloat(getComputedStyle(document.documentElement).fontSize)*5.5+innerHeight*0.65*0.5)""")
+        await page.wait_for_timeout(100)
+        bounds = await links.nth(1).bounding_box()
+        assert bounds == await links.first.bounding_box(), 'Reveal must stay in the existing card frame'
         for mode in ["", "dark", "high-contrast", "dark high-contrast"]:
             await page.evaluate("(mode)=>document.documentElement.className=mode", mode)
             await links.first.focus()
@@ -19,6 +35,7 @@ async def check():
                 if i:
                     await page.keyboard.press("Tab")
                 link = links.nth(i)
+                await page.wait_for_timeout(100)
                 assert title in await link.inner_text()
                 assert await link.evaluate("(el)=>document.activeElement===el")
                 assert await link.evaluate("""(el)=>{

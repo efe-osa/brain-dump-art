@@ -1,5 +1,7 @@
 # Accessibility improvements
 
+- [x] Current request: contained project reveals within a pinned card frame and synchronized the section heading with the visible project; verified all four projects, keyboard access, appearance modes and reduced-motion fallback.
+
 - [x] Current request: scroll-driven selected-project stack; verified all four scroll positions, keyboard access in four appearance modes and reduced-motion/enlarged-text fallbacks.
 
 - [x] Current request: AI-powered visitor recommendations grounded in the site's projects and writing; accessible input, relevant links, safe errors and a verified real request returning both a project and a post.

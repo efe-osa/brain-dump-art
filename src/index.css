@@ -278,8 +278,28 @@
     padding-bottom: 0.5rem;
   }
 
+  .project-track--pinned {
+    height: calc(var(--stage-height) + 195svh);
+  }
+
+  .project-track--pinned .project-stage {
+    position: sticky;
+    top: 5.5rem;
+  }
+
+  .project-stack-heading {
+    padding-bottom: 1.5rem;
+  }
+
+  .project-stack-heading h2 {
+    min-height: 2.4em;
+    letter-spacing: 0;
+  }
+
   .project-stack--sticky {
-    gap: 42svh;
+    gap: 0;
+    overflow: clip;
+    overflow-clip-margin: 8px;
   }
 
   .project-stack-item {
@@ -289,8 +309,18 @@
   }
 
   .project-stack--sticky .project-stack-item {
-    position: sticky;
-    top: 7rem;
+    grid-area: 1 / 1;
+    clip-path: inset(var(--reveal-top, 100%) -8px -8px -8px);
+    height: 100%;
+  }
+
+  .project-stack--sticky .project-stack-item:first-child,
+  .project-stack--sticky .project-stack-item:focus-within {
+    clip-path: none;
+  }
+
+  .project-stack--sticky .project-stack-card {
+    height: 100%;
   }
 
   .project-stack-item:focus-within {
@@ -423,12 +453,22 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .project-track--pinned {
+    height: auto;
+  }
+
+  .project-track--pinned .project-stage {
+    position: static;
+  }
+
   .project-stack--sticky {
     gap: 1.5rem;
   }
 
   .project-stack--sticky .project-stack-item {
     position: static;
+    grid-area: auto;
+    clip-path: none;
   }
 
   *,
