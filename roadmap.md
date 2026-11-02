@@ -1,5 +1,7 @@
 # Accessibility improvements
 
+- [x] Current request: undid the image gallery and restored the preceding scroll-driven projects, retaining accent-colored section titles and no duplicate card titles; project stack accessibility checks passed.
+
 - [x] Current request: contained project reveals within a pinned card frame and synchronized the section heading with the visible project; verified all four projects, keyboard access, appearance modes and reduced-motion fallback.
 
 - [x] Current request: scroll-driven selected-project stack; verified all four scroll positions, keyboard access in four appearance modes and reduced-motion/enlarged-text fallbacks.
