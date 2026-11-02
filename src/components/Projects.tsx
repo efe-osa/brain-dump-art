@@ -148,7 +148,7 @@ const Projects = () => {
             ))}
           </TabsList>
           {projects.map((project, index) => (
-            <TabsContent key={project.title} value={project.title} className="mt-0 focus-visible:ring-primary-strong">
+            <TabsContent key={project.title} value={project.title} aria-label={project.title} className="mt-0 focus-visible:ring-primary-strong">
               <ProjectCard project={project} index={index} />
             </TabsContent>
           ))}
