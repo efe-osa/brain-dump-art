@@ -12,6 +12,6 @@
 - Portfolio navigation uses real route/fragment links and focuses fragment destinations after route changes; this preserves standard link behavior and predictable keyboard navigation.
 - Use the shared Collapsible and Button components for the full skills disclosure; key skills remain outside it so they are always available.
 - Disable CSS motion globally under reduced motion and listen for live preference changes in JavaScript animations; settings changes must take effect without reloading.
-- Project cards retain a screen-reader-only heading as their accessible link name, while the active title appears in the stage heading; non-stacked layouts show titles above each card so destinations remain identifiable without duplicate titles inside cards. Descriptions and tool lists must not inflate link names.
-- Selected projects use a native sticky stage with scroll-driven clipped reveals within one card frame, never wheel interception; focus reveals each destination and synchronizes the visible heading, while reduced motion or insufficient viewport height restores normal document flow.
+- Project cards retain a screen-reader-only heading as their accessible link name, while the selected title appears in the gallery heading; descriptions and tool lists must not inflate link names.
+- Selected projects use shared Radix Tabs with image selectors and one detail panel; direct selection and arrow-key navigation replace scroll-driven browsing, keeping focus on the selector and synchronizing the visible heading.
 - Experience uses role-first semantic timeline entries and the asset-backed current resume link; keep dated qualifications separate and retain overlapping employment dates as supplied rather than inferring contracts or gaps.
