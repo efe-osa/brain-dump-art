@@ -1,6 +1,6 @@
 # Accessibility improvements
 
-- [ ] Current request: replace scroll-driven projects with an image gallery and direct selection; verify every project, keyboard selection, images and narrow-screen reflow.
+- [x] Current request: replaced scroll-driven projects with an image gallery and direct selection; verified every project, keyboard selection without scrolling, loaded images, reduced motion, recommendation compatibility and 200% narrow-screen reflow.
 
 - [x] Current request: contained project reveals within a pinned card frame and synchronized the section heading with the visible project; verified all four projects, keyboard access, appearance modes and reduced-motion fallback.
 
