@@ -1,6 +1,6 @@
 # Accessibility improvements
 
-- [ ] Current request: undo the image gallery and restore the preceding scroll-driven projects, retaining accent-colored section titles and no duplicate card titles.
+- [x] Current request: undid the image gallery and restored the preceding scroll-driven projects, retaining accent-colored section titles and no duplicate card titles; project stack accessibility checks passed.
 
 - [x] Current request: contained project reveals within a pinned card frame and synchronized the section heading with the visible project; verified all four projects, keyboard access, appearance modes and reduced-motion fallback.
 
