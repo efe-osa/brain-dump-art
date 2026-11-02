@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Globe } from "lucide-react";
 import lemurImg from "@/assets/lemur.jpg";
 import everyfarmerImg from "@/assets/everyfarmer.jpg";
@@ -60,7 +61,7 @@ const projects: Project[] = [
   },
 ];
 
-const ProjectCard = ({ project }: { project: Project }) => {
+const ProjectCard = ({ project, index }: { project: Project; index: number }) => {
   const titleId = `project-${project.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
   return (
     <a
@@ -68,7 +69,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
       target="_blank"
       rel="noopener noreferrer"
       aria-labelledby={titleId}
-      className="group flex flex-col h-full p-6 rounded-xl bg-card border border-transparent shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)] transition-all duration-300 cursor-pointer"
+      className="project-stack-card group bg-card border border-border shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)] transition-shadow duration-300 cursor-pointer"
     >
       <img
         src={project.image}
@@ -76,23 +77,29 @@ const ProjectCard = ({ project }: { project: Project }) => {
         loading="lazy"
         width={1280}
         height={800}
-        className="w-full h-40 object-cover object-top rounded-lg border border-border mb-4"
+        className="project-stack-image border border-border rounded-lg"
       />
 
+      <div className="flex min-w-0 flex-col p-5 md:p-8">
       <div className="flex items-start justify-between mb-3">
         <div className="flex items-center gap-2 text-primary-strong">
           <Globe className="h-4 w-4" aria-hidden="true" />
           <span className="text-xs font-medium uppercase tracking-wider">Live Site</span>
         </div>
-        <ArrowUpRight
-          aria-hidden="true"
-          className="h-4 w-4 text-muted-foreground group-hover:text-primary-strong transition-colors shrink-0"
-        />
+        <div className="flex items-center gap-4">
+          <span className="text-xs text-muted-foreground" aria-hidden="true">
+            {String(index + 1).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}
+          </span>
+          <ArrowUpRight
+            aria-hidden="true"
+            className="h-5 w-5 text-muted-foreground group-hover:text-primary-strong transition-colors shrink-0"
+          />
+        </div>
       </div>
 
       <h3
         id={titleId}
-        className="text-lg font-semibold text-card-foreground mb-2 group-hover:text-primary-strong transition-colors"
+        className="text-xl md:text-2xl font-semibold text-card-foreground mb-3 group-hover:text-primary-strong transition-colors"
       >
         {project.title}
         <span className="sr-only"> (opens in a new tab)</span>
@@ -111,22 +118,51 @@ const ProjectCard = ({ project }: { project: Project }) => {
           </span>
         ))}
       </div>
+      </div>
     </a>
   );
 };
 
 const Projects = () => {
+  const stackRef = useRef<HTMLOListElement>(null);
+  const [canStack, setCanStack] = useState(false);
+
+  useEffect(() => {
+    const list = stackRef.current;
+    if (!list) return;
+    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const cards = Array.from(list.querySelectorAll<HTMLElement>(".project-stack-card"));
+    const update = () => {
+      const largestCard = Math.max(...cards.map((card) => card.getBoundingClientRect().height));
+      // Leave room for the fixed navigation, focus outline and floating settings.
+      const inset = parseFloat(getComputedStyle(document.documentElement).fontSize) * 7;
+      setCanStack(!motion.matches && largestCard <= window.innerHeight - inset - 80);
+    };
+    const observer = new ResizeObserver(update);
+    cards.forEach((card) => observer.observe(card));
+    window.addEventListener("resize", update);
+    motion.addEventListener("change", update);
+    update();
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", update);
+      motion.removeEventListener("change", update);
+    };
+  }, []);
+
   return (
     <section id="projects" className="py-24">
       <div className="page-shell">
         <p className="text-sm font-medium text-primary-strong mb-2 tracking-widest uppercase">Projects</p>
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 tracking-tight">Selected work</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {projects.map((project) => (
-            <ProjectCard key={project.title} project={project} />
+        <ol ref={stackRef} className={`project-stack ${canStack ? "project-stack--sticky" : ""}`} aria-label="Selected projects">
+          {projects.map((project, index) => (
+            <li key={project.title} className="project-stack-item">
+              <ProjectCard project={project} index={index} />
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );

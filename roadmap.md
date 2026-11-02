@@ -1,5 +1,7 @@
 # Accessibility improvements
 
+- [x] Current request: scroll-driven selected-project stack; verified all four scroll positions, keyboard access in four appearance modes and reduced-motion/enlarged-text fallbacks.
+
 - [x] Current request: AI-powered visitor recommendations grounded in the site's projects and writing; accessible input, relevant links, safe errors and a verified real request returning both a project and a post.
 
 - [x] Current request: improved Experience hierarchy, spacing and metric emphasis; verified content against the newly uploaded resume; added education, certifications and a current PDF download. Checked facts, PDF retrieval, appearance settings, keyboard skip link and 200% mobile reflow.
