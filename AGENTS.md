@@ -2,6 +2,8 @@
 
 ## Conventions
 
+- Accessibility confirmations use one persistent polite status region, updated only by user actions and coalesced during rapid changes; saved-preference restoration stays silent and announcements never manage focus.
+
 - Portfolio recommendations use a public, validated Edge Function with request-scoped AI Gateway Responses streaming; keep prompts and credentials server-side and resolve model-selected IDs against the server catalog so AI cannot invent destinations.
 - Keep the recommendation catalog synchronized with Projects and Blog; tests compare the source entries to prevent stale recommendations. Persist provider-denial state privately and never retry terminal failures.
 
