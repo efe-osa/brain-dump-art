@@ -270,6 +270,62 @@
     max-width: 48rem;
   }
 
+  .project-stack {
+    display: grid;
+    gap: 1.5rem;
+    list-style: none;
+    isolation: isolate;
+    padding-bottom: 0.5rem;
+  }
+
+  .project-stack--sticky {
+    gap: 42svh;
+  }
+
+  .project-stack-item {
+    min-width: 0;
+    align-self: start;
+    scroll-margin-top: 7rem;
+  }
+
+  .project-stack--sticky .project-stack-item {
+    position: sticky;
+    top: 7rem;
+  }
+
+  .project-stack-item:focus-within {
+    z-index: 1;
+  }
+
+  .project-stack-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    border-radius: var(--radius);
+    overflow-wrap: anywhere;
+  }
+
+  .project-stack-image {
+    width: calc(100% - 2.5rem);
+    height: 11rem;
+    margin: 1.25rem 1.25rem 0;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  @media (min-width: 768px) {
+    .project-stack-card {
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      min-height: 24rem;
+    }
+
+    .project-stack-image {
+      width: calc(100% - 2rem);
+      height: calc(100% - 4rem);
+      min-height: 20rem;
+      margin: 2rem 0 2rem 2rem;
+    }
+  }
+
   .skill-pill {
     @apply inline-flex items-center px-3 py-1.5 text-xs rounded-full font-medium border transition-all duration-200;
   }
@@ -367,6 +423,14 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .project-stack--sticky {
+    gap: 1.5rem;
+  }
+
+  .project-stack--sticky .project-stack-item {
+    position: static;
+  }
+
   *,
   *::before,
   *::after {
