@@ -13,7 +13,7 @@ const Index = () => {
       <Navbar />
       <main id="main-content" tabIndex={-1} className="scroll-mt-24">
         <Hero />
-        <PortfolioFinder />
+        {/* <PortfolioFinder /> */}
         <Projects />
         <About />
         <Blog />
