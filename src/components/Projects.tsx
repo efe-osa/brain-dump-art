@@ -131,7 +131,7 @@ const Projects = () => {
     <section id="projects" className="py-24">
       <div className="page-shell">
         <p className="text-sm font-medium text-primary-strong mb-2 tracking-widest uppercase">Projects</p>
-        <h2 className="text-3xl md:text-4xl font-bold text-primary-strong min-h-[2.4em] mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-primary-strong min-h-[2.4em] mb-4 [overflow-wrap:anywhere]">
           {activeTitle}
         </h2>
         <Tabs value={activeTitle} onValueChange={setActiveTitle}>
@@ -143,7 +143,7 @@ const Projects = () => {
                 className="group flex min-w-0 flex-col items-stretch justify-start gap-2 whitespace-normal rounded-lg border border-border bg-card p-2 text-left text-foreground data-[state=active]:border-primary-strong data-[state=active]:bg-secondary data-[state=active]:text-secondary-foreground focus-visible:ring-primary-strong"
               >
                 <img src={project.image} alt="" width={1280} height={800} className="h-16 w-full rounded object-cover object-top" />
-                <span className="text-xs leading-relaxed break-words">{project.title}</span>
+                <span className="text-xs leading-relaxed [overflow-wrap:anywhere]">{project.title}</span>
               </TabsTrigger>
             ))}
           </TabsList>
