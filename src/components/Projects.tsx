@@ -99,7 +99,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
 
       <h3
         id={titleId}
-        className="text-xl md:text-2xl font-semibold text-card-foreground mb-3 group-hover:text-primary-strong transition-colors"
+        className="sr-only"
       >
         {project.title}
         <span className="sr-only"> (opens in a new tab)</span>
@@ -207,7 +207,7 @@ const Projects = () => {
         <div ref={stageRef} className="project-stage">
         <div ref={headingRef} className="project-stack-heading">
         <p className="text-sm font-medium text-primary-strong mb-2 tracking-widest uppercase">Projects</p>
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+        <h2 className={`text-3xl md:text-4xl font-bold transition-colors duration-300 ${activeProject === null ? "text-foreground" : "text-primary-strong"}`}>
           <span className="sr-only">Selected work</span>
           <span aria-hidden="true">{activeProject === null ? "Selected work" : projects[activeProject]?.title}</span>
         </h2>
@@ -216,6 +216,9 @@ const Projects = () => {
         <ol ref={stackRef} className={`project-stack ${canStack ? "project-stack--sticky" : ""}`} aria-label="Selected projects">
           {projects.map((project, index) => (
             <li key={project.title} className="project-stack-item" onFocus={() => focusProject(index)}>
+              {!canStack && (
+                <h3 className="text-xl md:text-2xl font-semibold text-primary-strong mb-3">{project.title}</h3>
+              )}
               <ProjectCard project={project} index={index} />
             </li>
           ))}
