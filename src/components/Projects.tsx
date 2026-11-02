@@ -67,7 +67,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
       target="_blank"
       rel="noopener noreferrer"
       aria-labelledby={titleId}
-      className="project-stack-card group bg-card shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)] transition-shadow duration-300 cursor-pointer"
+      className="project-stack-card group cursor-pointer"
     >
       <img
         src={project.image}
