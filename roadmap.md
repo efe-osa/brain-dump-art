@@ -1,6 +1,6 @@
 # Accessibility improvements
 
-- [ ] Current request: scroll-driven selected-project stack, with visible keyboard focus and reduced-motion/reflow fallbacks; verify scrolling and appearance modes.
+- [x] Current request: scroll-driven selected-project stack; verified all four scroll positions, keyboard access in four appearance modes and reduced-motion/enlarged-text fallbacks.
 
 - [x] Current request: AI-powered visitor recommendations grounded in the site's projects and writing; accessible input, relevant links, safe errors and a verified real request returning both a project and a post.
 
