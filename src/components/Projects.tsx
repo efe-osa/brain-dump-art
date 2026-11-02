@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Globe } from "lucide-react";
 import lemurImg from "@/assets/lemur.jpg";
 import everyfarmerImg from "@/assets/everyfarmer.jpg";
@@ -125,34 +124,107 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
 };
 
 const Projects = () => {
-  const [activeTitle, setActiveTitle] = useState(projects[0].title);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const stageRef = useRef<HTMLDivElement>(null);
+  const headingRef = useRef<HTMLDivElement>(null);
+  const stackRef = useRef<HTMLOListElement>(null);
+  const [canStack, setCanStack] = useState(false);
+  const [activeProject, setActiveProject] = useState<number | null>(null);
+
+  useEffect(() => {
+    const list = stackRef.current;
+    const track = trackRef.current;
+    const heading = headingRef.current;
+    if (!list || !track || !heading) return;
+    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const cards = Array.from(list.querySelectorAll<HTMLElement>(".project-stack-card"));
+    const update = () => {
+      const largestCard = Math.max(...cards.map((card) => card.getBoundingClientRect().height));
+      // Leave room for the fixed navigation, focus outline and floating settings.
+      const inset = parseFloat(getComputedStyle(document.documentElement).fontSize) * 5.5;
+      const stageHeight = largestCard + heading.getBoundingClientRect().height;
+      track.style.setProperty("--stage-height", `${stageHeight}px`);
+      setCanStack(!motion.matches && stageHeight <= window.innerHeight - inset - 64);
+    };
+    const observer = new ResizeObserver(update);
+    cards.forEach((card) => observer.observe(card));
+    observer.observe(heading);
+    window.addEventListener("resize", update);
+    motion.addEventListener("change", update);
+    update();
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", update);
+      motion.removeEventListener("change", update);
+    };
+  }, []);
+
+  useEffect(() => {
+    const track = trackRef.current;
+    const list = stackRef.current;
+    if (!track || !list) return;
+    const items = Array.from(list.children) as HTMLElement[];
+    const update = () => {
+      const inset = parseFloat(getComputedStyle(document.documentElement).fontSize) * 5.5;
+      if (canStack) {
+        const progress = Math.max(0, Math.min(projects.length - 1,
+          (inset - track.getBoundingClientRect().top) / (window.innerHeight * 0.65)));
+        items.forEach((item, index) => {
+          const revealed = index === 0 ? 1 : Math.max(0, Math.min(1, progress - index + 1));
+          item.style.setProperty("--reveal-top", `${(1 - revealed) * 100}%`);
+        });
+        setActiveProject(list.getBoundingClientRect().top < window.innerHeight * 0.8 ? Math.round(progress) : null);
+      } else {
+        const visible = items.findIndex((item) => {
+          const bounds = item.getBoundingClientRect();
+          return bounds.bottom > inset && bounds.top < window.innerHeight * 0.8;
+        });
+        setActiveProject(visible >= 0 ? visible : null);
+      }
+    };
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, [canStack]);
+
+  const focusProject = (index: number) => {
+    const track = trackRef.current;
+    if (canStack && track) {
+      const inset = parseFloat(getComputedStyle(document.documentElement).fontSize) * 5.5;
+      window.scrollTo({ top: window.scrollY + track.getBoundingClientRect().top - inset + index * window.innerHeight * 0.65, behavior: "instant" });
+    }
+    setActiveProject(index);
+  };
 
   return (
     <section id="projects" className="py-24">
       <div className="page-shell">
+        <div ref={trackRef} className={`project-track ${canStack ? "project-track--pinned" : ""}`}>
+        <div ref={stageRef} className="project-stage">
+        <div ref={headingRef} className="project-stack-heading">
         <p className="text-sm font-medium text-primary-strong mb-2 tracking-widest uppercase">Projects</p>
-        <h2 className="text-3xl md:text-4xl font-bold text-primary-strong min-h-[2.4em] mb-4 [overflow-wrap:anywhere]">
-          {activeTitle}
+        <h2 className={`text-3xl md:text-4xl font-bold transition-colors duration-300 ${activeProject === null ? "text-foreground" : "text-primary-strong"}`}>
+          <span className="sr-only">Selected work</span>
+          <span aria-hidden="true">{activeProject === null ? "Selected work" : projects[activeProject]?.title}</span>
         </h2>
-        <Tabs value={activeTitle} onValueChange={setActiveTitle}>
-          <TabsList aria-label="Selected projects" className="grid h-auto w-full grid-cols-2 md:grid-cols-4 items-stretch gap-3 bg-transparent p-0 mb-6">
-            {projects.map((project) => (
-              <TabsTrigger
-                key={project.title}
-                value={project.title}
-                className="group flex min-w-0 flex-col items-stretch justify-start gap-2 whitespace-normal rounded-lg border border-border bg-card p-2 text-left text-foreground data-[state=active]:border-primary-strong data-[state=active]:bg-secondary data-[state=active]:text-secondary-foreground focus-visible:ring-primary-strong"
-              >
-                <img src={project.image} alt="" width={1280} height={800} className="h-16 w-full rounded object-cover object-top" />
-                <span className="text-xs leading-relaxed [overflow-wrap:anywhere]">{project.title}</span>
-              </TabsTrigger>
-            ))}
-          </TabsList>
+        </div>
+
+        <ol ref={stackRef} className={`project-stack ${canStack ? "project-stack--sticky" : ""}`} aria-label="Selected projects">
           {projects.map((project, index) => (
-            <TabsContent key={project.title} value={project.title} aria-label={project.title} className="mt-0 focus-visible:ring-primary-strong">
+            <li key={project.title} className="project-stack-item" onFocus={() => focusProject(index)}>
+              {!canStack && (
+                <h3 className="text-xl md:text-2xl font-semibold text-primary-strong mb-3">{project.title}</h3>
+              )}
               <ProjectCard project={project} index={index} />
-            </TabsContent>
+            </li>
           ))}
-        </Tabs>
+        </ol>
+        </div>
+        </div>
       </div>
     </section>
   );
