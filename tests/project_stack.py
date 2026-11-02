@@ -1,7 +1,7 @@
 """Every project remains reachable in the directly selectable image gallery."""
 import asyncio
 from pathlib import Path
-from playwright.async_api import async_playwright
+from playwright.async_api import async_playwright, expect
 
 TITLES = ["Lemur Cloud Portal", "Everyfarmer — Service Provider", "Equal Measures 2030", "Read it"]
 URLS = ["https://www.br.ink/lemur", "https://everyfarmer.farm/", "https://equalmeasures2030.org/", "https://fervent-bhabha-e5febb.netlify.app/"]
@@ -29,11 +29,12 @@ async def check():
         for mode in ['', 'dark', 'high-contrast', 'dark high-contrast']:
             await page.evaluate('(mode)=>document.documentElement.className=mode', mode)
             await page.get_by_role('tab', name=TITLES[0], exact=True).focus()
+            await expect(page.get_by_role('tab', name=TITLES[0], exact=True)).to_have_attribute('aria-selected', 'true')
             position = await page.evaluate('window.scrollY')
             for title in TITLES[1:] + TITLES[:1]:
                 await page.keyboard.press('ArrowRight')
                 tab = page.get_by_role('tab', name=title, exact=True)
-                assert await tab.get_attribute('aria-selected') == 'true'
+                await expect(tab).to_have_attribute('aria-selected', 'true')
                 assert await tab.evaluate('el=>document.activeElement===el')
                 assert abs(await page.evaluate('window.scrollY') - position) < 2, 'Selection should not scroll the page'
         await page.evaluate('document.documentElement.className=""')
