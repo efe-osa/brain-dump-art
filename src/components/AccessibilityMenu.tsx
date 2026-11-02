@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Accessibility, Minus, Plus, Contrast, RotateCcw, Moon, Sun } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 type Size = "sm" | "base" | "lg" | "xl";
 const SIZES: Size[] = ["sm", "base", "lg", "xl"];
@@ -15,8 +16,23 @@ const AccessibilityMenu = () => {
   const [size, setSize] = useState<Size>("base");
   const [highContrast, setHighContrast] = useState(false);
   const [dark, setDark] = useState(false);
+  const [announcement, setAnnouncement] = useState("");
+  const announcementTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
+
+  // Only user actions announce; rapid changes replace the pending confirmation.
+  const announce = (message: string) => {
+    if (announcementTimer.current !== null) clearTimeout(announcementTimer.current);
+    announcementTimer.current = setTimeout(() => {
+      setAnnouncement(message);
+      announcementTimer.current = null;
+    }, 300);
+  };
+
+  useEffect(() => () => {
+    if (announcementTimer.current !== null) clearTimeout(announcementTimer.current);
+  }, []);
 
   const close = (returnFocus = true) => {
     setOpen(false);
@@ -73,19 +89,26 @@ const AccessibilityMenu = () => {
   const bump = (dir: 1 | -1) => {
     const i = SIZES.indexOf(size);
     const next = Math.min(SIZES.length - 1, Math.max(0, i + dir));
+    if (next === i) return;
     setSize(SIZES[next]);
+    announce(`Font size ${SCALE[SIZES[next]]}.`);
   };
 
   const reset = () => {
+    if (size === "base" && !highContrast && !dark) return;
     setSize("base");
     setHighContrast(false);
     setDark(false);
+    announce("Accessibility settings reset to defaults.");
   };
 
   const hasCustomSettings = size !== "base" || highContrast || dark;
 
   return (
     <>
+      <div className="sr-only" role="status" aria-live="polite" aria-atomic="true">
+        {announcement}
+      </div>
       {open && (
         <div
           ref={panelRef}
@@ -102,28 +125,31 @@ const AccessibilityMenu = () => {
               <span className="text-xs font-medium text-foreground">{SCALE[size]}</span>
             </div>
             <div className="flex items-center gap-2">
-              <button
+              <Button variant="outline"
                 onClick={() => bump(-1)}
                 disabled={size === SIZES[0]}
                 aria-label="Decrease font size"
                 className="flex-1 inline-flex items-center justify-center min-h-11 rounded-lg border border-border hover:bg-muted disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
               >
                 <Minus className="h-4 w-4" />
-              </button>
-              <button
+              </Button>
+              <Button variant="outline"
                 onClick={() => bump(1)}
                 disabled={size === SIZES[SIZES.length - 1]}
                 aria-label="Increase font size"
                 className="flex-1 inline-flex items-center justify-center min-h-11 rounded-lg border border-border hover:bg-muted disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
               >
                 <Plus className="h-4 w-4" />
-              </button>
+              </Button>
             </div>
           </div>
 
           <div className="mb-4">
-            <button
-              onClick={() => setDark((v) => !v)}
+            <Button variant="outline"
+              onClick={() => {
+                setDark(!dark);
+                announce(`Dark mode ${dark ? "off" : "on"}.`);
+              }}
               aria-pressed={dark}
               className="w-full inline-flex items-center justify-between min-h-11 px-3 rounded-lg border border-border hover:bg-muted transition-colors"
             >
@@ -132,18 +158,22 @@ const AccessibilityMenu = () => {
                 Dark mode
               </span>
               <span
+                aria-hidden="true"
                 className={`text-xs font-medium px-2 py-0.5 rounded-full ${
                   dark ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
                 }`}
               >
                 {dark ? "On" : "Off"}
               </span>
-            </button>
+            </Button>
           </div>
 
           <div className="mb-4">
-            <button
-              onClick={() => setHighContrast((v) => !v)}
+            <Button variant="outline"
+              onClick={() => {
+                setHighContrast(!highContrast);
+                announce(`High contrast ${highContrast ? "off" : "on"}.`);
+              }}
               aria-pressed={highContrast}
               className="w-full inline-flex items-center justify-between min-h-11 px-3 rounded-lg border border-border hover:bg-muted transition-colors"
             >
@@ -152,26 +182,27 @@ const AccessibilityMenu = () => {
                 High contrast
               </span>
               <span
+                aria-hidden="true"
                 className={`text-xs font-medium px-2 py-0.5 rounded-full ${
                   highContrast ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
                 }`}
               >
                 {highContrast ? "On" : "Off"}
               </span>
-            </button>
+            </Button>
           </div>
 
-          <button
+          <Button variant="ghost"
             onClick={reset}
             className="w-full inline-flex items-center justify-center gap-2 min-h-11 text-xs text-muted-foreground hover:text-foreground transition-colors"
           >
             <RotateCcw className="h-3.5 w-3.5" />
             Reset to defaults
-          </button>
+          </Button>
         </div>
       )}
 
-      <button
+      <Button
         ref={triggerRef}
         onClick={() => (open ? close() : setOpen(true))}
         aria-label={open
@@ -190,7 +221,7 @@ const AccessibilityMenu = () => {
             className="absolute top-1 right-1 h-3 w-3 rounded-full border-2 border-primary bg-primary-foreground"
           />
         )}
-      </button>
+      </Button>
     </>
   );
 };
