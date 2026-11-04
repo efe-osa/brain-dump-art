@@ -27,7 +27,7 @@ const projects: Project[] = [
   },
   {
     title: "The Innovation Catalyst",
-    role: "Front-End Developer",
+    role: "Full Stack Developer",
     description:
       "Accessibility-first innovation hub for Stoke-on-Trent & Staffordshire, with high-contrast mode and adjustable text size built in.",
     url: "https://stokecity-innovation-hub.pages.dev/",
