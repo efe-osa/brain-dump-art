@@ -2,7 +2,7 @@
 import asyncio
 from playwright.async_api import async_playwright
 
-TITLES = ["Lemur Cloud Portal", "Everyfarmer — Service Provider", "Equal Measures 2030", "Read it"]
+TITLES = ["Lemur Cloud Portal", "The Innovation Catalyst", "Everyfarmer — Service Provider", "Equal Measures 2030", "Read it"]
 
 async def check():
     async with async_playwright() as p:
@@ -11,7 +11,7 @@ async def check():
         await page.goto("http://localhost:8080")
         await page.evaluate("document.fonts.ready")
         links = page.locator("#projects li a")
-        assert await links.count() == 4
+        assert await links.count() == 5
         for i, title in enumerate(TITLES):
             await page.locator('.project-track').evaluate("""(el,i)=>window.scrollTo(0,
                 window.scrollY+el.getBoundingClientRect().top-
@@ -43,9 +43,29 @@ async def check():
                     return r.top>=0 && r.bottom<=innerHeight &&
                         el.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));
                 }"""), f"Covered keyboard destination: {title}, {mode}"
-            for i in [2, 1, 0]:
+            for i in [3, 2, 1, 0]:
                 await page.keyboard.press("Shift+Tab")
                 assert await links.nth(i).evaluate("(el)=>document.activeElement===el")
+        for width, height in [(393, 667), (390, 844), (393, 852)]:
+            await page.set_viewport_size({"width": width, "height": height})
+            await page.wait_for_timeout(200)
+            assert await page.locator('.project-track--pinned').count() == 1, 'Phone-sized project stage should animate'
+            await page.locator('body').click(position={"x": 2, "y": 150})
+            for i, title in enumerate(TITLES):
+                await page.locator('.project-track').evaluate("""(el,i)=>window.scrollTo(0,
+                    window.scrollY+el.getBoundingClientRect().top-
+                    parseFloat(getComputedStyle(document.documentElement).fontSize)*5.5+i*innerHeight*0.65)""", i)
+                await page.wait_for_timeout(100)
+                assert await page.locator('#projects h2 [aria-hidden]').inner_text() == title
+                assert await links.nth(i).evaluate("""el=>{
+                    const r=el.getBoundingClientRect();
+                    return r.top>=0 && r.bottom<=innerHeight &&
+                        el.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));
+                }"""), f'Mobile project is not fully revealed: {title}'
+            await page.screenshot(path=f'/tmp/browser/mobile-projects/phone-{width}-{height}.png')
+        await page.set_viewport_size({"width": 393, "height": 200})
+        await page.wait_for_timeout(200)
+        assert await page.locator('.project-track--pinned').count() == 0, 'Very short previews must preserve readable document flow'
         await page.emulate_media(reduced_motion="reduce")
         await page.wait_for_timeout(100)
         assert await page.locator(".project-stack-item").first.evaluate("(el)=>getComputedStyle(el).position") == "static"

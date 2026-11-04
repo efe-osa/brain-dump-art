@@ -279,7 +279,7 @@
   }
 
   .project-track--pinned {
-    height: calc(var(--stage-height) + 195svh);
+    height: calc(var(--stage-height) + var(--project-scroll-distance));
   }
 
   .project-track--pinned .project-stage {
@@ -336,7 +336,7 @@
 
   .project-stack-image {
     width: calc(100% - 2.5rem);
-    height: 11rem;
+    height: clamp(5rem, calc(100svh - 38rem), 11rem);
     margin: 1.25rem 1.25rem 0;
     object-fit: cover;
     object-position: top;
