@@ -4,6 +4,7 @@ import lemurImg from "@/assets/lemur.jpg";
 import everyfarmerImg from "@/assets/everyfarmer.jpg";
 import equalmeasuresImg from "@/assets/equalmeasures.jpg";
 import readitImg from "@/assets/readit.jpg";
+import innovationCatalystImg from "@/assets/innovation-catalyst.jpg";
 
 interface Project {
   title: string;
@@ -48,6 +49,15 @@ const projects: Project[] = [
     url: "https://equalmeasures2030.org/",
     image: equalmeasuresImg,
     tags: ["JavaScript", "Web Components", "WordPress", "Accessibility", "CI/CD"],
+  },
+  {
+    title: "The Innovation Catalyst",
+    role: "Front-End Developer",
+    description:
+      "Accessibility-first innovation hub for Stoke-on-Trent & Staffordshire, with high-contrast mode and adjustable text size built in.",
+    url: "https://stokecity-innovation-hub.pages.dev/",
+    image: innovationCatalystImg,
+    tags: ["JavaScript", "Accessibility", "Cloudflare Pages"],
   },
   {
     title: "Read it",
