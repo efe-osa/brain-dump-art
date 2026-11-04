@@ -26,6 +26,15 @@ const projects: Project[] = [
     tags: ["C#", ".NET", "Blazor", "Fluxor", "Azure", "Salesforce API"],
   },
   {
+    title: "The Innovation Catalyst",
+    role: "Front-End Developer",
+    description:
+      "Accessibility-first innovation hub for Stoke-on-Trent & Staffordshire, with high-contrast mode and adjustable text size built in.",
+    url: "https://stokecity-innovation-hub.pages.dev/",
+    image: innovationCatalystImg,
+    tags: ["JavaScript", "Accessibility", "Cloudflare Pages"],
+  },
+  {
     title: "Everyfarmer — Service Provider",
     role: "Front-End Engineer",
     description: "Platform connecting farmers and other actors in the farming cycle",
@@ -49,15 +58,6 @@ const projects: Project[] = [
     url: "https://equalmeasures2030.org/",
     image: equalmeasuresImg,
     tags: ["JavaScript", "Web Components", "WordPress", "Accessibility", "CI/CD"],
-  },
-  {
-    title: "The Innovation Catalyst",
-    role: "Front-End Developer",
-    description:
-      "Accessibility-first innovation hub for Stoke-on-Trent & Staffordshire, with high-contrast mode and adjustable text size built in.",
-    url: "https://stokecity-innovation-hub.pages.dev/",
-    image: innovationCatalystImg,
-    tags: ["JavaScript", "Accessibility", "Cloudflare Pages"],
   },
   {
     title: "Read it",

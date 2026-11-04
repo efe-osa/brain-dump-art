@@ -16,6 +16,19 @@
     ]
   },
   {
+    "id": "innovation-catalyst",
+    "kind": "project",
+    "title": "The Innovation Catalyst",
+    "description": "Accessibility-first innovation hub for Stoke-on-Trent & Staffordshire, with high-contrast mode and adjustable text size built in.",
+    "url": "https://stokecity-innovation-hub.pages.dev/",
+    "role": "Front-End Developer",
+    "tags": [
+      "JavaScript",
+      "Accessibility",
+      "Cloudflare Pages"
+    ]
+  },
+  {
     "id": "everyfarmer",
     "kind": "project",
     "title": "Everyfarmer \u2014 Service Provider",
@@ -45,19 +58,6 @@
       "WordPress",
       "Accessibility",
       "CI/CD"
-    ]
-  },
-  {
-    "id": "innovation-catalyst",
-    "kind": "project",
-    "title": "The Innovation Catalyst",
-    "description": "Accessibility-first innovation hub for Stoke-on-Trent & Staffordshire, with high-contrast mode and adjustable text size built in.",
-    "url": "https://stokecity-innovation-hub.pages.dev/",
-    "role": "Front-End Developer",
-    "tags": [
-      "JavaScript",
-      "Accessibility",
-      "Cloudflare Pages"
     ]
   },
   {
