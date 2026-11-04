@@ -88,7 +88,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
         className="project-stack-image border border-border rounded-lg"
       />
 
-      <div className="flex min-w-0 flex-col p-5 md:p-8">
+      <div className="flex min-w-0 flex-col p-4 md:p-8">
         <div className="flex items-start justify-between mb-3">
           <div className="flex items-center gap-2 text-primary-strong">
             <Globe className="h-4 w-4" aria-hidden="true" />
@@ -149,6 +149,7 @@ const Projects = () => {
       const inset = parseFloat(getComputedStyle(document.documentElement).fontSize) * 5.5;
       const stageHeight = largestCard + heading.getBoundingClientRect().height;
       track.style.setProperty("--stage-height", `${stageHeight}px`);
+      track.style.setProperty("--project-scroll-distance", `${(projects.length - 1) * window.innerHeight * 0.65}px`);
       setCanStack(!motion.matches && stageHeight <= window.innerHeight - inset - 64);
     };
     const observer = new ResizeObserver(update);

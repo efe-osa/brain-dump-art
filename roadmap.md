@@ -1,5 +1,7 @@
 # Accessibility improvements
 
+- [ ] Current request: restore selected-project animation on ordinary phone screens, retain short-screen and reduced-motion fallbacks, and verify every project stays within the pinned frame.
+
 - [x] Current request: undid the image gallery and restored the preceding scroll-driven projects, retaining accent-colored section titles and no duplicate card titles; project stack accessibility checks passed.
 
 - [x] Current request: contained project reveals within a pinned card frame and synchronized the section heading with the visible project; verified all four projects, keyboard access, appearance modes and reduced-motion fallback.
