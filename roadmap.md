@@ -1,5 +1,9 @@
 # Accessibility improvements
 
+- [ ] Elevate portfolio visual craft: typography, introduction, real product imagery and cleaner evidence presentation.
+- [ ] Surface design-engineering strengths without inventing case studies or changing verified roles.
+- [ ] Verify primary links, project browsing, appearance settings, reduced motion and mobile text enlargement.
+
 - [x] Current request: restored selected-project animation on ordinary phone screens; verified all five projects at 393×667, 390×844 and 393×852, keyboard access, reduced motion, enlarged text and the readable 200px-height fallback.
 
 - [x] Current request: undid the image gallery and restored the preceding scroll-driven projects, retaining accent-colored section titles and no duplicate card titles; project stack accessibility checks passed.
