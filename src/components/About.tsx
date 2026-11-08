@@ -148,7 +148,7 @@ const About = () => {
             </div>
             <Collapsible open={skillsOpen} onOpenChange={setSkillsOpen}>
               <CollapsibleTrigger asChild>
-                <Button variant="outline" className="min-h-11 mb-6">
+                <Button variant="outline" className="min-h-11 h-auto max-w-full whitespace-normal mb-6 text-left">
                   {skillsOpen ? "Hide full skills list" : "Show all skills"}
                   <ChevronDown aria-hidden="true" className={skillsOpen ? "rotate-180" : ""} />
                 </Button>
