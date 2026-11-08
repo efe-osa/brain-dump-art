@@ -96,7 +96,7 @@ const About = () => {
   return (
     <section id="about" className="py-16 md:py-24 border-t border-border">
       <div className="page-shell">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 mb-12 items-stretch border-b border-border">
+        <div className="about-evidence grid gap-x-6 mb-12 items-stretch border-b border-border">
           {stats.map((stat) => (
             <StatCard key={stat.label} {...stat} />
           ))}

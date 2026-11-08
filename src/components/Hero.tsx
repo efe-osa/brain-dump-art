@@ -134,7 +134,7 @@ const Hero = () => {
             </Button>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             <Button asChild variant="ghost" size="icon" className="min-h-11 min-w-11 text-muted-foreground hover:text-primary-strong">
             <a
               href="https://github.com/efe-osa"
@@ -158,7 +158,7 @@ const Hero = () => {
             <span className="text-xs text-muted-foreground ml-3">Stockholm, Sweden</span>
           </div>
         </div>
-        <dl className="intro-practice grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12 md:mt-16 pt-6 border-t border-border">
+        <dl className="intro-practice hidden md:grid md:grid-cols-3 gap-6 mt-16 pt-6 border-t border-border">
           {[
             ["01 / Interfaces", "Reusable component systems"],
             ["02 / Inclusion", "Accessibility & performance"],

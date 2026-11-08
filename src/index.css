@@ -264,6 +264,15 @@
     overflow-wrap: anywhere;
   }
 
+  .about-evidence {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
+  }
+
+  #about .grid > * {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
   @media (min-width: 768px) {
     .portfolio-intro { padding-block: 11rem 3rem; }
     .intro-name { font-size: 5rem; }
