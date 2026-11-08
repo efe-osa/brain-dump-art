@@ -77,7 +77,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
       target="_blank"
       rel="noopener noreferrer"
       aria-labelledby={titleId}
-      className="project-stack-card group bg-card shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)] transition-shadow duration-300  cursor-pointer"
+      className="project-stack-card group bg-card border border-border hover:border-primary-strong transition-colors duration-300 cursor-pointer"
     >
       <img
         src={project.image}
@@ -85,7 +85,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
         loading="lazy"
         width={1280}
         height={800}
-        className="project-stack-image border border-border rounded-lg"
+        className="project-stack-image border border-border rounded-md"
       />
 
       <div className="flex min-w-0 flex-col p-4 md:p-8">
@@ -110,7 +110,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
           <span className="sr-only"> (opens in a new tab)</span>
         </h3>
 
-        <span className="inline-flex self-start text-xs font-medium px-2.5 py-1 rounded-full bg-primary/10 text-primary-strong mb-4">
+        <span className="inline-flex self-start text-xs font-medium text-primary-strong mb-4">
           {project.role}
         </span>
 
@@ -118,7 +118,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
 
         <div className="flex flex-wrap gap-1.5 pt-4 mt-auto border-t border-border">
           {project.tags.map((tag) => (
-            <span key={tag} className="text-xs px-2 py-0.5 rounded-full bg-secondary text-secondary-foreground">
+            <span key={tag} className="text-xs px-2 py-0.5 rounded-sm bg-secondary text-secondary-foreground">
               {tag}
             </span>
           ))}
@@ -212,12 +212,12 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-24">
+    <section id="projects" className="pt-10 pb-16 md:pb-24">
       <div className="page-shell">
         <div ref={trackRef} className={`project-track ${canStack ? "project-track--pinned" : ""}`}>
           <div ref={stageRef} className="project-stage">
             <div ref={headingRef} className="project-stack-heading">
-              <p className="text-sm font-medium text-primary-strong mb-2 tracking-widest uppercase">Projects</p>
+              <p className="text-xs font-medium text-primary-strong mb-3 uppercase">Selected projects / Design & engineering</p>
               <h2
                 className={`text-3xl md:text-4xl font-bold transition-colors duration-300 ${activeProject === null ? "text-foreground" : "text-primary-strong"}`}
               >

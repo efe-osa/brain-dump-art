@@ -72,10 +72,10 @@ const StatCard = ({ value, suffix, label }: Stat) => {
   const { ref, display } = useCountUp(value);
 
   return (
-    <div className="flex h-full flex-col p-6 rounded-xl bg-card border border-border shadow-[var(--shadow-soft)] text-center md:text-left">
+    <div className="flex h-full flex-col py-6 pr-4 text-left">
       <p
         ref={ref}
-        className="text-3xl md:text-4xl font-bold text-primary mb-2 tracking-tight"
+        className="text-3xl md:text-4xl font-bold text-primary mb-2"
       >
         <span aria-hidden="true">
           {display}
@@ -86,7 +86,7 @@ const StatCard = ({ value, suffix, label }: Stat) => {
           {suffix}
         </span>
       </p>
-      <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">{label}</p>
+      <p className="text-xs text-muted-foreground leading-relaxed max-w-[22ch]">{label}</p>
     </div>
   );
 };
@@ -94,9 +94,9 @@ const StatCard = ({ value, suffix, label }: Stat) => {
 const About = () => {
   const [skillsOpen, setSkillsOpen] = useState(false);
   return (
-    <section id="about" className="py-24">
+    <section id="about" className="py-16 md:py-24 border-t border-border">
       <div className="page-shell">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16 items-stretch">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 mb-12 items-stretch border-b border-border">
           {stats.map((stat) => (
             <StatCard key={stat.label} {...stat} />
           ))}
@@ -104,20 +104,20 @@ const About = () => {
 
         <div className="grid md:grid-cols-2 gap-16 items-start">
           <div>
-            <p className="text-sm font-medium text-primary-strong mb-2 tracking-widest uppercase">About</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 tracking-tight">
-              Product-minded engineer who ships with purpose
+            <p className="text-xs font-medium text-primary-strong mb-4 uppercase">About / My approach</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+              Thoughtful interfaces. Solid engineering.
             </h2>
             <div className="space-y-4 font-read text-[17px] text-muted-foreground leading-relaxed">
               <p>
-                Software Engineer with 7+ years of front-end and full-stack experience across gaming,
-                healthcare and agriculture — designing and delivering secure web applications,
-                cloud-hosted services, and modernising legacy platforms serving 250,000+ users.
+                I care about how a product feels to use and how well it works underneath.
+                Over 7+ years across gaming, healthcare and agriculture, I've built web applications,
+                cloud-hosted services and modernised platforms serving 250,000+ users.
               </p>
               <p>
-                I bring deep expertise in JavaScript, TypeScript, React, Next.js, Node.js, and .NET
-                to building responsive, reusable, and WCAG-compliant component systems, optimising web
-                performance across multi-platform environments, and improving developer experience.
+                My work connects reusable component systems, accessibility and performance with
+                JavaScript, TypeScript and .NET. I like owning a feature from the first conversation
+                through to production, making the details better for users and the teams building it.
               </p>
             </div>
 
