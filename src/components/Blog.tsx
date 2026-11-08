@@ -35,10 +35,10 @@ const Blog = () => {
                 href={post.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-between gap-4 py-5"
+                className="group flex items-center justify-between gap-4 py-5 [overflow-wrap:anywhere]"
               >
-                <div>
-                  <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors">
+                <div className="min-w-0">
+                  <h3 className="text-base font-semibold text-foreground group-hover:text-primary-strong transition-colors">
                     {post.title}
                   </h3>
                   <p className="text-xs text-muted-foreground mt-1">
@@ -46,7 +46,7 @@ const Blog = () => {
                   </p>
                 </div>
                 <ArrowUpRight
-                  className="h-4 w-4 shrink-0 text-muted-foreground group-hover:text-primary transition-colors"
+                  className="h-4 w-4 shrink-0 text-muted-foreground group-hover:text-primary-strong transition-colors"
                   aria-hidden="true"
                 />
               </a>

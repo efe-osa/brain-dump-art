@@ -1,5 +1,9 @@
 # Accessibility improvements
 
+- [x] Elevate portfolio visual craft: editorial introduction, restored font loading, existing product imagery and unframed evidence presentation.
+- [x] Surface documented design-engineering strengths without inventing case studies or changing verified roles.
+- [x] Verify primary links, project browsing, appearance settings, reduced motion and mobile text enlargement; browser checks and existing accessibility tests passed.
+
 - [x] Current request: restored selected-project animation on ordinary phone screens; verified all five projects at 393×667, 390×844 and 393×852, keyboard access, reduced motion, enlarged text and the readable 200px-height fallback.
 
 - [x] Current request: undid the image gallery and restored the preceding scroll-driven projects, retaining accent-colored section titles and no duplicate card titles; project stack accessibility checks passed.
@@ -19,15 +23,15 @@
 
 - [x] 1. Accessible navigation: named mobile toggle, real links, skip link; verified in browser, awaiting review.
 - [x] 2. Keyboard-friendly accessibility settings and stronger focus indicators.
-- [ ] 3. Comfortable 44×44px menu and social-link targets.
+- [x] 3. Comfortable 44×44px menu and social-link targets.
 - [x] 4. Keep View work and remove the duplicate bouncing arrow; verified reduced-motion behavior.
 - [x] 5. Concise project contributions, technologies and existing documented outcomes; no new performance claims.
 - [x] 6. Key skills first with an accessible full-list disclosure; verified Enter and Space interaction.
-- [ ] 7. Review contrast, 200% text enlargement and narrow-screen layouts.
+- [x] 7. Review contrast, 200% text enlargement and narrow-screen layouts; body and accent text tokens pass 4.5:1 across all modes.
 
-- [ ] Fix and improve fonts across the site (user request).
+- [x] Fix and improve fonts across the site: head-loaded JetBrains Mono and Source Serif 4, consistent letter spacing and enlarged-text reflow.
 
-Steps 2–7 wait for the user's review of the preceding change. Provide a specific review prompt after each step.
+Prior step-by-step improvements are complete; the current visual-craft request supersedes the remaining review gates.
 - [x] Fix: page jumps to #about on initial load (fragment effect now ignores a stale hash on first load)
 - [x] Current request: hero "Copy email" button copies the address to the clipboard and confirms with a notification; moved notifications to the bottom centre so they never cover the accessibility button; verified click, keyboard, clipboard contents and both appearance modes.
 - [x] Current request: removed the contact section and its navigation link; the address stays reachable from the hero (Copy email button and email icon); verified nav, page end and mobile menu in the browser.

@@ -3,9 +3,8 @@ import asyncio
 from playwright.async_api import async_playwright
 
 INTRO = (
-    "Domain-agnostic by design: I learn the business, then build for it. "
-    "Delivering production-grade web applications and SaaS products, "
-    "across front-end and full-stack."
+    "I design and build accessible web products, from reusable interfaces to the systems behind them. "
+    "Full-stack engineering, with a product mindset and an eye for the details."
 )
 
 

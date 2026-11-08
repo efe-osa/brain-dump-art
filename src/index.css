@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -117,7 +115,7 @@
   pre,
   code {
     font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
     text-wrap: balance;
   }
 
@@ -255,6 +253,37 @@
 }
 
 @layer components {
+  /* Editorial introduction: identity first, with the work visible below it. */
+  .portfolio-intro {
+    padding-block: 9rem 2rem;
+  }
+
+  .intro-name {
+    font-size: 3rem;
+    line-height: 1.12;
+    overflow-wrap: anywhere;
+  }
+
+  .about-evidence {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
+  }
+
+  #about .grid > * {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  @media (min-width: 768px) {
+    .portfolio-intro { padding-block: 11rem 3rem; }
+    .intro-name { font-size: 5rem; }
+  }
+
+  @media (min-width: 1280px) {
+    .intro-name { font-size: 6rem; }
+  }
+
+  * { letter-spacing: 0 !important; }
+
   /* Wide, viewport-scaled gutters keep content centred and the reading line
      short instead of stretching from edge to edge on large screens. */
   .page-shell {
@@ -344,7 +373,7 @@
 
   @media (min-width: 768px) {
     .project-stack-card {
-      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
       min-height: 24rem;
     }
 

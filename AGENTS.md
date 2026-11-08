@@ -2,6 +2,9 @@
 
 ## Conventions
 
+- Keep design-engineering positioning grounded in documented UI systems, accessibility and full-stack work; use an unframed editorial introduction and real existing project imagery rather than decorative code panels or fabricated case studies.
+- Load remote fonts through document-head links, never CSS imports, so the CSS compiler cannot drop or reject them.
+
 - Accessibility confirmations use one persistent polite status region, updated only by user actions and coalesced during rapid changes; saved-preference restoration stays silent and announcements never manage focus.
 
 - Portfolio recommendations use a public, validated Edge Function with request-scoped AI Gateway Responses streaming; keep prompts and credentials server-side and resolve model-selected IDs against the server catalog so AI cannot invent destinations.
