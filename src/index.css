@@ -38,6 +38,8 @@
     --shadow-soft: 0 1px 3px hsl(250 20% 12% / 0.04), 0 4px 12px hsl(250 20% 12% / 0.03);
     --shadow-medium: 0 4px 16px hsl(250 20% 12% / 0.06), 0 1px 4px hsl(250 20% 12% / 0.04);
     --shadow-lifted: 0 8px 30px hsl(248 64% 70% / 0.12), 0 2px 8px hsl(250 20% 12% / 0.04);
+    --shadow-project-deck: 0 8px 20px hsl(var(--foreground) / 0.08), 0 2px 4px hsl(var(--foreground) / 0.05);
+    --shadow-project-hover: 0 12px 28px hsl(var(--primary-strong) / 0.14), 0 2px 6px hsl(var(--foreground) / 0.06);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -317,7 +319,11 @@
   }
 
   .project-stack-heading {
-    padding-bottom: 1.5rem;
+    padding-bottom: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .project-stack-heading { padding-bottom: 1.5rem; }
   }
 
   .project-stack-heading h2 {
@@ -327,6 +333,7 @@
 
   .project-stack--sticky {
     gap: 0;
+    padding-top: 24px;
     overflow: clip;
     overflow-clip-margin: 8px;
   }
@@ -339,21 +346,45 @@
 
   .project-stack--sticky .project-stack-item {
     grid-area: 1 / 1;
-    clip-path: inset(var(--reveal-top, 100%) -8px -8px -8px);
     height: 100%;
+    transform: translateY(calc(var(--card-arrival, 100%) + var(--card-offset, 0px))) scale(var(--card-scale, 1));
+    transform-origin: center top;
+    clip-path: var(--card-clip, inset(-8px));
   }
 
-  .project-stack--sticky .project-stack-item:first-child,
-  .project-stack--sticky .project-stack-item:focus-within {
-    clip-path: none;
+  .project-stack--sticky .project-stack-item:first-child {
+    --card-arrival: 0%;
   }
 
   .project-stack--sticky .project-stack-card {
     height: 100%;
+    box-shadow: var(--shadow-project-deck);
+    position: relative;
   }
 
-  .project-stack-item:focus-within {
-    z-index: 1;
+  .project-stack--sticky .project-stack-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: hsl(var(--foreground));
+    opacity: var(--card-dimming, 0);
+    pointer-events: none;
+  }
+
+  .project-link-arrow {
+    transition: transform 200ms ease, color 200ms ease;
+  }
+
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .project-stack-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-project-hover);
+    }
+
+    .project-stack-card:hover .project-link-arrow {
+      transform: rotate(8deg);
+    }
   }
 
   .project-stack-card {
@@ -361,6 +392,7 @@
     grid-template-columns: minmax(0, 1fr);
     border-radius: var(--radius);
     overflow-wrap: anywhere;
+    transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
   }
 
   .project-stack-image {
@@ -492,12 +524,19 @@
 
   .project-stack--sticky {
     gap: 1.5rem;
+    padding-top: 0;
   }
 
   .project-stack--sticky .project-stack-item {
     position: static;
     grid-area: auto;
     clip-path: none;
+    transform: none;
+    visibility: visible;
+  }
+
+  .project-stack--sticky .project-stack-card::after {
+    display: none;
   }
 
   *,

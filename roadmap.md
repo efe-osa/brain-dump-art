@@ -1,5 +1,7 @@
 # Accessibility improvements
 
+- [x] Built the layered selected-work deck; verified scroll depth, all six destinations, keyboard access in four appearance modes, phone layouts and reduced-motion/enlarged-text fallbacks.
+
 - [x] Elevate portfolio visual craft: editorial introduction, restored font loading, existing product imagery and unframed evidence presentation.
 - [x] Surface documented design-engineering strengths without inventing case studies or changing verified roles.
 - [x] Verify primary links, project browsing, appearance settings, reduced motion and mobile text enlargement; browser checks and existing accessibility tests passed.

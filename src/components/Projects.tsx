@@ -110,7 +110,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
             </span>
             <ArrowUpRight
               aria-hidden="true"
-              className="h-5 w-5 text-muted-foreground group-hover:text-primary-strong transition-colors shrink-0"
+              className="project-link-arrow h-5 w-5 text-muted-foreground group-hover:text-primary-strong shrink-0"
             />
           </div>
         </div>
@@ -120,11 +120,11 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
           <span className="sr-only"> (opens in a new tab)</span>
         </h3>
 
-        <span className="inline-flex self-start text-xs font-medium text-primary-strong mb-4">
+        <span className="inline-flex self-start text-xs font-medium text-primary-strong mb-2 md:mb-4">
           {project.role}
         </span>
 
-        <p className="font-read text-base text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
+        <p className="font-read text-base text-muted-foreground mb-2 md:mb-4 leading-relaxed">{project.description}</p>
 
         <div className="flex flex-wrap gap-1.5 pt-4 mt-auto border-t border-border">
           {project.tags.map((tag) => (
@@ -140,7 +140,6 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
 
 const Projects = () => {
   const trackRef = useRef<HTMLDivElement>(null);
-  const stageRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLDivElement>(null);
   const stackRef = useRef<HTMLOListElement>(null);
   const [canStack, setCanStack] = useState(false);
@@ -157,7 +156,8 @@ const Projects = () => {
       const largestCard = Math.max(...cards.map((card) => card.getBoundingClientRect().height));
       // Leave room for the fixed navigation, focus outline and floating settings.
       const inset = parseFloat(getComputedStyle(document.documentElement).fontSize) * 5.5;
-      const stageHeight = largestCard + heading.getBoundingClientRect().height;
+      const deckRoom = 24;
+      const stageHeight = largestCard + heading.getBoundingClientRect().height + deckRoom + 8;
       track.style.setProperty("--stage-height", `${stageHeight}px`);
       track.style.setProperty("--project-scroll-distance", `${(projects.length - 1) * window.innerHeight * 0.65}px`);
       setCanStack(!motion.matches && stageHeight <= window.innerHeight - inset - 64);
@@ -189,7 +189,12 @@ const Projects = () => {
         );
         items.forEach((item, index) => {
           const revealed = index === 0 ? 1 : Math.max(0, Math.min(1, progress - index + 1));
-          item.style.setProperty("--reveal-top", `${(1 - revealed) * 100}%`);
+          const depth = Math.max(0, Math.min(2, progress - index));
+          item.style.setProperty("--card-arrival", `${(1 - revealed) * 100}%`);
+          item.style.setProperty("--card-scale", `${1 - depth * 0.03}`);
+          item.style.setProperty("--card-offset", `${-depth * 12}px`);
+          item.style.setProperty("--card-dimming", `${depth * 0.09}`);
+          item.style.setProperty("--card-clip", progress - index >= 3 || (index > 0 && progress <= index - 1 + 0.001) ? "inset(100%)" : "inset(-8px)");
         });
         setActiveProject(list.getBoundingClientRect().top < window.innerHeight * 0.8 ? Math.round(progress) : null);
       } else {
@@ -225,7 +230,7 @@ const Projects = () => {
     <section id="projects" className="pt-10 pb-16 md:pb-24">
       <div className="page-shell">
         <div ref={trackRef} className={`project-track ${canStack ? "project-track--pinned" : ""}`}>
-          <div ref={stageRef} className="project-stage">
+           <div className="project-stage">
             <div ref={headingRef} className="project-stack-heading">
               <p className="text-xs font-medium text-primary-strong mb-3 uppercase">Selected projects / Design & engineering</p>
               <h2

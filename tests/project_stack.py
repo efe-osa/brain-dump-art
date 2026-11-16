@@ -1,10 +1,12 @@
 """Every project remains reachable through the scroll-driven stack."""
 import asyncio
+from pathlib import Path
 from playwright.async_api import async_playwright
 
 TITLES = ["Lemur Cloud Portal", "Heal", "The Innovation Catalyst", "Everyfarmer — Service Provider", "Equal Measures 2030", "Read it"]
 
 async def check():
+    Path('/tmp/browser/mobile-projects').mkdir(parents=True, exist_ok=True)
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
         page = await browser.new_page(viewport={"width": 1053, "height": 727})
@@ -27,7 +29,17 @@ async def check():
             parseFloat(getComputedStyle(document.documentElement).fontSize)*5.5+innerHeight*0.65*0.5)""")
         await page.wait_for_timeout(100)
         bounds = await links.nth(1).bounding_box()
-        assert bounds == await links.first.bounding_box(), 'Reveal must stay in the existing card frame'
+        previous = await links.first.bounding_box()
+        assert bounds and previous
+        assert previous['width'] < bounds['width'], 'Previous card must recede into the deck'
+        assert await links.first.evaluate("el=>getComputedStyle(el.parentElement).transform") != 'none'
+        await page.locator('.project-track').evaluate("""el=>window.scrollTo(0,
+            window.scrollY+el.getBoundingClientRect().top-
+            parseFloat(getComputedStyle(document.documentElement).fontSize)*5.5+innerHeight*0.65*2)""")
+        await page.wait_for_timeout(100)
+        edges = await page.locator('.project-stack-item').evaluate_all("els=>els.slice(0,3).map(el=>el.getBoundingClientRect().top)")
+        assert edges[0] < edges[1] < edges[2], 'Two earlier card edges must remain visible above the active card'
+        await page.locator('.project-stage').screenshot(path='/tmp/browser/mobile-projects/layered-deck.png')
         for mode in ["", "dark", "high-contrast", "dark high-contrast"]:
             await page.evaluate("(mode)=>document.documentElement.className=mode", mode)
             await links.first.focus()
