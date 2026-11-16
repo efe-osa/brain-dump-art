@@ -61,6 +61,14 @@ const projects: Project[] = [
     ],
   },
   {
+    title: "Read it",
+    role: "Full Stack Developer",
+    description: "Reddit posts into a standalone reading experience.",
+    url: "https://fervent-bhabha-e5febb.netlify.app/",
+    image: readitImg,
+    tags: ["JavaScript", "Reddit API", "Responsive web design", "Netlify", "CI/CD"],
+  },
+  {
     title: "Equal Measures 2030",
     role: "Full Stack Developer",
     description:
@@ -68,14 +76,6 @@ const projects: Project[] = [
     url: "https://equalmeasures2030.org/",
     image: equalmeasuresImg,
     tags: ["JavaScript", "Web Components", "WordPress", "Accessibility", "CI/CD"],
-  },
-  {
-    title: "Read it",
-    role: "Full Stack Developer",
-    description: "Reddit posts into a standalone reading experience.",
-    url: "https://fervent-bhabha-e5febb.netlify.app/",
-    image: readitImg,
-    tags: ["JavaScript", "Reddit API", "Responsive web design", "Netlify", "CI/CD"],
   },
 ];
 
@@ -194,7 +194,10 @@ const Projects = () => {
           item.style.setProperty("--card-scale", `${1 - depth * 0.03}`);
           item.style.setProperty("--card-offset", `${-depth * 12}px`);
           item.style.setProperty("--card-dimming", `${depth * 0.09}`);
-          item.style.setProperty("--card-clip", progress - index >= 3 || (index > 0 && progress <= index - 1 + 0.001) ? "inset(100%)" : "inset(-8px)");
+          item.style.setProperty(
+            "--card-clip",
+            progress - index >= 3 || (index > 0 && progress <= index - 1 + 0.001) ? "inset(100%)" : "inset(-8px)",
+          );
         });
         setActiveProject(list.getBoundingClientRect().top < window.innerHeight * 0.8 ? Math.round(progress) : null);
       } else {
@@ -230,9 +233,11 @@ const Projects = () => {
     <section id="projects" className="pt-10 pb-16 md:pb-24">
       <div className="page-shell">
         <div ref={trackRef} className={`project-track ${canStack ? "project-track--pinned" : ""}`}>
-           <div className="project-stage">
+          <div className="project-stage">
             <div ref={headingRef} className="project-stack-heading">
-              <p className="text-xs font-medium text-primary-strong mb-3 uppercase">Selected projects / Design & engineering</p>
+              <p className="text-xs font-medium text-primary-strong mb-3 uppercase">
+                Selected projects / Design & engineering
+              </p>
               <h2
                 className={`text-3xl md:text-4xl font-bold transition-colors duration-300 ${activeProject === null ? "text-foreground" : "text-primary-strong"}`}
               >
