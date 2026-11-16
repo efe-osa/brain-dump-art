@@ -16,6 +16,22 @@
     ]
   },
   {
+    "id": "heal",
+    "kind": "project",
+    "title": "Heal",
+    "description": "Private health journal for diabetes care: readings, medication doses and clinic visits, with offline logging and a helpers view for family.",
+    "url": "https://sugar-and-signal-journal.lovable.app/",
+    "role": "Full Stack Developer",
+    "tags": [
+      "TypeScript",
+      "React",
+      "TanStack Start",
+      "PWA",
+      "Offline-first",
+      "PostgreSQL"
+    ]
+  },
+  {
     "id": "innovation-catalyst",
     "kind": "project",
     "title": "The Innovation Catalyst",

@@ -2,7 +2,7 @@
 import asyncio
 from playwright.async_api import async_playwright
 
-TITLES = ["Lemur Cloud Portal", "The Innovation Catalyst", "Everyfarmer — Service Provider", "Equal Measures 2030", "Read it"]
+TITLES = ["Lemur Cloud Portal", "Heal", "The Innovation Catalyst", "Everyfarmer — Service Provider", "Equal Measures 2030", "Read it"]
 
 async def check():
     async with async_playwright() as p:
@@ -11,7 +11,7 @@ async def check():
         await page.goto("http://localhost:8080")
         await page.evaluate("document.fonts.ready")
         links = page.locator("#projects li a")
-        assert await links.count() == 5
+        assert await links.count() == 6
         for i, title in enumerate(TITLES):
             await page.locator('.project-track').evaluate("""(el,i)=>window.scrollTo(0,
                 window.scrollY+el.getBoundingClientRect().top-
@@ -37,15 +37,15 @@ async def check():
                 link = links.nth(i)
                 await page.wait_for_timeout(100)
                 assert await page.get_by_role("link", name=f"{title} (opens in a new tab)", exact=True).count() == 1
-                assert await link.evaluate("(el)=>document.activeElement===el")
+                assert await link.evaluate("(el)=>document.activeElement===el"), f"Lost focus on {title}, {mode}"
                 assert await link.evaluate("""(el)=>{
                     const r=el.getBoundingClientRect();
                     return r.top>=0 && r.bottom<=innerHeight &&
                         el.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));
                 }"""), f"Covered keyboard destination: {title}, {mode}"
-            for i in [3, 2, 1, 0]:
+            for i in [4, 3, 2, 1, 0]:
                 await page.keyboard.press("Shift+Tab")
-                assert await links.nth(i).evaluate("(el)=>document.activeElement===el")
+                assert await links.nth(i).evaluate("(el)=>document.activeElement===el"), f"Reverse walk lost focus at {i}, {mode}"
         for width, height in [(393, 667), (390, 844), (393, 852)]:
             await page.set_viewport_size({"width": width, "height": height})
             await page.wait_for_timeout(200)

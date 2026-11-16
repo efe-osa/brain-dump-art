@@ -5,6 +5,7 @@ import everyfarmerImg from "@/assets/everyfarmer.jpg";
 import equalmeasuresImg from "@/assets/equalmeasures.jpg";
 import readitImg from "@/assets/readit.jpg";
 import innovationCatalystImg from "@/assets/innovation-catalyst.jpg";
+import healImg from "@/assets/heal.jpg";
 
 interface Project {
   title: string;
@@ -24,6 +25,15 @@ const projects: Project[] = [
     url: "https://www.br.ink/lemur",
     image: lemurImg,
     tags: ["C#", ".NET", "Blazor", "Fluxor", "Azure", "Salesforce API"],
+  },
+  {
+    title: "Heal",
+    role: "Full Stack Developer",
+    description:
+      "Private health journal for diabetes care: readings, medication doses and clinic visits, with offline logging and a helpers view for family.",
+    url: "https://sugar-and-signal-journal.lovable.app/",
+    image: healImg,
+    tags: ["TypeScript", "React", "TanStack Start", "PWA", "Offline-first", "PostgreSQL"],
   },
   {
     title: "The Innovation Catalyst",
