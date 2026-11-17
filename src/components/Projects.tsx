@@ -36,6 +36,15 @@ const projects: Project[] = [
     tags: ["C#", ".NET", "Blazor", "Fluxor", "Azure", "Salesforce API"],
   },
   {
+    title: "Reliance Health",
+    role: "Senior Frontend Engineer",
+    description:
+      "Migrated a legacy health platform to component-based JavaScript, supporting 250,000+ active users and 4,000+ businesses.",
+    url: "https://getreliancehealth.com/",
+    image: relianceHealthAsset.url,
+    tags: ["JavaScript", "React", "REST API", "CKEditor"],
+  },
+  {
     title: "The Innovation Catalyst",
     role: "Full Stack Developer",
     description:
@@ -59,15 +68,6 @@ const projects: Project[] = [
       "Google Maps API",
       "CI/CD",
     ],
-  },
-  {
-    title: "Reliance Health",
-    role: "Senior Frontend Engineer",
-    description:
-      "Migrated a legacy health platform to component-based JavaScript, supporting 250,000+ active users and 4,000+ businesses.",
-    url: "https://getreliancehealth.com/",
-    image: relianceHealthAsset.url,
-    tags: ["JavaScript", "React", "REST API", "CKEditor"],
   },
   {
     title: "Equal Measures 2030",
