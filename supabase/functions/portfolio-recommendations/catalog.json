@@ -1,21 +1,5 @@
 [
   {
-    "id": "lemur",
-    "kind": "project",
-    "title": "Lemur Cloud Portal",
-    "description": "Customer portal designed to enable game developers to configure our flagship game engine and release multiplayer games faster.",
-    "url": "https://www.br.ink/lemur",
-    "role": "Software Engineer",
-    "tags": [
-      "C#",
-      ".NET",
-      "Blazor",
-      "Fluxor",
-      "Azure",
-      "Salesforce API"
-    ]
-  },
-  {
     "id": "heal",
     "kind": "project",
     "title": "Heal",
@@ -29,6 +13,22 @@
       "PWA",
       "Offline-first",
       "PostgreSQL"
+    ]
+  },
+  {
+    "id": "lemur",
+    "kind": "project",
+    "title": "Lemur Cloud Portal",
+    "description": "Customer portal designed to enable game developers to configure our flagship game engine and release multiplayer games faster.",
+    "url": "https://www.br.ink/lemur",
+    "role": "Software Engineer",
+    "tags": [
+      "C#",
+      ".NET",
+      "Blazor",
+      "Fluxor",
+      "Azure",
+      "Salesforce API"
     ]
   },
   {

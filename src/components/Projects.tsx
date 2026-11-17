@@ -18,15 +18,6 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Lemur Cloud Portal",
-    role: "Software Engineer",
-    description:
-      "Customer portal designed to enable game developers to configure our flagship game engine and release multiplayer games faster.",
-    url: "https://www.br.ink/lemur",
-    image: lemurImg,
-    tags: ["C#", ".NET", "Blazor", "Fluxor", "Azure", "Salesforce API"],
-  },
-  {
     title: "Heal",
     role: "Full Stack Developer",
     description:
@@ -34,6 +25,15 @@ const projects: Project[] = [
     url: "https://sugar-and-signal-journal.lovable.app/",
     image: healImg,
     tags: ["TypeScript", "React", "TanStack Start", "PWA", "Offline-first", "PostgreSQL"],
+  },
+  {
+    title: "Lemur Cloud Portal",
+    role: "Software Engineer",
+    description:
+      "Customer portal designed to enable game developers to configure our flagship game engine and release multiplayer games faster.",
+    url: "https://www.br.ink/lemur",
+    image: lemurImg,
+    tags: ["C#", ".NET", "Blazor", "Fluxor", "Azure", "Salesforce API"],
   },
   {
     title: "The Innovation Catalyst",
