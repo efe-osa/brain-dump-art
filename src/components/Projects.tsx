@@ -3,7 +3,7 @@ import { ArrowUpRight, Globe } from "lucide-react";
 import lemurImg from "@/assets/lemur.jpg";
 import everyfarmerImg from "@/assets/everyfarmer.jpg";
 import equalmeasuresImg from "@/assets/equalmeasures.jpg";
-import readitImg from "@/assets/readit.jpg";
+import relianceHealthAsset from "@/assets/reliance-health.jpg.asset.json";
 import innovationCatalystImg from "@/assets/innovation-catalyst.jpg";
 import healImg from "@/assets/heal.jpg";
 
@@ -61,12 +61,13 @@ const projects: Project[] = [
     ],
   },
   {
-    title: "Read it",
-    role: "Full Stack Developer",
-    description: "Reddit posts into a standalone reading experience.",
-    url: "https://fervent-bhabha-e5febb.netlify.app/",
-    image: readitImg,
-    tags: ["JavaScript", "Reddit API", "Responsive web design", "Netlify", "CI/CD"],
+    title: "Reliance Health",
+    role: "Senior Frontend Engineer",
+    description:
+      "Migrated a legacy health platform to component-based JavaScript, supporting 250,000+ active users and 4,000+ businesses.",
+    url: "https://getreliancehealth.com/",
+    image: relianceHealthAsset.url,
+    tags: ["JavaScript", "React", "REST API", "CKEditor"],
   },
   {
     title: "Equal Measures 2030",

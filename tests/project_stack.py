@@ -3,7 +3,7 @@ import asyncio
 from pathlib import Path
 from playwright.async_api import async_playwright
 
-TITLES = ["Lemur Cloud Portal", "Heal", "The Innovation Catalyst", "Everyfarmer — Service Provider", "Equal Measures 2030", "Read it"]
+TITLES = ["Lemur Cloud Portal", "Heal", "The Innovation Catalyst", "Everyfarmer — Service Provider", "Reliance Health", "Equal Measures 2030"]
 
 async def check():
     Path('/tmp/browser/mobile-projects').mkdir(parents=True, exist_ok=True)

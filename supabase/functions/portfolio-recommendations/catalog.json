@@ -77,18 +77,17 @@
     ]
   },
   {
-    "id": "read-it",
+    "id": "reliance-health",
     "kind": "project",
-    "title": "Read it",
-    "description": "Reddit posts into a standalone reading experience.",
-    "url": "https://fervent-bhabha-e5febb.netlify.app/",
-    "role": "Full Stack Developer",
+    "title": "Reliance Health",
+    "description": "Migrated a legacy health platform to component-based JavaScript, supporting 250,000+ active users and 4,000+ businesses.",
+    "url": "https://getreliancehealth.com/",
+    "role": "Senior Frontend Engineer",
     "tags": [
       "JavaScript",
-      "Reddit API",
-      "Responsive web design",
-      "Netlify",
-      "CI/CD"
+      "React",
+      "REST API",
+      "CKEditor"
     ]
   },
   {
