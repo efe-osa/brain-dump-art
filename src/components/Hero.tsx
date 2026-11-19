@@ -60,7 +60,7 @@ const BroadcastLine = ({ timeline, reduced }: { timeline: string; reduced: boole
       <span className="sr-only">{text}</span>
       <span
         aria-hidden="true"
-        className="inline-block broadcast-text"
+        className="inline-block broadcast-text font-mono tabular-nums whitespace-nowrap"
         style={{ minWidth: `${text.length}ch` }}
       >
         {decoded}
@@ -114,7 +114,7 @@ const Hero = () => {
   const [announcement, setAnnouncement] = useState("");
   const timeline = earth ? "Earth-2337" : "Mars-0321";
   const intro = `Welcome to my corner of the multiverse — ${timeline}.`;
-  const [revealStyle, setRevealStyle] = useState<RevealStyle>("weave");
+  const revealStyle: RevealStyle = "weave";
   const [reduced, setReduced] = useState(
     () => window.matchMedia("(prefers-reduced-motion: reduce)").matches,
   );
@@ -180,7 +180,7 @@ const Hero = () => {
           <BroadcastLine timeline={timeline} reduced={reduced} />
           <Tooltip>
             <TooltipTrigger asChild>
-              <Button variant="ghost" size="icon" className="min-h-11 min-w-11 text-primary-strong" aria-label={`Switch timeline to ${earth ? "Mars-0321" : "Earth-2337"}`} onClick={() => { setEarth(!earth); setAnnouncement(`Timeline changed to ${earth ? "Mars-0321" : "Earth-2337"}.`); }}>
+              <Button variant="ghost" size="icon" className="min-h-11 min-w-11 text-primary-strong" aria-label={`Switch timeline to ${earth ? "Mars-0321" : "Earth-2337"} (currently ${timeline})`} onClick={() => { setEarth(!earth); setAnnouncement(`Timeline changed to ${earth ? "Mars-0321" : "Earth-2337"}.`); }}>
                 <Orbit aria-hidden="true" />
               </Button>
             </TooltipTrigger>
@@ -197,34 +197,27 @@ const Hero = () => {
           <p className="font-read text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed relative">
             <span className="sr-only">{intro} {MISSION}</span>
             {/* Hidden copy reserves the final height so typing never shifts the page */}
-            <span className="invisible" aria-hidden="true">
-              {intro} {MISSION}{" "}
-              <span className="text-primary-strong font-medium underline underline-offset-4">See my experience</span>
+            <span className="invisible">
+              <span aria-hidden="true">{intro} {MISSION}</span>{" "}
+              <Link
+                to="/experience"
+                aria-hidden={false}
+                className={`visible relative z-10 text-primary-strong font-medium underline underline-offset-4 transition-opacity duration-500 hover:opacity-80 ${done ? "opacity-100" : "opacity-0"}`}
+              >
+                See my experience
+              </Link>
             </span>
-            <span className="hero-typed absolute inset-0">
+            <span className="hero-typed absolute inset-0 pointer-events-none">
               <span aria-hidden="true">{typed}</span>
               {!done && <span aria-hidden="true" className="hero-caret inline-block w-[3px] h-[1em] bg-primary ml-0.5 align-middle" />}
               {done && (
                 <>
                   {" "}
                   <MissionLine key={revealStyle + timeline} style={revealStyle} reduced={reduced} />
-                  <Link
-                    to="/experience"
-                    className="hero-fade-in text-primary-strong font-medium underline underline-offset-4 hover:opacity-80 transition-opacity"
-                  >
-                    See my experience
-                  </Link>
                 </>
               )}
             </span>
           </p>
-
-          <div role="group" aria-label="Preview intro animation" className="flex flex-wrap items-center gap-2 mb-6">
-            <span className="text-xs text-primary-strong">Preview animation:</span>
-            {STYLES.map(([id, label]) => (
-              <Button key={id} size="sm" variant={revealStyle === id ? "default" : "outline"} aria-pressed={revealStyle === id} onClick={() => setRevealStyle(id)}>{label}</Button>
-            ))}
-          </div>
 
           <div className="flex flex-wrap items-center gap-3 mb-8">
             <Button asChild size="lg">
@@ -262,7 +255,7 @@ const Hero = () => {
               <Linkedin className="h-5 w-5" aria-hidden="true" />
             </a>
             </Button>
-            <span className="text-xs text-muted-foreground ml-3">Stockholm, Sweden</span>
+            <span className="text-xs text-muted-foreground ml-1">Stockholm, Sweden</span>
           </div>
         </div>
         <dl aria-label="Mission log" className="intro-practice grid grid-cols-1 sm:grid-cols-3 gap-5 mt-8 pt-5 border-t border-border">
