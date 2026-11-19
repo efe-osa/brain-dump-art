@@ -1,5 +1,5 @@
 import { ArrowDownRight, Check, Github, Linkedin, Mail, Orbit } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -69,6 +69,27 @@ const BroadcastLine = ({ timeline, reduced }: { timeline: string; reduced: boole
   );
 };
 
+// Phase shift: words drift up out of a blur, left to right. Under reduced
+// motion the plain text is returned so nothing has to animate.
+const PHASE_STEP = 60;
+const PHASE_RUN = 700;
+const PhaseWords = ({ text, reduced }: { text: string; reduced: boolean }) => {
+  if (reduced) return <span aria-hidden="true">{text}</span>;
+  const words = text.split(" ");
+  return (
+    <span aria-hidden="true">
+      {words.map((w, i) => (
+        <Fragment key={i}>
+          <span className="reveal-phase-word" style={{ animationDelay: `${i * PHASE_STEP}ms` }}>
+            {w}
+          </span>
+          {i < words.length - 1 ? " " : ""}
+        </Fragment>
+      ))}
+    </span>
+  );
+};
+
 // Second line reveal; previews three sci-fi/fantasy treatments. Text stays in DOM for layout.
 const MissionLine = ({ style, reduced }: { style: RevealStyle; reduced: boolean }) => {
   if (style === "phase")
@@ -107,8 +128,7 @@ async function copyToClipboard(text: string) {
 
 const Hero = () => {
   const fullName = "Efe Jessye";
-  const [typed, setTyped] = useState("");
-  const [done, setDone] = useState(false);
+  const [revealed, setRevealed] = useState(false);
   const [copied, setCopied] = useState(false);
   const [earth, setEarth] = useState(false);
   const [announcement, setAnnouncement] = useState("");
@@ -120,35 +140,22 @@ const Hero = () => {
   );
   const resetTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
+  // The intro phase-reveals word by word; the mission line lands once it settles.
   useEffect(() => {
-    setTyped("");
-    setDone(false);
     const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
-    let interval: ReturnType<typeof setInterval> | undefined;
-    const finish = () => {
-      clearInterval(interval);
-      setTyped(intro);
-      setDone(true);
-    };
     setReduced(preference.matches);
+    setRevealed(false);
+    const finish = () => setRevealed(true);
     const onPreferenceChange = () => {
       setReduced(preference.matches);
       if (preference.matches) finish();
     };
     preference.addEventListener("change", onPreferenceChange);
-    let i = 0;
+    let timer: ReturnType<typeof setTimeout> | undefined;
     if (preference.matches) finish();
-    else
-      interval = setInterval(() => {
-        i++;
-        setTyped(intro.slice(0, i));
-        if (i >= intro.length) {
-          clearInterval(interval);
-          setDone(true);
-        }
-      }, 18);
+    else timer = setTimeout(finish, intro.split(" ").length * PHASE_STEP + PHASE_RUN);
     return () => {
-      clearInterval(interval);
+      clearTimeout(timer);
       preference.removeEventListener("change", onPreferenceChange);
       clearTimeout(resetTimer.current);
     };
@@ -196,21 +203,20 @@ const Hero = () => {
 
           <p className="font-read text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed relative">
             <span className="sr-only">{intro} {MISSION}</span>
-            {/* Hidden copy reserves the final height so typing never shifts the page */}
+            {/* Hidden copy reserves the final height so the reveal never shifts the page */}
             <span className="invisible">
               <span aria-hidden="true">{intro} {MISSION}</span>{" "}
               <Link
                 to="/experience"
                 aria-hidden={false}
-                className={`visible relative z-10 text-primary-strong font-medium underline underline-offset-4 transition-opacity duration-500 hover:opacity-80 ${done ? "opacity-100" : "opacity-0"}`}
+                className={`visible relative z-10 text-primary-strong font-medium underline underline-offset-4 transition-opacity duration-500 hover:opacity-80 ${revealed ? "opacity-100" : "opacity-0"}`}
               >
                 See my experience
               </Link>
             </span>
             <span className="hero-typed absolute inset-0 pointer-events-none">
-              <span aria-hidden="true">{typed}</span>
-              {!done && <span aria-hidden="true" className="hero-caret inline-block w-[3px] h-[1em] bg-primary ml-0.5 align-middle" />}
-              {done && (
+              <PhaseWords key={intro} text={intro} reduced={reduced} />
+              {revealed && (
                 <>
                   {" "}
                   <MissionLine key={revealStyle + timeline} style={revealStyle} reduced={reduced} />

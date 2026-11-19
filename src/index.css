@@ -559,10 +559,6 @@
     }
   }
 
-  .hero-caret {
-    animation: caret-blink 1s steps(1, end) infinite;
-  }
-
   .reveal-weave {
     background: linear-gradient(90deg, hsl(var(--muted-foreground)) 40%, hsl(var(--primary-strong)) 50%, hsl(var(--muted-foreground)) 60%);
     background-size: 300% 100%; -webkit-background-clip: text; background-clip: text; color: transparent;
