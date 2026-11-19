@@ -30,18 +30,29 @@ const skillGroups: SkillGroup[] = [
     ],
   },
   {
-    label: "Web Technologies",
+    label: "Frontend & Design Systems",
     tone: "skill-pill--web",
-    clusters: [{ items: ["React", "Next.js", "Redux", "React Query", "Web Components", "Blazor"] }],
+    clusters: [
+      { label: "Frameworks & State", items: ["React", "Next.js", "Redux", "TanStack", "Blazor", "Web Components", "Fluxor", "Redux Saga", "SWR"] },
+      { label: "UI & Styling", items: ["Design Systems", "Figma", "Tailwind CSS", "Bootstrap", "CSS Modules", "SCSS", "Styled Components", "Storybook", "WordPress CMS"] },
+    ],
   },
   {
-    label: "Tools & Platforms",
+    label: "Backend, Data & APIs",
     tone: "skill-pill--tool",
     clusters: [
-      { label: "Runtime & Build", items: ["Node.js", ".NET", "Fluxor", "Turbo", "Git", "GitHub Copilot"] },
-      { label: "Data & APIs", items: ["GraphQL", "PostgreSQL"] },
-      { label: "Testing & Quality", items: ["Jest", "React Testing Library (RTL)", "xUnit", "Cypress"] },
-      { label: "Cloud & Observability", items: ["AWS", "Azure", "Docker", "GitHub Actions", "Sentry", "Grafana"] },
+      { label: "Runtime & Architecture", items: ["Node.js", "Express.js", ".NET", "ASP.NET Core", "Microservices"] },
+      { label: "Data & APIs", items: ["PostgreSQL", "MySQL", "EF Core", "GraphQL", "REST", "HTTP"] },
+    ],
+  },
+  {
+    label: "Cloud, Tools & Quality",
+    tone: "skill-pill--tool",
+    clusters: [
+      { label: "Cloud & Observability", items: ["AWS", "Azure", "Docker", "Sentry", "Grafana"] },
+      { label: "Testing & Quality", items: ["React Testing Library (RTL)", "xUnit", "Jest", "Cypress", "Playwright", "ESLint", "Prettier"] },
+      { label: "Build & Delivery", items: ["Webpack", "Turbo", "Git", "GitHub Actions", "CI/CD", "Code Review"] },
+      { label: "AI-Assisted Development", items: ["Claude", "GitHub Copilot"] },
     ],
   },
 ];
@@ -50,7 +61,7 @@ const competencies = [
   "Technical ownership & communication",
   "Agile development",
   "Accessibility & performance optimisation",
-  "Internationalisation",
+  "Application security (XSS/CSRF prevention)",
   "DevOps & testing",
   "CI/CD",
 ];
