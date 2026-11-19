@@ -268,8 +268,12 @@
     --muted-foreground: 45 18% 80%;
     --primary-strong: 248 80% 84%;
     --border: 240 10% 28%;
+    --accent: 248 20% 22%;
+    --accent-foreground: 45 40% 96%;
   }
   .high-contrast .nav-over-hero {
+    --accent: 55 100% 65%;
+    --accent-foreground: 0 0% 0%;
     --foreground: 0 0% 100%;
     --muted-foreground: 0 0% 100%;
     --primary-strong: 55 100% 65%;

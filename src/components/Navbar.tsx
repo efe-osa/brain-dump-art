@@ -62,13 +62,13 @@ const Navbar = () => {
           {links.map((l) => (
             <Button asChild variant="ghost"
               key={l.id}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm text-muted-foreground hover:text-accent-foreground transition-colors"
             >
               <Link to={`/#${l.id}`}>{l.label}</Link>
             </Button>
           ))}
           <Button asChild variant="ghost"
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="text-sm text-muted-foreground hover:text-accent-foreground transition-colors"
           >
             <Link to="/#experience">Experience</Link>
           </Button>
@@ -94,13 +94,13 @@ const Navbar = () => {
           {links.map((l) => (
             <Button asChild variant="ghost"
               key={l.id}
-              className="min-h-11 justify-start text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="min-h-11 justify-start text-sm text-muted-foreground hover:text-accent-foreground transition-colors"
             >
               <Link to={`/#${l.id}`} onClick={() => setMobileOpen(false)}>{l.label}</Link>
             </Button>
           ))}
           <Button asChild variant="ghost"
-            className="min-h-11 justify-start text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="min-h-11 justify-start text-sm text-muted-foreground hover:text-accent-foreground transition-colors"
           >
             <Link to="/#experience" onClick={() => setMobileOpen(false)}>Experience</Link>
           </Button>
