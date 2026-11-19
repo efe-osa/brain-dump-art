@@ -85,12 +85,13 @@ const highlightMetrics = (text: string) =>
   );
 
 const Experience = () => (
-  <section id="experience" aria-labelledby="experience-heading" className="bg-background pb-16 pt-8 md:pb-24 md:pt-12 [overflow-wrap:anywhere]">
-    <div className="page-shell page-shell--read">
+  <section id="experience" aria-labelledby="experience-heading" className="border-t border-border bg-background py-16 md:py-24 [overflow-wrap:anywhere]">
+    <div className="page-shell">
+    <div className="max-w-5xl">
       <header className="mb-10 md:mb-14">
         <p className="mb-2 text-sm font-medium uppercase text-primary-strong">Experience</p>
         <div className="flex flex-col items-start justify-between gap-5 lg:flex-row lg:items-center">
-          <h1 id="experience-heading" className="text-3xl font-bold tracking-normal text-foreground md:text-4xl">Where my work has taken me</h1>
+          <h2 id="experience-heading" className="text-3xl font-bold tracking-normal text-foreground md:text-4xl">Where my work has taken me</h2>
           <Button asChild size="lg" variant="outline" className="h-auto min-h-11 shrink-0 whitespace-normal px-4">
             <a href={resumeAsset.url} download="Efe-Jessye-Resume.pdf" target="_blank" rel="noopener noreferrer">
               <Download aria-hidden="true" /> Download résumé (PDF)
@@ -112,7 +113,7 @@ const Experience = () => (
             <article aria-labelledby={`role-${index}`}>
               <header className="mb-5 flex flex-col justify-between gap-2 sm:flex-row sm:gap-6">
                 <div className="min-w-0">
-                  <h2 id={`role-${index}`} className="text-xl font-semibold tracking-normal text-foreground">{exp.role}</h2>
+                  <h3 id={`role-${index}`} className="text-xl font-semibold tracking-normal text-foreground">{exp.role}</h3>
                   <p className="mt-1 text-sm font-medium text-primary-strong">{exp.company}</p>
                   <p className="mt-1 text-sm text-muted-foreground">{exp.location}</p>
                   <p className="font-read mt-2 text-base text-muted-foreground">{exp.about}</p>
@@ -133,18 +134,18 @@ const Experience = () => (
       </ol>
 
       <section aria-labelledby="earlier-experience-heading" className="mt-12 border-t border-border pt-8">
-        <h2 id="earlier-experience-heading" className="mb-3 text-xl font-semibold tracking-normal">Earlier experience</h2>
+        <h3 id="earlier-experience-heading" className="mb-3 text-xl font-semibold tracking-normal">Earlier experience</h3>
         <p className="text-sm text-primary-strong">JavaScript Intern · Hotels.ng (HNG Internship) · Mar 2018 – Jun 2018</p>
         <p className="font-read mt-2 text-lg leading-relaxed text-muted-foreground">Built a PHP chatbot with an HTML, CSS and JavaScript interface for conversational interactions.</p>
       </section>
 
       <section aria-labelledby="education-heading" className="mt-12 border-t border-border pt-8">
-        <h2 id="education-heading" className="mb-6 text-2xl font-semibold tracking-normal">Education</h2>
+        <h3 id="education-heading" className="mb-6 text-2xl font-semibold tracking-normal">Education</h3>
         <ul className="space-y-6">
           {education.map((item) => (
             <li key={item.institution} className="flex flex-col justify-between gap-2 sm:flex-row sm:gap-6">
               <div>
-                <h3 className="text-base font-semibold tracking-normal">{item.degree}</h3>
+                <h4 className="text-base font-semibold tracking-normal">{item.degree}</h4>
                 <p className="font-read mt-1 text-lg text-muted-foreground">{item.institution}</p>
               </div>
             </li>
@@ -153,13 +154,14 @@ const Experience = () => (
       </section>
 
       <section aria-labelledby="certifications-heading" className="mt-10 border-t border-border pt-8">
-        <h2 id="certifications-heading" className="mb-5 text-xl font-semibold tracking-normal">Certifications</h2>
+        <h3 id="certifications-heading" className="mb-5 text-xl font-semibold tracking-normal">Certifications</h3>
         <ul className="font-read space-y-3 text-lg leading-relaxed text-muted-foreground">
           <li>Microsoft GitHub Copilot <span className="text-sm">· September 2025</span></li>
           <li>Treford Fundamentals Training in Product Management <span className="text-sm">· August 2021</span></li>
           <li>Google Mobile Web Specialist <span className="text-sm">· April 2018</span></li>
         </ul>
       </section>
+    </div>
     </div>
   </section>
 );

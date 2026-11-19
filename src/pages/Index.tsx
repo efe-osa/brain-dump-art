@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Projects from "@/components/Projects";
+import Experience from "@/components/Experience";
 import Blog from "@/components/Blog";
 import Footer from "@/components/Footer";
 import AccessibilityMenu from "@/components/AccessibilityMenu";
@@ -15,6 +16,7 @@ const Index = () => {
         <Hero />
         {/* <PortfolioFinder /> */}
         <Projects />
+        <Experience />
         <About />
         <Blog />
       </main>

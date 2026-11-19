@@ -70,7 +70,7 @@ const Navbar = () => {
           <Button asChild variant="ghost"
             className="text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
-            <Link to="/experience" aria-current={location.pathname === "/experience" ? "page" : undefined}>Experience</Link>
+            <Link to="/#experience">Experience</Link>
           </Button>
         </div>
 
@@ -102,7 +102,7 @@ const Navbar = () => {
           <Button asChild variant="ghost"
             className="min-h-11 justify-start text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
-            <Link to="/experience" onClick={() => setMobileOpen(false)} aria-current={location.pathname === "/experience" ? "page" : undefined}>Experience</Link>
+            <Link to="/#experience" onClick={() => setMobileOpen(false)}>Experience</Link>
           </Button>
         </div>
     </nav>

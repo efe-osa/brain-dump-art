@@ -8,7 +8,7 @@ async def check_resume_facts():
     async with async_playwright() as playwright:
         browser = await playwright.chromium.launch(headless=True)
         page = await browser.new_page(viewport={"width": 1280, "height": 1800})
-        await page.goto("http://localhost:8080/experience", wait_until="networkidle")
+        await page.goto("http://localhost:8080/#experience", wait_until="networkidle")
         ringtail = page.get_by_role("article").filter(has_text="Ringtail Interactive")
         assert "Jan 2023 – Jan 2025" in await ringtail.inner_text()
         assert "90%" in await ringtail.inner_text()
@@ -23,7 +23,7 @@ async def check_resume_facts():
         assert "100,000+" in await everyfarmer.inner_text()
         assert "$10,000" in await everyfarmer.inner_text()
         assert "80%" in await everyfarmer.inner_text()
-        roles = await page.locator("article h2").all_text_contents()
+        roles = await page.locator("article h3").all_text_contents()
         # Studio 14 is listed above Reliance Health by request.
         assert roles.index("Full Stack Developer") < roles.index("Senior Frontend Engineer")
         education = page.get_by_role("region", name="Education")

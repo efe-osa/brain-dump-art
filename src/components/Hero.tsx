@@ -200,7 +200,7 @@ const Hero = () => {
             <span className="invisible">
               <span aria-hidden="true">{intro} {MISSION}</span>{" "}
               <Link
-                to="/experience"
+                to="/#experience"
                 aria-hidden={false}
                 className={`visible relative z-10 text-primary-strong font-medium underline underline-offset-4 transition-opacity duration-500 hover:opacity-80 ${revealed ? "opacity-100" : "opacity-0"}`}
               >

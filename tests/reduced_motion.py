@@ -38,7 +38,7 @@ async def check_reduced_motion():
         await page.emulate_media(reduced_motion="reduce")
         await page.wait_for_timeout(100)
         assert await page.locator(TYPED).inner_text() == FULL
-        assert await page.locator("#hero p a[href='/experience']").is_visible()
+        assert await page.locator("#hero p a[href='/#experience']").is_visible()
         assert await page.locator("#about p.text-primary [aria-hidden=true]").all_inner_texts() == STATS
 
         # A normal no-preference load also settles on the same copy.
