@@ -11,31 +11,68 @@ const MISSION =
   "In this timeline, I design and build accessible web products, from sharp interfaces to resilient full-stack systems.";
 const GLYPHS = "✦✧⟐⌬⍟ᚠᚱᛟ◈⊹∴";
 const STYLES = [
-  ["decode", "Rune decode"],
   ["weave", "Starlight weave"],
   ["phase", "Phase shift"],
   ["inscribe", "Astral inscription"],
 ] as const;
 type RevealStyle = (typeof STYLES)[number][0];
 
-// Second line reveal; previews four sci-fi/fantasy treatments. Text stays in DOM for layout.
-const MissionLine = ({ style, reduced }: { style: RevealStyle; reduced: boolean }) => {
-  const [decoded, setDecoded] = useState(style === "decode" && !reduced ? "" : MISSION);
+// Rune-decode: characters flicker through glyphs and lock in left to right.
+// Returns the final text immediately when disabled (reduced motion).
+const useRuneDecode = (text: string, enabled: boolean, total = 40, tick = 35) => {
+  const [decoded, setDecoded] = useState(text);
   useEffect(() => {
-    if (style !== "decode" || reduced) { setDecoded(MISSION); return; }
+    if (!enabled) {
+      setDecoded(text);
+      return;
+    }
     let frame = 0;
-    const total = 40;
+    const render = () => {
+      const lock = Math.floor((frame / total) * text.length);
+      setDecoded(
+        text
+          .split("")
+          .map((c, i) => (i < lock || c === " " ? c : GLYPHS[(i + frame) % GLYPHS.length]))
+          .join(""),
+      );
+    };
+    render();
     const id = setInterval(() => {
       frame++;
-      const lock = Math.floor((frame / total) * MISSION.length);
-      setDecoded(MISSION.split("").map((c, i) => (i < lock || c === " " ? c : GLYPHS[(i + frame) % GLYPHS.length])).join(""));
-      if (frame >= total) { clearInterval(id); setDecoded(MISSION); }
-    }, 35);
+      render();
+      if (frame >= total) {
+        clearInterval(id);
+        setDecoded(text);
+      }
+    }, tick);
     return () => clearInterval(id);
-  }, [style, reduced]);
+  }, [text, enabled, total, tick]);
+  return decoded;
+};
+
+// Transmission tag: decodes on arrival and re-decodes when the timeline changes.
+const BroadcastLine = ({ timeline, reduced }: { timeline: string; reduced: boolean }) => {
+  const text = `TRANSMITTING FROM ${timeline}`;
+  const decoded = useRuneDecode(text, !reduced, 26, 45);
+  return (
+    <p className="text-xs text-primary-strong flex items-center gap-2">
+      <span className="transmission-dot" aria-hidden="true" />
+      <span className="sr-only">{text}</span>
+      <span
+        aria-hidden="true"
+        className="inline-block broadcast-text"
+        style={{ minWidth: `${text.length}ch` }}
+      >
+        {decoded}
+      </span>
+    </p>
+  );
+};
+
+// Second line reveal; previews three sci-fi/fantasy treatments. Text stays in DOM for layout.
+const MissionLine = ({ style, reduced }: { style: RevealStyle; reduced: boolean }) => {
   if (style === "phase")
     return <span aria-hidden="true">{MISSION.split(" ").map((w, i) => <span key={i} className="reveal-phase-word" style={{ animationDelay: `${i * 70}ms` }}>{w} </span>)}</span>;
-  if (style === "decode") return <span aria-hidden="true" className="reveal-decode">{decoded}</span>;
   return <span aria-hidden="true" className={`reveal-${style}`}>{MISSION}</span>;
 };
 
@@ -77,8 +114,10 @@ const Hero = () => {
   const [announcement, setAnnouncement] = useState("");
   const timeline = earth ? "Earth-2337" : "Mars-0321";
   const intro = `Welcome to my corner of the multiverse — ${timeline}.`;
-  const [revealStyle, setRevealStyle] = useState<RevealStyle>("decode");
-  const [reduced, setReduced] = useState(false);
+  const [revealStyle, setRevealStyle] = useState<RevealStyle>("weave");
+  const [reduced, setReduced] = useState(
+    () => window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+  );
   const resetTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   useEffect(() => {
@@ -138,7 +177,7 @@ const Hero = () => {
       </div>
       <div className="relative w-full max-w-[100rem] mx-auto px-5 md:px-10">
         <div className="timeline-broadcast flex flex-wrap items-center gap-x-5 gap-y-2 mb-7">
-          <p className="text-xs text-primary-strong flex items-center gap-2"><span className="transmission-dot" aria-hidden="true" />TRANSMITTING FROM {timeline}</p>
+          <BroadcastLine timeline={timeline} reduced={reduced} />
           <Tooltip>
             <TooltipTrigger asChild>
               <Button variant="ghost" size="icon" className="min-h-11 min-w-11 text-primary-strong" aria-label={`Switch timeline to ${earth ? "Mars-0321" : "Earth-2337"}`} onClick={() => { setEarth(!earth); setAnnouncement(`Timeline changed to ${earth ? "Mars-0321" : "Earth-2337"}.`); }}>
