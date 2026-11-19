@@ -73,6 +73,12 @@ const BroadcastLine = ({ timeline, reduced }: { timeline: string; reduced: boole
 // motion the plain text is returned so nothing has to animate.
 const PHASE_STEP = 60;
 const PHASE_RUN = 700;
+const RUNE_FRAMES = 40;
+const RUNE_TICK = 35;
+const RuneIntro = ({ text, reduced }: { text: string; reduced: boolean }) => {
+  const decoded = useRuneDecode(text, !reduced, RUNE_FRAMES, RUNE_TICK);
+  return <span aria-hidden="true" className="intro-rune">{decoded}</span>;
+};
 const PhaseWords = ({ text, reduced }: { text: string; reduced: boolean }) => {
   if (reduced) return <span aria-hidden="true">{text}</span>;
   const words = text.split(" ");
@@ -153,7 +159,7 @@ const Hero = () => {
     preference.addEventListener("change", onPreferenceChange);
     let timer: ReturnType<typeof setTimeout> | undefined;
     if (preference.matches) finish();
-    else timer = setTimeout(finish, intro.split(" ").length * PHASE_STEP + PHASE_RUN);
+    else timer = setTimeout(finish, RUNE_FRAMES * RUNE_TICK + 100);
     return () => {
       clearTimeout(timer);
       preference.removeEventListener("change", onPreferenceChange);
@@ -215,7 +221,7 @@ const Hero = () => {
               </Link>
             </span>
             <span className="hero-typed absolute inset-0 pointer-events-none">
-              <PhaseWords key={intro} text={intro} reduced={reduced} />
+              <RuneIntro key={intro} text={intro} reduced={reduced} />
               {revealed && (
                 <>
                   {" "}

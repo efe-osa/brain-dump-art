@@ -4,7 +4,7 @@ from playwright.async_api import async_playwright, expect
 
 BROADCAST = "#hero .timeline-broadcast .broadcast-text"
 TYPED = "#hero .hero-typed"
-WORDS = "#hero .hero-typed .reveal-phase-word"
+WORDS = "#hero .hero-typed .intro-rune"
 INTRO = "Welcome to my corner of the multiverse — Mars-0321."
 MISSION = (
     "In this timeline, I design and build accessible web products, from sharp "
@@ -43,8 +43,8 @@ async def check_decode():
         # The introduction phase-reveals: the words are in the DOM but still
         # drifting in, and the mission line has not landed yet.
         await page.wait_for_selector(WORDS)
-        mid = await page.locator(WORDS).first.evaluate("el => getComputedStyle(el).opacity")
-        assert float(mid) < 1, f"first intro word should still be fading in, got opacity {mid}"
+        mid = await page.locator(WORDS).first.inner_text()
+        assert "Welcome to my corner" not in mid, f"intro should still be decoding, got {mid}"
         assert MISSION not in await page.locator(TYPED).inner_text()
         # The tag flickers through glyphs before settling on the real text.
         await expect(page.locator(BROADCAST)).not_to_have_text("TRANSMITTING FROM Mars-0321", timeout=2000)
@@ -67,4 +67,4 @@ async def check_decode():
 
 asyncio.run(check())
 asyncio.run(check_decode())
-print("PASS: Mars default, phase-revealed introduction, rune-decoded tag, narrow-screen reflow.")
+print("PASS: Mars default, rune-decoded introduction, rune-decoded tag, narrow-screen reflow.")

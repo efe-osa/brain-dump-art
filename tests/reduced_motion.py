@@ -9,7 +9,7 @@ MISSION = (
 )
 FULL = f"{INTRO} {MISSION}"
 TYPED = "#hero .hero-typed"
-WORDS = "#hero .hero-typed .reveal-phase-word"
+WORDS = "#hero .hero-typed .intro-rune"
 STATS = ["7+", "250K+", "90%", "80%"]
 
 
@@ -30,8 +30,8 @@ async def check_reduced_motion():
         await page.emulate_media(reduced_motion="no-preference")
         await page.reload(wait_until="domcontentloaded")
         await page.wait_for_selector(WORDS)
-        mid = await page.locator(WORDS).first.evaluate("el => getComputedStyle(el).opacity")
-        assert float(mid) < 1, f"first intro word should still be fading in, got opacity {mid}"
+        mid = await page.locator(WORDS).first.inner_text()
+        assert "Welcome to my corner" not in mid, f"intro should still be decoding, got {mid}"
         assert MISSION not in await page.locator(TYPED).inner_text()
 
         # Changing the preference live must finish the reveal immediately.
