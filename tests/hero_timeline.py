@@ -23,9 +23,9 @@ async def check():
         assert await page.locator(BROADCAST).inner_text() == "TRANSMITTING FROM Mars-0321"
         assert "Mars-0321" in await page.locator(TYPED).inner_text() and "In this timeline" in await page.locator(TYPED).inner_text()
         # Reduced motion shows the transmission tag already decoded.
-        await page.get_by_role("button", name="Switch timeline to Earth-2337").click()
-        await expect(page.locator(TYPED)).to_contain_text("Earth-2337")
-        assert await page.locator("#hero [role=status]").inner_text() == "Timeline changed to Earth-2337."
+        await page.get_by_role("button", name="Switch timeline to Earth-0407").click()
+        await expect(page.locator(TYPED)).to_contain_text("Earth-0407")
+        assert await page.locator("#hero [role=status]").inner_text() == "Timeline changed to Earth-0407."
         assert await page.locator("#hero .timeline-image--active").evaluate("img => img.complete && img.naturalWidth > 0")
         await page.get_by_role("button", name="Switch timeline to Mars-0321").click()
         await expect(page.locator(TYPED)).to_contain_text("Mars-0321")
@@ -49,9 +49,9 @@ async def check_decode():
         # The tag shows its real text straight away, with no decode.
         assert await page.locator(BROADCAST).inner_text() == "TRANSMITTING FROM Mars-0321"
         await expect(page.locator(TYPED)).to_have_text(FULL, timeout=6000)
-        await page.get_by_role("button", name="Switch timeline to Earth-2337").click()
-        await expect(page.locator(BROADCAST)).to_have_text("TRANSMITTING FROM Earth-2337", timeout=5000)
-        await expect(page.locator(TYPED)).to_contain_text("Earth-2337", timeout=6000)
+        await page.get_by_role("button", name="Switch timeline to Earth-0407").click()
+        await expect(page.locator(BROADCAST)).to_have_text("TRANSMITTING FROM Earth-0407", timeout=5000)
+        await expect(page.locator(TYPED)).to_contain_text("Earth-0407", timeout=6000)
         # Narrow screens reflow while the reveal is running, not just after it.
         await page.set_viewport_size({"width": 393, "height": 747})
         await page.reload(wait_until="domcontentloaded")

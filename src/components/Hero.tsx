@@ -129,7 +129,7 @@ const Hero = () => {
   const [copied, setCopied] = useState(false);
   const [earth, setEarth] = useState(false);
   const [announcement, setAnnouncement] = useState("");
-  const timeline = earth ? "Earth-2337" : "Mars-0321";
+  const timeline = earth ? "Earth-0407" : "Mars-0321";
   const intro = `Welcome to my corner of the multiverse — ${timeline}.`;
   const revealStyle: RevealStyle = "weave";
   const [reduced, setReduced] = useState(
@@ -182,7 +182,7 @@ const Hero = () => {
       <div className="relative page-shell">
         <div className="timeline-broadcast flex flex-wrap items-center gap-x-5 gap-y-2 mb-7">
           <BroadcastLine timeline={timeline} reduced={reduced} />
-          <Button variant="outline" size="sm" className="min-h-11 gap-2 rounded-full bg-transparent font-mono text-xs text-primary-strong hover:bg-accent hover:text-primary-strong" aria-label={`Switch timeline to ${earth ? "Mars-0321" : "Earth-2337"} (currently ${timeline})`} onClick={() => { setEarth(!earth); setAnnouncement(`Timeline changed to ${earth ? "Mars-0321" : "Earth-2337"}.`); }}>
+          <Button variant="outline" size="sm" className="min-h-11 gap-2 rounded-full bg-transparent font-mono text-xs text-primary-strong hover:bg-accent hover:text-primary-strong" aria-label={`Switch timeline to ${earth ? "Mars-0321" : "Earth-0407"} (currently ${timeline})`} onClick={() => { setEarth(!earth); setAnnouncement(`Timeline changed to ${earth ? "Mars-0321" : "Earth-0407"}.`); }}>
             <Orbit aria-hidden="true" />
             Switch timeline
           </Button>
