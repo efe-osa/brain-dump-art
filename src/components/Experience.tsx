@@ -1,4 +1,4 @@
-import { Download } from "lucide-react";
+import { Download, Printer } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import resumeAsset from "@/assets/resume.pdf.asset.json";
 
@@ -84,6 +84,14 @@ const highlightMetrics = (text: string) =>
       : part,
   );
 
+const printTimeline = () => {
+  const root = document.documentElement;
+  root.classList.add("print-experience");
+  const done = () => { root.classList.remove("print-experience"); window.removeEventListener("afterprint", done); };
+  window.addEventListener("afterprint", done);
+  window.print();
+};
+
 const Experience = () => (
   <section id="experience" aria-labelledby="experience-heading" className="border-t border-border bg-background py-16 md:py-24 [overflow-wrap:anywhere]">
     <div className="page-shell">
@@ -92,12 +100,17 @@ const Experience = () => (
         <p className="mb-2 text-sm font-medium uppercase text-primary-strong">Experience</p>
         <div className="flex flex-col items-start justify-between gap-5 lg:flex-row lg:items-center">
           <h2 id="experience-heading" className="text-3xl font-bold tracking-normal text-foreground md:text-4xl">Where my work has taken me</h2>
+          <div className="flex flex-wrap gap-3 print:hidden">
+          <Button type="button" size="lg" variant="outline" className="h-auto min-h-11 shrink-0 whitespace-normal px-4" onClick={printTimeline}>
+            <Printer aria-hidden="true" /> Save timeline as PDF
+          </Button>
           <Button asChild size="lg" variant="outline" className="h-auto min-h-11 shrink-0 whitespace-normal px-4">
             <a href={resumeAsset.url} download="Efe-Jessye-Resume.pdf" target="_blank" rel="noopener noreferrer">
               <Download aria-hidden="true" /> Download résumé (PDF)
               <span className="sr-only"> — opens in a new tab if not downloaded</span>
             </a>
           </Button>
+          </div>
         </div>
         <p className="font-read mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
           I've spent seven years building products with teams in Nigeria, the UK and Sweden — health platforms, multiplayer games, farm marketplaces.
@@ -114,8 +127,10 @@ const Experience = () => (
               <header className="mb-5 flex flex-col justify-between gap-2 sm:flex-row sm:gap-6">
                 <div className="min-w-0">
                   <h3 id={`role-${index}`} className="text-xl font-semibold tracking-normal text-foreground">{exp.role}</h3>
-                  <p className="mt-1 text-sm font-medium text-primary-strong">{exp.company}</p>
-                  <p className="mt-1 text-sm text-muted-foreground">{exp.location}</p>
+                  <p className="mt-1 text-sm font-medium text-primary-strong">
+                    {exp.company}
+                    <span className="font-normal text-muted-foreground"> · {exp.location}</span>
+                  </p>
                   <p className="font-read mt-2 text-base text-muted-foreground">{exp.about}</p>
                 </div>
                 <p className="shrink-0 text-sm text-muted-foreground sm:pt-1">{exp.period}</p>

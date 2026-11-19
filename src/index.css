@@ -642,3 +642,16 @@
     transform: none;
   }
 }
+
+@media print {
+  @page { size: A4; margin: 12mm; }
+  html.print-experience body * { visibility: hidden; }
+  html.print-experience #experience,
+  html.print-experience #experience * { visibility: visible; }
+  html.print-experience #experience {
+    position: absolute; inset: 0 auto auto 0; width: 100%;
+    padding: 0; border: 0;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  html.print-experience #experience li { break-inside: avoid; }
+}
