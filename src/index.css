@@ -290,6 +290,12 @@
     background: hsl(var(--background));
     color: hsl(var(--foreground));
     padding-block: 7rem 2rem;
+    /* Fill the first screen so nothing below peeks in above the fold. */
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .timeline-scenery { position: absolute; inset: 0; z-index: -1; overflow: hidden; }
