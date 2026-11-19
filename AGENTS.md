@@ -5,6 +5,7 @@
 - Keep design-engineering positioning grounded in documented UI systems, accessibility and full-stack work; use an unframed editorial introduction and real existing project imagery rather than decorative code panels or fabricated case studies.
 - Load remote fonts through document-head links, never CSS imports, so the CSS compiler cannot drop or reject them.
 - Scope the full-bleed timeline introduction's contrast tokens to its photographic surface; timeline changes share the typing effect and stop decorative motion within five seconds to avoid persistent distraction.
+- Reserve animated introduction text separately from its normal-flow experience link so proportional text wrapping cannot make them overlap.
 
 - Accessibility confirmations use one persistent polite status region, updated only by user actions and coalesced during rapid changes; saved-preference restoration stays silent and announcements never manage focus.
 

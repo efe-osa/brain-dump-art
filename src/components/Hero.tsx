@@ -195,27 +195,26 @@ const Hero = () => {
           </h1>
 
           <p className="font-read text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed relative">
-            <span className="sr-only">{intro} {MISSION}</span>
-            {/* Hidden copy reserves the final height so the reveal never shifts the page */}
-            <span className="invisible">
-              <span aria-hidden="true">{intro} {MISSION}</span>{" "}
-              <Link
-                to="/#experience"
-                aria-hidden={false}
-                className={`visible relative z-10 text-primary-strong font-medium underline underline-offset-4 transition-opacity duration-500 hover:opacity-80 ${revealed ? "opacity-100" : "opacity-0"}`}
-              >
-                See my experience
-              </Link>
+            <span className="relative block">
+              <span className="sr-only">{intro} {MISSION}</span>
+              {/* Reserve only the animated copy; the link has its own flow row. */}
+              <span aria-hidden="true" className="invisible block">{intro} {MISSION}</span>
+              <span className="hero-typed absolute inset-0 pointer-events-none">
+                <RuneIntro key={intro} text={intro} reduced={reduced} />
+                {revealed && (
+                  <>
+                    {" "}
+                    <MissionLine key={revealStyle + timeline} style={revealStyle} reduced={reduced} />
+                  </>
+                )}
+              </span>
             </span>
-            <span className="hero-typed absolute inset-0 pointer-events-none">
-              <RuneIntro key={intro} text={intro} reduced={reduced} />
-              {revealed && (
-                <>
-                  {" "}
-                  <MissionLine key={revealStyle + timeline} style={revealStyle} reduced={reduced} />
-                </>
-              )}
-            </span>
+            <Link
+              to="/#experience"
+              className={`relative mt-3 block w-fit text-primary-strong font-medium underline underline-offset-4 transition-opacity duration-500 hover:opacity-80 ${revealed ? "opacity-100" : "opacity-0"}`}
+            >
+              See my experience
+            </Link>
           </p>
 
           <div className="flex flex-wrap items-center gap-3 mb-8">
