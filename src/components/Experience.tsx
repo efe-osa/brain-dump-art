@@ -96,23 +96,27 @@ const Experience = () => (
   <section id="experience" aria-labelledby="experience-heading" className="border-t border-border bg-background py-16 md:py-24 [overflow-wrap:anywhere]">
     <div className="page-shell">
     <div className="max-w-5xl">
-      <header className="mb-10 md:mb-14">
+      <div className="print-only-header hidden">
+        <p className="text-2xl font-bold text-foreground">Efe Jessye</p>
+        <p className="text-sm text-muted-foreground">eosawaruoyelade@gmail.com · linkedin.com/in/efe-osa-osawaru-oyelade · brain-dump-art.lovable.app</p>
+      </div>
+      <header className="mb-10 md:mb-14 print:mb-6">
         <p className="mb-2 text-sm font-medium uppercase text-primary-strong">Experience</p>
         <div className="flex flex-col items-start justify-between gap-5 lg:flex-row lg:items-center">
           <h2 id="experience-heading" className="text-3xl font-bold tracking-normal text-foreground md:text-4xl">Where my work has taken me</h2>
           <div className="flex flex-wrap gap-3 print:hidden">
           <Button type="button" size="lg" variant="outline" className="h-auto min-h-11 shrink-0 whitespace-normal px-4" onClick={printTimeline}>
-            <Printer aria-hidden="true" /> Save timeline as PDF
+            <Printer aria-hidden="true" /> Print this timeline
           </Button>
           <Button asChild size="lg" variant="outline" className="h-auto min-h-11 shrink-0 whitespace-normal px-4">
             <a href={resumeAsset.url} download="Efe-Jessye-Resume.pdf" target="_blank" rel="noopener noreferrer">
-              <Download aria-hidden="true" /> Download résumé (PDF)
+              <Download aria-hidden="true" /> Download full CV (PDF)
               <span className="sr-only"> — opens in a new tab if not downloaded</span>
             </a>
           </Button>
           </div>
         </div>
-        <p className="font-read mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+        <p className="font-read mt-5 max-w-2xl print:hidden text-lg leading-relaxed text-muted-foreground">
           I've spent seven years building products with teams in Nigeria, the UK and Sweden — health platforms, multiplayer games, farm marketplaces.
           Every role taught me something I carry into the next one, and I'm open to where the next build takes me.
         </p>
@@ -121,8 +125,8 @@ const Experience = () => (
       <ol className="relative space-y-10 md:space-y-12">
         {experiences.map((exp, index) => (
           <li key={exp.company} className="relative border-b border-border pb-10 last:border-b-0 last:pb-0 md:pl-8">
-            <span aria-hidden="true" className="absolute bottom-0 left-1 top-0 hidden w-px bg-border md:block" />
-            <span aria-hidden="true" className="absolute left-0 top-2 hidden h-2.5 w-2.5 rounded-full bg-primary-strong md:block" />
+            <span aria-hidden="true" className="absolute bottom-0 left-1 top-0 hidden w-px bg-border md:block print:!hidden" />
+            <span aria-hidden="true" className="absolute left-0 top-2 hidden h-2.5 w-2.5 rounded-full bg-primary-strong md:block print:!hidden" />
             <article aria-labelledby={`role-${index}`}>
               <header className="mb-5 flex flex-col justify-between gap-2 sm:flex-row sm:gap-6">
                 <div className="min-w-0">

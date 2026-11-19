@@ -31,7 +31,7 @@ async def check_resume_facts():
         assert "2023–2026" not in await education.inner_text()
         assert "University of Lagos" in await education.inner_text()
         assert "2012–2015" not in await education.inner_text()
-        download = page.get_by_role("link", name="Download résumé (PDF)")
+        download = page.get_by_role("link", name="Download full CV (PDF)")
         url = await download.get_attribute("href")
         assert url and "/__l5e/assets-v1/" in url
         # The local Vite server does not proxy hosted asset paths.
