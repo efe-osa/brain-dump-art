@@ -7,6 +7,7 @@ const experiences = [
     role: "Senior JavaScript Engineer",
     company: "LeoVegas Group | MGM Resorts International",
     location: "Stockholm",
+    about: "Online casino and sports betting operator, part of MGM Resorts International.",
     period: "Nov 2025 – Feb 2026",
     bullets: [
       "Designed a cross-browser geolocation permission measurement system with Data Analytics, capturing permission status to support regulatory compliance for Canadian markets.",
@@ -18,6 +19,7 @@ const experiences = [
     role: "Software Engineer",
     company: "Ringtail Interactive (now Brink Gaming)",
     location: "Stockholm",
+    about: "Backend platform for multiplayer game developers to deploy and run game servers.",
     period: "Jan 2023 – Jan 2025",
     bullets: [
       "Designed and shipped the Cloud Portal deployment management module, enabling multiplayer game developers to automate and manually launch code releases.",
@@ -31,6 +33,7 @@ const experiences = [
     role: "Full Stack Developer",
     company: "Studio 14",
     location: "Birmingham",
+    about: "Digital studio building web products and e-commerce for small and medium businesses.",,
     period: "Dec 2019 – Aug 2022",
     bullets: [
       "Developed an e-commerce PWA and dashboard for 100+ businesses; optimized Core Web Vitals and network payloads, improving performance scores from 52% to 98%.",
@@ -44,6 +47,7 @@ const experiences = [
     role: "Senior Frontend Engineer",
     company: "Reliance Health",
     location: "Abuja",
+    about: "Health-tech company providing affordable health insurance and care across Nigeria.",
     period: "Oct 2021 – Jun 2022",
     bullets: [
       "Owned the migration of a legacy platform to a component-based JavaScript architecture, scaling performance for 250,000+ active users and 4,000+ businesses.",
@@ -57,6 +61,7 @@ const experiences = [
     role: "Frontend Engineer",
     company: "EveryFarmer",
     location: "Abuja",
+    about: "Agri-tech marketplace connecting farmers with service providers and financing.",
     period: "Mar 2019 – Jul 2020",
     bullets: [
       "Built a Google Maps geospatial mapping tool with the product design team and CTO, automating farm mapping assessments for 100,000+ service providers and reducing operating expenses by $10,000.",
@@ -110,6 +115,7 @@ const Experience = () => (
                   <h2 id={`role-${index}`} className="text-xl font-semibold tracking-normal text-foreground">{exp.role}</h2>
                   <p className="mt-1 text-sm font-medium text-primary-strong">{exp.company}</p>
                   <p className="mt-1 text-sm text-muted-foreground">{exp.location}</p>
+                  <p className="font-read mt-2 text-base text-muted-foreground">{exp.about}</p>
                 </div>
                 <p className="shrink-0 text-sm text-muted-foreground sm:pt-1">{exp.period}</p>
               </header>
