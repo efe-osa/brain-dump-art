@@ -33,7 +33,7 @@ const experiences = [
     role: "Full Stack Developer",
     company: "Studio 14",
     location: "Birmingham",
-    about: "Digital studio building web products and e-commerce for small and medium businesses.",,
+    about: "Digital studio building web products and e-commerce for small and medium businesses.",
     period: "Dec 2019 – Aug 2022",
     bullets: [
       "Developed an e-commerce PWA and dashboard for 100+ businesses; optimized Core Web Vitals and network payloads, improving performance scores from 52% to 98%.",
