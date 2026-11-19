@@ -323,8 +323,6 @@
   @media (max-width: 639px) {
     .timeline-image { object-position: 72% center; }
     .timeline-veil { background: hsl(var(--background) / 0.82); }
-    .timeline-intro .intro-practice { grid-template-columns: 1fr 1fr; }
-    .timeline-intro .intro-practice > :last-child { grid-column: 1 / -1; }
   }
   .high-contrast .timeline-intro {
     --foreground: 0 0% 100%;
@@ -335,6 +333,11 @@
   }
   .high-contrast .timeline-scenery { opacity: 0.25; }
 
+  /* Soft lavender halo echoing the planet's rim light. */
+  .timeline-intro .intro-name > .text-primary-strong {
+    text-shadow: 0 0 28px hsl(var(--primary) / 0.45), 0 0 64px hsl(var(--primary) / 0.25);
+  }
+  .high-contrast .timeline-intro .intro-name > .text-primary-strong { text-shadow: none; }
   .intro-name {
     font-size: 3rem;
     line-height: 1.12;

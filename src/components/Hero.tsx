@@ -254,10 +254,9 @@ const Hero = () => {
               <Linkedin className="h-5 w-5" aria-hidden="true" />
             </a>
             </Button>
-            <span className="text-xs text-muted-foreground ml-1">Stockholm, Sweden</span>
           </div>
         </div>
-        <dl aria-label="Mission log" className="intro-practice grid grid-cols-1 sm:grid-cols-3 gap-5 mt-8 pt-5 border-t border-border">
+        <dl aria-label="Mission log" className="intro-practice grid grid-cols-1 min-[480px]:grid-cols-3 gap-5 mt-8 pt-5 border-t border-border">
           {[
             ["01 / Coordinates", `${timeline} · Stockholm`],
             ["02 / Mission", "Accessible web products"],
