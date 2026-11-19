@@ -1,5 +1,7 @@
 # Accessibility improvements
 
+- [x] Try all five multiverse introduction ideas: coordinate tag, planet imagery, stars, timeline switch and mission log; verified switching, reduced motion, email copying and narrow-screen readability.
+
 - [x] Replaced Read it with Reliance Health using documented experience and a public-site preview; synchronized recommendations and verified all six cards, keyboard access, phone animations and reduced-motion fallbacks.
 
 - [x] Built the layered selected-work deck; verified scroll depth, all six destinations, keyboard access in four appearance modes, phone layouts and reduced-motion/enlarged-text fallbacks.

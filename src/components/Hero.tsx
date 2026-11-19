@@ -1,8 +1,11 @@
-import { ArrowDownRight, Check, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDownRight, Check, Github, Linkedin, Mail, Orbit } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import marsImage from "@/assets/mars-timeline.jpg";
+import earthImage from "@/assets/earth-timeline.jpg";
 
 const INTRO =
   "Welcome to my corner of the multiverse — Mars-0321. Governed by Aries curiosity, I design and build accessible web products, from sharp interfaces to resilient full-stack systems.";
@@ -41,14 +44,22 @@ const Hero = () => {
   const [typed, setTyped] = useState("");
   const [done, setDone] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [earth, setEarth] = useState(false);
+  const [announcement, setAnnouncement] = useState("");
+  const timeline = earth ? "Earth-2337" : "Mars-0321";
+  const intro = earth
+    ? "Welcome to my corner of the multiverse — Earth-2337. In this timeline, I design and build accessible web products, from sharp interfaces to resilient full-stack systems."
+    : INTRO;
   const resetTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   useEffect(() => {
+    setTyped("");
+    setDone(false);
     const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
     let interval: ReturnType<typeof setInterval> | undefined;
     const finish = () => {
       clearInterval(interval);
-      setTyped(INTRO);
+      setTyped(intro);
       setDone(true);
     };
     const onPreferenceChange = () => {
@@ -60,8 +71,8 @@ const Hero = () => {
     else
       interval = setInterval(() => {
         i++;
-        setTyped(INTRO.slice(0, i));
-        if (i >= INTRO.length) {
+        setTyped(intro.slice(0, i));
+        if (i >= intro.length) {
           clearInterval(interval);
           setDone(true);
         }
@@ -71,7 +82,7 @@ const Hero = () => {
       preference.removeEventListener("change", onPreferenceChange);
       clearTimeout(resetTimer.current);
     };
-  }, []);
+  }, [intro]);
 
   const handleCopyEmail = async () => {
     if (await copyToClipboard(EMAIL)) {
@@ -87,8 +98,26 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="portfolio-intro">
-      <div className="w-full max-w-[100rem] mx-auto px-5 md:px-10">
+    <section id="hero" className="portfolio-intro timeline-intro">
+      <div className="timeline-scenery" aria-hidden="true">
+        <img src={marsImage} width={1920} height={1024} alt="" className={earth ? "timeline-image" : "timeline-image timeline-image--active"} fetchPriority="high" />
+        <img src={earthImage} width={1920} height={1024} alt="" className={earth ? "timeline-image timeline-image--active" : "timeline-image"} />
+        <div className="timeline-veil" />
+        <div className="timeline-stars"><span>✦</span><span>·</span><span>✧</span><span>·</span></div>
+      </div>
+      <div className="relative w-full max-w-[100rem] mx-auto px-5 md:px-10">
+        <div className="timeline-broadcast flex flex-wrap items-center gap-x-5 gap-y-2 mb-7">
+          <p className="text-xs text-primary-strong flex items-center gap-2"><span className="transmission-dot" aria-hidden="true" />TRANSMITTING FROM {timeline}</p>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button variant="ghost" size="icon" className="min-h-11 min-w-11 text-primary-strong" aria-label={`Switch timeline to ${earth ? "Mars-0321" : "Earth-2337"}`} onClick={() => { setEarth(!earth); setAnnouncement(`Timeline changed to ${earth ? "Mars-0321" : "Earth-2337"}.`); }}>
+                <Orbit aria-hidden="true" />
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent>Switch timeline</TooltipContent>
+          </Tooltip>
+        </div>
+        <span role="status" aria-live="polite" className="sr-only">{announcement}</span>
         <div className="max-w-5xl">
           <h1 className="intro-name font-bold text-foreground mb-8">
             <span className="block text-xl md:text-2xl font-normal mb-4">Hi, I'm</span>
@@ -96,10 +125,10 @@ const Hero = () => {
           </h1>
 
           <p className="font-read text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed relative">
-            <span className="sr-only">{INTRO}</span>
+            <span className="sr-only">{intro}</span>
             {/* Hidden copy reserves the final height so typing never shifts the page */}
             <span className="invisible" aria-hidden="true">
-              {INTRO}{" "}
+              {intro}{" "}
               <span className="text-primary-strong font-medium underline underline-offset-4">See my experience</span>
             </span>
             <span className="hero-typed absolute inset-0">
@@ -158,11 +187,11 @@ const Hero = () => {
             <span className="text-xs text-muted-foreground ml-3">Stockholm, Sweden</span>
           </div>
         </div>
-        <dl className="intro-practice hidden md:grid md:grid-cols-3 gap-6 mt-16 pt-6 border-t border-border">
+        <dl aria-label="Mission log" className="intro-practice grid grid-cols-1 sm:grid-cols-3 gap-5 mt-8 pt-5 border-t border-border">
           {[
-            ["01 / Interfaces", "Reusable component systems"],
-            ["02 / Inclusion", "Accessibility & performance"],
-            ["03 / Engineering", "Front-end to full-stack"],
+            ["01 / Coordinates", `${timeline} · Stockholm`],
+            ["02 / Mission", "Accessible web products"],
+            ["03 / Flight log", "7+ years shipping software"],
           ].map(([label, value]) => (
             <div key={label}>
               <dt className="text-xs text-primary-strong mb-2">{label}</dt>

@@ -260,6 +260,61 @@
     padding-block: 9rem 2rem;
   }
 
+  /* Local surface tokens keep the full-bleed space scene readable in every theme. */
+  .timeline-intro {
+    --background: 240 12% 4%;
+    --foreground: 45 40% 96%;
+    --muted-foreground: 45 18% 80%;
+    --primary-strong: 248 80% 84%;
+    --border: 240 10% 28%;
+    --input: 240 10% 38%;
+    --accent: 248 20% 22%;
+    --accent-foreground: 45 40% 96%;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    padding-block: 7rem 2rem;
+  }
+
+  .timeline-scenery { position: absolute; inset: 0; z-index: -1; overflow: hidden; }
+  .timeline-image { position: absolute; width: 100%; height: 100%; object-fit: cover; object-position: 65% center; opacity: 0; transition: opacity 600ms ease; }
+  .timeline-image--active { opacity: 1; }
+  .timeline-veil { position: absolute; inset: 0; background: linear-gradient(90deg, hsl(var(--background) / 0.97) 0%, hsl(var(--background) / 0.90) 35%, hsl(var(--background) / 0.48) 65%, hsl(var(--background) / 0.08)), linear-gradient(0deg, hsl(var(--background) / 0.95), transparent 35%); }
+  .timeline-intro .max-w-5xl { max-width: 46rem; }
+  .timeline-intro .intro-name { margin-bottom: 1.5rem; }
+  .timeline-intro .timeline-broadcast { margin-bottom: 1rem; }
+  .timeline-intro .font-read { margin-bottom: 1.5rem; }
+  .timeline-intro .flex.mb-8 { margin-bottom: 1rem; }
+  .timeline-intro .intro-practice { max-width: 70rem; }
+  .transmission-dot { width: 6px; height: 6px; flex-shrink: 0; border-radius: 50%; background: hsl(var(--primary-strong)); animation: transmission-pulse 2s ease-in-out 2; }
+  .timeline-stars { position: absolute; inset: 0; color: hsl(var(--primary-strong)); pointer-events: none; animation: star-drift 4s ease-out both; }
+  .timeline-stars span { position: absolute; }
+  .timeline-stars span:nth-child(1) { top: 17%; left: 68%; font-size: 15px; }
+  .timeline-stars span:nth-child(2) { top: 38%; left: 88%; font-size: 24px; }
+  .timeline-stars span:nth-child(3) { top: 68%; left: 76%; font-size: 12px; }
+  .timeline-stars span:nth-child(4) { top: 12%; left: 42%; font-size: 20px; }
+  @keyframes transmission-pulse { 50% { opacity: 0.35; } }
+  @keyframes star-drift { from { transform: translateY(8px); opacity: 0; } to { transform: translateY(0); opacity: 0.65; } }
+  @media (min-width: 768px) {
+    .portfolio-intro.timeline-intro { padding-block: 8rem 2.5rem; }
+  }
+  @media (max-width: 639px) {
+    .timeline-image { object-position: 72% center; }
+    .timeline-veil { background: hsl(var(--background) / 0.82); }
+    .timeline-intro .intro-practice { grid-template-columns: 1fr 1fr; }
+    .timeline-intro .intro-practice > :last-child { grid-column: 1 / -1; }
+  }
+  .high-contrast .timeline-intro {
+    --foreground: 0 0% 100%;
+    --muted-foreground: 0 0% 100%;
+    --primary-strong: 55 100% 65%;
+    --border: 0 0% 100%;
+    --input: 0 0% 100%;
+  }
+  .high-contrast .timeline-scenery { opacity: 0.25; }
+
   .intro-name {
     font-size: 3rem;
     line-height: 1.12;

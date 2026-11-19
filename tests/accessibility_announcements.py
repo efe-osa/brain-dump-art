@@ -14,7 +14,7 @@ async def check_announcements():
         assert await status.inner_text() == "", "Opening settings must not announce preferences"
         await page.evaluate("""() => {
             window.settingAnnouncements = [];
-            const region = document.querySelector('[role="status"][aria-live="polite"]');
+            const region = document.querySelector('[role="status"][aria-live="polite"][aria-atomic="true"]');
             new MutationObserver(() => window.settingAnnouncements.push(region.textContent))
                 .observe(region, {childList: true, characterData: true, subtree: true});
         }""")
