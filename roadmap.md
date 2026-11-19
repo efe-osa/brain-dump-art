@@ -43,3 +43,4 @@ Prior step-by-step improvements are complete; the current visual-craft request s
 - [x] Current request: removed the contact section and its navigation link; the address stays reachable from the hero (Copy email button and email icon); verified nav, page end and mobile menu in the browser.
 - [x] Current request: added Heal (personal health journal) as the second selected project with a captured preview image, synced the recommendations catalog, and updated the project stack test to six projects; keyboard, mobile, reduced-motion and appearance-mode checks passed.
 - [x] Current request: rune-decoded the "Transmitting from Mars-0321" tag; removed rune decode from the intro subtext; verified both timelines, reduced motion and narrow screens.
+- [x] Blend top menu bar into dark hero

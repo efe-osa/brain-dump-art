@@ -261,6 +261,20 @@
   }
 
   /* Local surface tokens keep the full-bleed space scene readable in every theme. */
+  /* The menu borrows the intro's dark tokens while it sits over the photo. */
+  .nav-over-hero {
+    --background: 240 12% 4%;
+    --foreground: 45 40% 96%;
+    --muted-foreground: 45 18% 80%;
+    --primary-strong: 248 80% 84%;
+    --border: 240 10% 28%;
+  }
+  .high-contrast .nav-over-hero {
+    --foreground: 0 0% 100%;
+    --muted-foreground: 0 0% 100%;
+    --primary-strong: 55 100% 65%;
+    --border: 0 0% 100%;
+  }
   .timeline-intro {
     --background: 240 12% 4%;
     --foreground: 45 40% 96%;

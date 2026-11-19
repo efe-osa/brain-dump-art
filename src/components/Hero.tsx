@@ -180,7 +180,7 @@ const Hero = () => {
         <div className="timeline-veil" />
         <div className="timeline-stars"><span>✦</span><span>·</span><span>✧</span><span>·</span></div>
       </div>
-      <div className="relative w-full max-w-[100rem] mx-auto px-5 md:px-10">
+      <div className="relative page-shell">
         <div className="timeline-broadcast flex flex-wrap items-center gap-x-5 gap-y-2 mb-7">
           <BroadcastLine timeline={timeline} reduced={reduced} />
           <Tooltip>

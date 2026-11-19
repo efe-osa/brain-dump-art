@@ -7,6 +7,24 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
   const menuTrigger = useRef<HTMLButtonElement>(null);
+  const [overHero, setOverHero] = useState(false);
+
+  // While the dark intro sits under the menu, the menu takes on its dark look.
+  useEffect(() => {
+    const update = () => {
+      const hero = document.getElementById("hero");
+      setOverHero(!!hero && hero.getBoundingClientRect().bottom > 72);
+    };
+    update();
+    const id = requestAnimationFrame(update);
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      cancelAnimationFrame(id);
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, [location.pathname]);
 
   useEffect(() => {
     setMobileOpen(false);
@@ -31,7 +49,7 @@ const Navbar = () => {
     <Button asChild className="fixed left-6 right-6 top-3 z-[60] h-auto min-h-11 -translate-y-48 whitespace-normal focus:translate-y-0 focus-visible:ring-primary-strong sm:right-auto">
       <a href="#main-content">Skip to main content</a>
     </Button>
-    <nav aria-label="Main navigation" className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
+    <nav aria-label="Main navigation" className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-border transition-colors duration-300 ${overHero ? "nav-over-hero bg-background/60 text-foreground" : "bg-background/90"}`}>
       <div className="page-shell py-4 flex items-center justify-between">
         <Button asChild variant="ghost" className="px-0 text-xl font-bold text-foreground" >
           <Link to="/" aria-label="Efe Jessye home" onClick={() => setMobileOpen(false)}>
