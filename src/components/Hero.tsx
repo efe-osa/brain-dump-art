@@ -53,18 +53,10 @@ const useRuneDecode = (text: string, enabled: boolean, total = 40, tick = 35) =>
 // Transmission tag: decodes on arrival and re-decodes when the timeline changes.
 const BroadcastLine = ({ timeline, reduced }: { timeline: string; reduced: boolean }) => {
   const text = `TRANSMITTING FROM ${timeline}`;
-  const decoded = useRuneDecode(text, !reduced, 26, 45);
   return (
     <p className="text-xs text-primary-strong flex items-center gap-2">
       <span className="transmission-dot" aria-hidden="true" />
-      <span className="sr-only">{text}</span>
-      <span
-        aria-hidden="true"
-        className="inline-block broadcast-text font-mono tabular-nums whitespace-nowrap"
-        style={{ minWidth: `${text.length}ch` }}
-      >
-        {decoded}
-      </span>
+      <span className="broadcast-text font-mono tabular-nums whitespace-nowrap">{text}</span>
     </p>
   );
 };

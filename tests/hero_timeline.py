@@ -46,11 +46,8 @@ async def check_decode():
         mid = await page.locator(WORDS).first.inner_text()
         assert "Welcome to my corner" not in mid, f"intro should still be decoding, got {mid}"
         assert MISSION not in await page.locator(TYPED).inner_text()
-        # The tag flickers through glyphs before settling on the real text.
-        await expect(page.locator(BROADCAST)).not_to_have_text("TRANSMITTING FROM Mars-0321", timeout=2000)
-        await expect(page.locator(BROADCAST)).to_have_text("TRANSMITTING FROM Mars-0321", timeout=5000)
-        # Screen readers always get the final text, never the glyph soup.
-        assert await page.locator("#hero .timeline-broadcast .sr-only").inner_text() == "TRANSMITTING FROM Mars-0321"
+        # The tag shows its real text straight away, with no decode.
+        assert await page.locator(BROADCAST).inner_text() == "TRANSMITTING FROM Mars-0321"
         await expect(page.locator(TYPED)).to_have_text(FULL, timeout=6000)
         await page.get_by_role("button", name="Switch timeline to Earth-2337").click()
         await expect(page.locator(BROADCAST)).to_have_text("TRANSMITTING FROM Earth-2337", timeout=5000)
@@ -67,4 +64,4 @@ async def check_decode():
 
 asyncio.run(check())
 asyncio.run(check_decode())
-print("PASS: Mars default, rune-decoded introduction, rune-decoded tag, narrow-screen reflow.")
+print("PASS: Mars default, rune-decoded introduction, static tag, narrow-screen reflow.")
