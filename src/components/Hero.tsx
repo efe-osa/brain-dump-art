@@ -7,8 +7,37 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 import marsImage from "@/assets/mars-timeline.jpg";
 import earthImage from "@/assets/earth-timeline.jpg";
 
-const INTRO =
-  "Welcome to my corner of the multiverse — Mars-0321. Governed by Aries curiosity, I design and build accessible web products, from sharp interfaces to resilient full-stack systems.";
+const MISSION =
+  "In this timeline, I design and build accessible web products, from sharp interfaces to resilient full-stack systems.";
+const GLYPHS = "✦✧⟐⌬⍟ᚠᚱᛟ◈⊹∴";
+const STYLES = [
+  ["decode", "Rune decode"],
+  ["weave", "Starlight weave"],
+  ["phase", "Phase shift"],
+  ["inscribe", "Astral inscription"],
+] as const;
+type RevealStyle = (typeof STYLES)[number][0];
+
+// Second line reveal; previews four sci-fi/fantasy treatments. Text stays in DOM for layout.
+const MissionLine = ({ style, reduced }: { style: RevealStyle; reduced: boolean }) => {
+  const [decoded, setDecoded] = useState(style === "decode" && !reduced ? "" : MISSION);
+  useEffect(() => {
+    if (style !== "decode" || reduced) { setDecoded(MISSION); return; }
+    let frame = 0;
+    const total = 40;
+    const id = setInterval(() => {
+      frame++;
+      const lock = Math.floor((frame / total) * MISSION.length);
+      setDecoded(MISSION.split("").map((c, i) => (i < lock || c === " " ? c : GLYPHS[(i + frame) % GLYPHS.length])).join(""));
+      if (frame >= total) { clearInterval(id); setDecoded(MISSION); }
+    }, 35);
+    return () => clearInterval(id);
+  }, [style, reduced]);
+  if (style === "phase")
+    return <span aria-hidden="true">{MISSION.split(" ").map((w, i) => <span key={i} className="reveal-phase-word" style={{ animationDelay: `${i * 70}ms` }}>{w} </span>)}</span>;
+  if (style === "decode") return <span aria-hidden="true" className="reveal-decode">{decoded}</span>;
+  return <span aria-hidden="true" className={`reveal-${style}`}>{MISSION}</span>;
+};
 
 const EMAIL = "eosawaruoyelade@gmail.com";
 
@@ -47,9 +76,9 @@ const Hero = () => {
   const [earth, setEarth] = useState(false);
   const [announcement, setAnnouncement] = useState("");
   const timeline = earth ? "Earth-2337" : "Mars-0321";
-  const intro = earth
-    ? "Welcome to my corner of the multiverse — Earth-2337. In this timeline, I design and build accessible web products, from sharp interfaces to resilient full-stack systems."
-    : INTRO;
+  const intro = `Welcome to my corner of the multiverse — ${timeline}.`;
+  const [revealStyle, setRevealStyle] = useState<RevealStyle>("decode");
+  const [reduced, setReduced] = useState(false);
   const resetTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   useEffect(() => {
@@ -62,7 +91,9 @@ const Hero = () => {
       setTyped(intro);
       setDone(true);
     };
+    setReduced(preference.matches);
     const onPreferenceChange = () => {
+      setReduced(preference.matches);
       if (preference.matches) finish();
     };
     preference.addEventListener("change", onPreferenceChange);
@@ -125,10 +156,10 @@ const Hero = () => {
           </h1>
 
           <p className="font-read text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed relative">
-            <span className="sr-only">{intro}</span>
+            <span className="sr-only">{intro} {MISSION}</span>
             {/* Hidden copy reserves the final height so typing never shifts the page */}
             <span className="invisible" aria-hidden="true">
-              {intro}{" "}
+              {intro} {MISSION}{" "}
               <span className="text-primary-strong font-medium underline underline-offset-4">See my experience</span>
             </span>
             <span className="hero-typed absolute inset-0">
@@ -137,6 +168,7 @@ const Hero = () => {
               {done && (
                 <>
                   {" "}
+                  <MissionLine key={revealStyle + timeline} style={revealStyle} reduced={reduced} />
                   <Link
                     to="/experience"
                     className="hero-fade-in text-primary-strong font-medium underline underline-offset-4 hover:opacity-80 transition-opacity"
@@ -147,6 +179,13 @@ const Hero = () => {
               )}
             </span>
           </p>
+
+          <div role="group" aria-label="Preview intro animation" className="flex flex-wrap items-center gap-2 mb-6">
+            <span className="text-xs text-primary-strong">Preview animation:</span>
+            {STYLES.map(([id, label]) => (
+              <Button key={id} size="sm" variant={revealStyle === id ? "default" : "outline"} aria-pressed={revealStyle === id} onClick={() => setRevealStyle(id)}>{label}</Button>
+            ))}
+          </div>
 
           <div className="flex flex-wrap items-center gap-3 mb-8">
             <Button asChild size="lg">

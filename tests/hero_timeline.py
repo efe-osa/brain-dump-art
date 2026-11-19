@@ -8,7 +8,7 @@ async def check():
         browser = await p.chromium.launch(headless=True)
         page = await browser.new_page(viewport={"width": 1280, "height": 1800}, reduced_motion="reduce")
         await page.goto("http://localhost:8080", wait_until="networkidle")
-        assert "Mars-0321" in await page.locator("#hero .hero-typed").inner_text()
+        assert "Mars-0321" in await page.locator("#hero .hero-typed").inner_text() and "In this timeline" in await page.locator("#hero .hero-typed").inner_text()
         await page.get_by_role("button", name="Switch timeline to Earth-2337").click()
         await expect(page.locator("#hero .hero-typed")).to_contain_text("Earth-2337")
         assert await page.locator("#hero [role=status]").inner_text() == "Timeline changed to Earth-2337."

@@ -563,6 +563,18 @@
     animation: caret-blink 1s steps(1, end) infinite;
   }
 
+  .reveal-decode { color: hsl(var(--foreground)); }
+  .reveal-weave {
+    background: linear-gradient(90deg, hsl(var(--muted-foreground)) 40%, hsl(var(--primary-strong)) 50%, hsl(var(--muted-foreground)) 60%);
+    background-size: 300% 100%; -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: reveal-weave 2.4s ease-out both;
+  }
+  @keyframes reveal-weave { from { background-position: 100% 0; opacity: 0.2; } 30% { opacity: 1; } to { background-position: 0 0; } }
+  .reveal-phase-word { display: inline-block; white-space: pre; animation: reveal-phase 0.7s ease-out both; }
+  @keyframes reveal-phase { from { opacity: 0; filter: blur(8px); transform: translateY(10px) scale(1.05); } to { opacity: 1; filter: blur(0); transform: none; } }
+  .reveal-inscribe { animation: reveal-inscribe 2.2s ease-in-out both; text-shadow: 0 0 10px hsl(var(--primary-strong) / 0.6); }
+  @keyframes reveal-inscribe { from { clip-path: inset(0 100% 0 0); } 85% { text-shadow: 0 0 10px hsl(var(--primary-strong) / 0.6); } to { clip-path: inset(0 0 0 0); text-shadow: none; } }
+
   .hero-fade-in {
     animation: hero-fade-in 0.45s ease-out both;
   }
