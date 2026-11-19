@@ -28,9 +28,9 @@ async def check_resume_facts():
         assert roles.index("Full Stack Developer") < roles.index("Senior Frontend Engineer")
         education = page.get_by_role("region", name="Education")
         assert "Stockholm University" in await education.inner_text()
-        assert "2023–2026" in await education.inner_text()
+        assert "2023–2026" not in await education.inner_text()
         assert "University of Lagos" in await education.inner_text()
-        assert "2012–2015" in await education.inner_text()
+        assert "2012–2015" not in await education.inner_text()
         download = page.get_by_role("link", name="Download résumé (PDF)")
         url = await download.get_attribute("href")
         assert url and "/__l5e/assets-v1/" in url

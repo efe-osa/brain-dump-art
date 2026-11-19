@@ -68,8 +68,8 @@ const experiences = [
 ];
 
 const education = [
-  { institution: "Stockholm University", degree: "M.Sc. Strategic Information Systems Management", period: "2023–2026" },
-  { institution: "University of Lagos", degree: "B.Sc. Business Administration & Management", period: "2012–2015" },
+  { institution: "Stockholm University", degree: "M.Sc. Strategic Information Systems Management" },
+  { institution: "University of Lagos", degree: "B.Sc. Business Administration & Management" },
 ];
 
 const highlightMetrics = (text: string) =>
@@ -141,7 +141,6 @@ const Experience = () => (
                 <h3 className="text-base font-semibold tracking-normal">{item.degree}</h3>
                 <p className="font-read mt-1 text-lg text-muted-foreground">{item.institution}</p>
               </div>
-              <p className="shrink-0 text-sm text-muted-foreground">{item.period}</p>
             </li>
           ))}
         </ul>
