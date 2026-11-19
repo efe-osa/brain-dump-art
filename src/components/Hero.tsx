@@ -3,7 +3,6 @@ import { Fragment, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import marsImage from "@/assets/mars-timeline.jpg";
 import earthImage from "@/assets/earth-timeline.jpg";
 
@@ -183,14 +182,10 @@ const Hero = () => {
       <div className="relative page-shell">
         <div className="timeline-broadcast flex flex-wrap items-center gap-x-5 gap-y-2 mb-7">
           <BroadcastLine timeline={timeline} reduced={reduced} />
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Button variant="ghost" size="icon" className="min-h-11 min-w-11 text-primary-strong" aria-label={`Switch timeline to ${earth ? "Mars-0321" : "Earth-2337"} (currently ${timeline})`} onClick={() => { setEarth(!earth); setAnnouncement(`Timeline changed to ${earth ? "Mars-0321" : "Earth-2337"}.`); }}>
-                <Orbit aria-hidden="true" />
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent>Switch timeline</TooltipContent>
-          </Tooltip>
+          <Button variant="outline" size="sm" className="min-h-11 gap-2 rounded-full bg-transparent font-mono text-xs text-primary-strong hover:bg-accent hover:text-primary-strong" aria-label={`Switch timeline to ${earth ? "Mars-0321" : "Earth-2337"} (currently ${timeline})`} onClick={() => { setEarth(!earth); setAnnouncement(`Timeline changed to ${earth ? "Mars-0321" : "Earth-2337"}.`); }}>
+            <Orbit aria-hidden="true" />
+            Switch timeline
+          </Button>
         </div>
         <span role="status" aria-live="polite" className="sr-only">{announcement}</span>
         <div className="max-w-5xl">
