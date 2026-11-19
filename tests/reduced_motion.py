@@ -3,8 +3,7 @@ import asyncio
 from playwright.async_api import async_playwright
 
 INTRO = (
-    "I design and build accessible web products, from reusable interfaces to the systems behind them. "
-    "Full-stack engineering, with a product mindset and an eye for the details."
+    "Welcome to my corner of the multiverse — Mars-0321. Governed by Aries curiosity, I design and build accessible web products, from sharp interfaces to resilient full-stack systems."
 )
 
 
