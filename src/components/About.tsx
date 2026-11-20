@@ -34,22 +34,22 @@ const skillGroups: SkillGroup[] = [
     tone: "skill-pill--web",
     clusters: [
       { label: "Frameworks & State", items: ["React", "Next.js", "Redux", "TanStack", "Blazor", "Web Components", "Fluxor", "Redux Saga", "SWR"] },
-      { label: "UI & Styling", items: ["Design Systems", "Figma", "Tailwind CSS", "Bootstrap", "CSS Modules", "SCSS", "Styled Components", "Storybook", "WordPress CMS"] },
+      { label: "UI & Styling", items: ["Design Systems", "Figma", "Tailwind CSS", "Bootstrap", "CSS Modules", "SCSS", "Styled Components", "Storybook", "Atlaskit", "Material UI"] },
     ],
   },
   {
     label: "Backend, Data & APIs",
     tone: "skill-pill--tool",
     clusters: [
-      { label: "Runtime & Architecture", items: ["Node.js", "Express.js", ".NET", "ASP.NET Core", "Microservices"] },
-      { label: "Data & APIs", items: ["PostgreSQL", "MySQL", "EF Core", "GraphQL", "REST", "HTTP"] },
+      { label: "Runtime & Architecture", items: ["Node.js", "Express.js", ".NET", "ASP.NET Core", "WordPress CMS"] },
+      { label: "Data & APIs", items: ["PostgreSQL", "MySQL", "GraphQL", "REST", "HTTP"] },
     ],
   },
   {
     label: "Cloud, Tools & Quality",
     tone: "skill-pill--tool",
     clusters: [
-      { label: "Cloud & Observability", items: ["AWS", "Azure", "Docker", "Sentry", "Grafana"] },
+      { label: "Cloud & Observability", items: ["AWS", "Azure", "Docker", "Sentry"] },
       { label: "Testing & Quality", items: ["React Testing Library (RTL)", "xUnit", "Jest", "Cypress", "Playwright", "ESLint", "Prettier"] },
       { label: "Build & Delivery", items: ["Webpack", "Turbo", "Git", "GitHub Actions", "CI/CD", "Code Review"] },
       { label: "AI-Assisted Development", items: ["Claude", "GitHub Copilot"] },
